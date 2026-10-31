@@ -1,0 +1,9 @@
+[
+  {"kind":"movement","payload":{"tick":1,"time":0,"position":[0,0,0]}},
+  {"kind":"movement","payload":{"tick":2,"time":1,"position":[4,0,0]}},
+  {"kind":"equip","payload":{"item":"starter"}},
+  {"kind":"movement","payload":{"tick":3,"time":2,"position":[100,0,0]}},
+  {"kind":"equip","payload":{"item":"unowned-demo-item"}},
+  {"kind":"shot","payload":{"tick":1,"time":0}},
+  {"kind":"shot","payload":{"tick":2,"time":0.01}}
+]

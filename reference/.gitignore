@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+*.key
+*.journal.jsonl
+*.checkpoint.json
+windows/x64/
+windows/.vs/
+windows/*.exe
+windows/*.obj
+windows/*.pdb
+windows/*.ilk
