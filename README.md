@@ -6,15 +6,15 @@
 
 Kernel integration · boot trust · attestation · server protections · public code evidence
 
-[Overview](#overview) · [Kernel](#kernel-component) · [Attestation](#boot-trust--attestation) · [Code findings](#inspected-code) · [Servers](#server-protections) · [Full catalogue](#complete-research-catalogue) · [Sources](#sources)
+[Overview](#overview) · [Kernel](#kernel-component) · [Kernel APIs](#kernel-interfaces--public-driver-code) · [Attestation](#boot-trust--attestation) · [Code findings](#inspected-code) · [Servers](#server-protections) · [Unlocks & mods](#unlocks--modding-scope) · [Full catalogue](#complete-research-catalogue) · [Sources](#sources)
 
 </div>
 
 ---
 
 **Reviewed:** October 31, 2026<br>
-**Coverage:** 197 source-supported findings + 16 reproduced static observations<br>
-**References:** 64 cited sources + 1 inspected official diagnostic artifact
+**Coverage:** 229 source-supported findings + 16 reproduced static observations<br>
+**References:** 81 cited sources + 1 inspected official diagnostic artifact
 
 For AI ingestion, use **[ricochet.jsonl](ricochet.jsonl)**. It contains the same research in compact, self-contained records with source IDs, dates, scope, evidence labels and artifact metadata. This page is the human reading edition.
 
@@ -50,6 +50,45 @@ The December 2024 update explicitly discussed kernel detections for memory tampe
 Windows documents process/image notifications, handle callbacks, memory facilities, signing and user/driver I/O. They explain available mechanisms; their existence does not establish which APIs a particular RICOCHET build uses. **C133–C169, where retained.**
 
 The filename `Randgrid.sys` is associated with Ricochet in SteamDB's pinned classification rules. A matching filename establishes neither authenticity nor behavior. Unreplicated community claims about command counts, VM opcodes and signatures are excluded from this research's confirmed findings. **C174.**[^S35]
+
+## Kernel interfaces & public driver code
+
+The following code-level mechanisms are documented by Microsoft. **They are platform/reference-code findings, not a recovered list of RICOCHET internals.** No current publisher-identified Randgrid build was independently inspected in this research.
+
+| Mechanism | Verified detail | Findings |
+| --- | --- | --- |
+| Handle-access mediation | Pre-operation callbacks can restrict documented requested rights; creation and duplication have distinct parameter records. | C248–C250 |
+| Process notifications | Receive process object/ID and optional creation data; NULL creation data indicates exit. | C251 |
+| Image notifications | Supply image/process information; image names can be unavailable. Callback execution has documented IRQL/APC constraints. | C252–C253 |
+| Driver communication | Buffered, direct and neither IOCTL methods have different buffer/MDL and validation contracts. | C254–C260 |
+| Kernel integrity | Windows x64 protects kernel code and selected structures against unsupported modification. Existing signing/HVCI findings remain separate. | C261–C262; C143, C157–C160 |
+| File identity | Hash/version/signing-chain inspection identifies a sample; it does not establish what its routines do. | C263 |
+| Process permissions | Read/write/address-space rights and DACL checks are OS permissions, distinct from game-content ownership. | C265–C266 |
+
+### Pinned reference implementation
+
+Microsoft's **ObCallback** sample is pinned to Windows-driver-samples commit `f4c1ff842b6a0001152f44cb61788b216a1c7627` (October 28, 2026 repository revision).
+
+| File / function | What the source demonstrates |
+| --- | --- |
+| `callback.c` / `TdProtectNameCallback` | Registers process/thread handle-create and handle-duplicate callbacks. |
+| `callback.c` / `CBTdPreOperationCallback` | Demonstrates selecting requested-access fields and clearing termination rights for its protected target. |
+| `tdriver.c` / process-notify routine | A command-line match can set process-creation status to access denied. |
+| `tdriver.c` / `TdDeviceUnload` | Removes notifications/filtering and deletes the symbolic link/device object. |
+
+This example demonstrates protection and lifecycle code; its policy is not an anti-cheat implementation specification. The source links and exact paragraph locators are retained in the AI edition. **C243–C247.**[^S67][^S68][^S69]
+
+### IOCTL data contracts
+
+| Transfer method | Documented data representation |
+| --- | --- |
+| `METHOD_BUFFERED` | One SystemBuffer represents input/output; input/output lengths remain separate. |
+| `METHOD_IN_DIRECT` / `METHOD_OUT_DIRECT` | SystemBuffer plus an MDL-described second buffer, with documented read/write access requirements. |
+| `METHOD_NEITHER` | User virtual addresses; the I/O manager supplies neither a system buffer nor an MDL, and does not validate/map those addresses. |
+
+An IOCTL's device/access/function/method fields describe its transport contract, not the meaning of a private vendor command. Microsoft also documents full 32-bit code validation, buffer bounds and access checking. No private RICOCHET command layout is inferred here. **C254–C260.**[^S72][^S73][^S79]
+
+For identifying an actual driver sample, Microsoft's Sigcheck documents `-h` for hashes and `-i` for catalog/signing-chain details. A file's imported functions, certificate metadata, signing status and observed runtime behavior remain different forms of evidence. **C263.**[^S75]
 
 ## Boot trust & attestation
 
@@ -145,6 +184,14 @@ The Hallucinations paper describes copying a real player's snapshot entry into a
 The culling interview supplies the rollout distinction; it does not supply source code, distance thresholds, line-of-sight rules or latency measurements. **C232–C233.**[^S63]
 
 October's official DMA announcement confirms a new detection deployment statement, without a reproducible algorithm or universal IOMMU requirement. **C183.**[^S56]
+
+## Unlocks & modding scope
+
+Kernel memory access, persisted progression and a game's extension interfaces concern different systems. Activision's Warzone documentation ties progression and purchased/earned content to the Activision account, while describing platform-specific restrictions for currency and purchases. These sources do not disclose an inventory-write protocol or verify a persistent “unlock all” function. **C267–C270.**[^S76][^S77]
+
+There is a concrete historical example of publisher-supported Call of Duty modding: the September 2016 BO3 PC Mod Tools announcement. Its scope is BO3; it is not evidence of a compatible MW4 or Warzone scripting interface. **C271.**[^S78]
+
+Activision separately classifies memory modification for obtaining gear/content and unauthorized game-data software in its enforcement policy. That is a vendor-policy statement, not an explanation of its detector. **C272.**[^S29]
 
 ## Detection, investigations & historical tests
 
@@ -450,6 +497,46 @@ Every finding in the AI edition appears below. Expand a topic to read its dates,
 
 </details>
 
+<details>
+<summary><strong>Kernel driver interfaces, public code and unlock/modding context</strong> · 32 findings</summary>
+
+| ID | Date / scope | Finding | Evidence |
+| --- | --- | --- | --- |
+| <a id="c243"></a>**C243** | 2026-10-28<br><sub>Microsoft ObCallback sample, not RICOCHET</sub> | Microsoft’s sample demonstrates separate examples of restricting process-handle access and rejecting process creation based on a command-line match. | **P** [^S67] |
+| <a id="c244"></a>**C244** | 2026-10-28<br><sub>Pinned Microsoft callback.c</sub> | The sample registers pre/post callbacks for process and thread handle creation and duplication through ObRegisterCallbacks. | **P** [^S68] |
+| <a id="c245"></a>**C245** | 2026-10-28<br><sub>Pinned Microsoft callback.c demonstration policy</sub> | Its pre-operation callback selects DesiredAccess for create/duplicate operations and demonstrates clearing termination rights for its protected target. This is sample policy, not a RICOCHET detection specification. | **P** [^S68] |
+| <a id="c246"></a>**C246** | 2026-10-28<br><sub>Pinned Microsoft tdriver.c</sub> | The reject branch checks a process command-line match and sets CreateInfo-&gt;CreationStatus to STATUS_ACCESS_DENIED. | **P** [^S69] |
+| <a id="c247"></a>**C247** | 2026-10-28<br><sub>Pinned Microsoft sample lifecycle</sub> | The sample unload path unregisters process notifications, removes object-callback filtering, deletes its symbolic link and deletes its device object. | **P** [^S69] |
+| <a id="c248"></a>**C248** | 2026-10-31<br><sub>Windows object pre-operation callback contract</sub> | DesiredAccess initially matches OriginalDesiredAccess; a handle pre-operation callback can remove documented access rights but cannot add rights beyond the requested access. | **P** [^S70] |
+| <a id="c249"></a>**C249** | 2026-10-31<br><sub>Windows documented modifiable process-handle rights</sub> | Microsoft lists PROCESS_VM_OPERATION and PROCESS_VM_WRITE among process-handle rights a pre-operation callback may restrict. | **P** [^S70] |
+| <a id="c250"></a>**C250** | 2026-10-31<br><sub>Windows handle duplication</sub> | Duplicate-handle pre-operation information includes requested/original access and source/target process objects; documented rights can be restricted. | **P** [^S71] |
+| <a id="c251"></a>**C251** | 2026-10-31<br><sub>Windows process notification parameters</sub> | A process-notify callback receives the process object, process ID and optional creation information; NULL CreateInfo indicates process exit. | **P** [^S80] |
+| <a id="c252"></a>**C252** | 2026-10-31<br><sub>Windows image-load notification parameters</sub> | The image-load callback’s FullImageName can be NULL; ProcessId identifies the target process and is zero for a newly loaded driver. | **P** [^S81] |
+| <a id="c253"></a>**C253** | 2026-10-31<br><sub>Windows image-load callback execution context</sub> | Microsoft documents image-load callbacks at PASSIVE_LEVEL inside a critical region with normal kernel APCs disabled, and requires callback removal before unload. | **P** [^S81] |
+| <a id="c254"></a>**C254** | 2026-10-31<br><sub>Windows METHOD_BUFFERED semantics</sub> | METHOD_BUFFERED uses SystemBuffer for both input and output, with separate InputBufferLength and OutputBufferLength limits. | **P** [^S72] |
+| <a id="c255"></a>**C255** | 2026-10-31<br><sub>Windows direct I/O semantics</sub> | Direct IOCTL methods provide SystemBuffer plus an MDL-described second buffer; IN_DIRECT checks read access and OUT_DIRECT checks write access to that buffer. | **P** [^S72] |
+| <a id="c256"></a>**C256** | 2026-10-31<br><sub>Windows METHOD_NEITHER semantics</sub> | METHOD_NEITHER provides user virtual addresses without I/O-manager validation/mapping and supplies no system buffer or MDL. | **P** [^S72] |
+| <a id="c257"></a>**C257** | 2026-10-31<br><sub>Windows IOCTL format; not a private vendor command schema</sub> | CTL_CODE combines device type, access, function and transfer-method fields into a 32-bit IOCTL value. | **P** [^S79] |
+| <a id="c258"></a>**C258** | 2026-10-31<br><sub>Windows IOCTL access checks</sub> | The IOCTL Access field specifies required device-handle rights; the I/O manager dispatches the request only when the caller requested the specified access. | **P** [^S79] |
+| <a id="c259"></a>**C259** | 2026-10-31<br><sub>Microsoft driver-interface validation guidance</sub> | Microsoft requires dispatch validation of the entire 32-bit IOCTL and input/output lengths, and advises against generic kernel-memory read/write control codes. | **P** [^S73] |
+| <a id="c260"></a>**C260** | 2026-10-31<br><sub>Microsoft driver-interface design guidance</sub> | IoValidateDeviceIoControlAccess supports stricter dynamic access checks; zeroing driver-allocated output buffers prevents accidental kernel-data disclosure. | **P** [^S73] |
+| <a id="c261"></a>**C261** | 2026-10-31<br><sub>Windows x64 kernel restrictions</sub> | Microsoft documents protected kernel code/data whose modification triggers CRITICAL_STRUCTURE_CORRUPTION. Kernel privilege does not make those modifications supported. | **P** [^S74] |
+| <a id="c262"></a>**C262** | 2026-10-31<br><sub>Windows x64 driver restrictions</sub> | Microsoft prohibits drivers from using private stacks, modifying IDT/GDT dispatch tables, or modifying undocumented kernel data structures. | **P** [^S74] |
+| <a id="c263"></a>**C263** | 2026-10-31<br><sub>Microsoft Sysinternals file inspection</sub> | Sigcheck reports version/timestamp/signature details; -h displays file hashes and -i displays catalog/signing-chain information. | **P** [^S75] |
+| <a id="c264"></a>**C264** | 2026-10-31<br><sub>Windows runtime export resolution</sub> | MmGetSystemRoutineAddress resolves kernel/HAL exports, returning NULL when unresolved; it does not resolve arbitrary driver-defined routines. | **P** [^S83] |
+| <a id="c265"></a>**C265** | 2026-10-31<br><sub>Windows process VM permission definitions</sub> | PROCESS_VM_READ is required for ReadProcessMemory; PROCESS_VM_WRITE and PROCESS_VM_OPERATION govern documented write/address-space operations. | **P** [^S82] |
+| <a id="c266"></a>**C266** | 2026-10-31<br><sub>Windows OpenProcess security model</sub> | OpenProcess checks requested rights against the process security descriptor’s DACL. These are OS access checks, not game-content entitlement checks. | **P** [^S82] |
+| <a id="c267"></a>**C267** | 2022-11-14<br><sub>Warzone account/cross-progression documentation</sub> | Activision states that Warzone progression is stored on the Activision account and continues across linked platforms. | **V** [^S76] |
+| <a id="c268"></a>**C268** | 2022-11-14<br><sub>Warzone account-linking documentation</sub> | Activision states that progress does not carry over when a platform account is linked to a different Activision account. | **V** [^S76] |
+| <a id="c269"></a>**C269** | 2026-06-25<br><sub>Warzone published progression/content model</sub> | Activision states that progress and purchased/earned content in cross-progression games are stored on the Activision account. | **V** [^S77] |
+| <a id="c270"></a>**C270** | 2026-06-25<br><sub>Warzone platform/content restrictions</sub> | The support page distinguishes platform-bound COD Points and real-money purchases from COD-Point content shared across linked accounts, subject to platform exclusives. | **V** [^S77] |
+| <a id="c271"></a>**C271** | 2016-09-27<br><sub>Historical Black Ops III PC announcement only</sub> | Activision/Treyarch announced BO3 PC Mod Tools Open Beta and wider access to modding/mapping tools. This does not establish a MW4/Warzone SDK. | **V** [^S78] |
+| <a id="c272"></a>**C272** | 2026-07-31<br><sub>Published Call of Duty enforcement policy</sub> | Activision classifies memory alteration to acquire gear/content as cheating and describes unauthorized game-data modification software in its enforcement policy. | **V** [^S29] |
+| <a id="c273"></a>**C273** | 2026-10-31<br><sub>Windows process-callback registration contract</sub> | PsSetCreateProcessNotifyRoutineEx documents STATUS_ACCESS_DENIED when the callback image lacks IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY. | **P** [^S41] |
+| <a id="c274"></a>**C274** | 2026-10-31<br><sub>Windows object-callback registration contract</sub> | ObRegisterCallbacks documents STATUS_FLT_INSTANCE_ALTITUDE_COLLISION when callbacks are already registered at the requested altitude. | **P** [^S42] |
+
+</details>
+
 ## Sources
 
 All sources were accessed/reviewed on October 31, 2026. Publication/update dates are retained where established. Source IDs match the AI edition; A01 identifies the inspected diagnostic package.
@@ -583,3 +670,37 @@ All sources were accessed/reviewed on October 31, 2026. Publication/update dates
 [^S66]: **S66** — [Microsoft EnrollAik sample: enrollment and optional key-file permissions](https://github.com/microsoft/Attestation-Client-Samples/blob/84a502dcbedb674b505262f3eee022fd88ebc3ef/EnrollAik.ps1). publication date not established. Pinned Microsoft sample commit 84a502dcbedb674b505262f3eee022fd88ebc3ef; reviewed as source text only. Enrollment/ACL changes were not executed.
 
 [^A01]: **A01** — [Official Secure Attestation Wizard 1.3.0: inspected diagnostic artifact](https://storage.googleapis.com/atvi-support-psapi-prod/CODSecureAttestationWizard_1.3.0.zip). 2026-10-21. Release date comes from the official listing and embedded version.json; storage object last-modified 2026-10-22T02:13:35Z. Certificate subjects were parsed, not signature trust. Scope is the diagnostic utility, not the proprietary game driver.
+
+[^S67]: **S67** — [Microsoft ObCallback process-protection sample](https://github.com/microsoft/Windows-driver-samples/blob/f4c1ff842b6a0001152f44cb61788b216a1c7627/general/obcallback/README.md). publication date not established. Pinned Windows-driver-samples commit f4c1ff842b6a0001152f44cb61788b216a1c7627, dated 2026-10-28. Microsoft reference implementation, not Activision code.
+
+[^S68]: **S68** — [ObCallback sample: callback.c](https://github.com/microsoft/Windows-driver-samples/blob/f4c1ff842b6a0001152f44cb61788b216a1c7627/general/obcallback/driver/callback.c). publication date not established. Pinned commit f4c1ff842b6a0001152f44cb61788b216a1c7627; reviewed as source text. No sample driver was compiled or loaded.
+
+[^S69]: **S69** — [ObCallback sample: tdriver.c](https://github.com/microsoft/Windows-driver-samples/blob/f4c1ff842b6a0001152f44cb61788b216a1c7627/general/obcallback/driver/tdriver.c). publication date not established. Pinned commit f4c1ff842b6a0001152f44cb61788b216a1c7627; process filtering and cleanup belong to this Microsoft sample, not a verified RICOCHET implementation.
+
+[^S70]: **S70** — [OB_PRE_CREATE_HANDLE_INFORMATION](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/ns-wdm-_ob_pre_create_handle_information). 2022-02-25. Windows handle-creation contract; no RICOCHET API-use assertion.
+
+[^S71]: **S71** — [OB_PRE_DUPLICATE_HANDLE_INFORMATION](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/ns-wdm-_ob_pre_duplicate_handle_information). 2024-02-22. Windows handle-duplication contract; source/target process objects are not game account identities.
+
+[^S72]: **S72** — [Buffer descriptions for I/O control codes](https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/buffer-descriptions-for-i-o-control-codes). 2025-04-30. Documented Windows buffering semantics, not a discovered RICOCHET protocol.
+
+[^S73]: **S73** — [Security issues for I/O control codes](https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/security-issues-for-i-o-control-codes). 2021-12-15. Microsoft driver-interface design guidance. No private anti-cheat control codes were verified.
+
+[^S74]: **S74** — [Driver x64 restrictions](https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/driver-x64-restrictions). 2025-01-15. Windows platform restrictions; not evidence of a particular RICOCHET detector.
+
+[^S75]: **S75** — [Microsoft Sysinternals Sigcheck](https://learn.microsoft.com/en-us/sysinternals/downloads/sigcheck). 2026-10-15. Direct retrieval identified v2.93 dated 2026-10-15; an older search rendering showed v2.92. Only the directly retrieved version/options are summarized.
+
+[^S76]: **S76** — [Warzone in-game account registration](https://support.activision.com/warzone-2/articles/warzone-2-in-game-account-registration). 2022-11-14. Published account/progression description, not a disclosed inventory service schema.
+
+[^S77]: **S77** — [Using COD Points in Warzone](https://support.activision.com/warzone-2/articles/using-cod-points-in-warzone-2). 2026-06-25. Living support page contains legacy platform examples; preserve the explicit account/content and currency distinctions.
+
+[^S78]: **S78** — [Black Ops III Mod Tools Open Beta announcement](https://store.steampowered.com/oldnews/24508). 2016-09-27. Historical BO3 PC modding support only. Not evidence of a MW4/Warzone SDK or shared scripting interface.
+
+[^S79]: **S79** — [Defining I/O control codes](https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/defining-i-o-control-codes). 2025-06-19. Visible update date retained rather than the differing internal ms.date metadata. Generic Windows definitions are not private RICOCHET command definitions.
+
+[^S80]: **S80** — [PCREATE_PROCESS_NOTIFY_ROUTINE_EX](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nc-ntddk-pcreate_process_notify_routine_ex). 2024-02-22. Generic process creation/exit notification contract, not a game-specific process blacklist.
+
+[^S81]: **S81** — [PLOAD_IMAGE_NOTIFY_ROUTINE](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nc-ntddk-pload_image_notify_routine). 2022-03-02. Generic image-load callback contract. No completeness claim about any anti-cheat monitoring pipeline.
+
+[^S82]: **S82** — [Process security and access rights](https://learn.microsoft.com/en-us/windows/win32/procthread/process-security-and-access-rights). 2025-07-14. Windows process permissions, not game entitlement permissions.
+
+[^S83]: **S83** — [MmGetSystemRoutineAddress](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-mmgetsystemroutineaddress). 2024-02-22. Documented runtime export resolution; not proof RICOCHET invokes it.
