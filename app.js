@@ -2,9 +2,10 @@
 const REPO = 'https://github.com/ll2Rawll/ricochet-research';
 const RAW = 'https://raw.githubusercontent.com/ll2Rawll/ricochet-research/main/ricochet.jsonl';
 const PAGE_SIZE = 18;
+const SNAPSHOT_REVISION = 10;
 const LEVELS = {
   V: {name:'Vendor statement', description:'A statement supported by the cited vendor or policy source. This does not independently reproduce the vendor’s runtime or performance claims.'},
-  P: {name:'Platform reference', description:'Documented Windows, TPM, protocol or sample-code behavior. It is not evidence that a particular RICOCHET build uses that API or mechanism.'},
+  P: {name:'Platform reference', description:'Documented platform, protocol, upstream UI or sample-code behavior. It is not evidence that a particular RICOCHET build uses that API or mechanism.'},
   O: {name:'Static observation', description:'Reproduced contents of a hash-identified public diagnostic artifact. These findings inspect the utility, not the proprietary game or kernel driver.'},
   R: {name:'Historical study', description:'An author-reported historical experiment with its original test period and limitations. It is not a current-build effectiveness measurement.'},
   A: {name:'Artifact contents', description:'Verified contents of a pinned public artifact, without inferring anti-cheat runtime behavior.'}
@@ -14,7 +15,8 @@ const CATEGORIES = [
   {id:'kernel',name:'Windows & kernel',symbol:'⌘',topics:['architecture','kernel','coverage','kernel_names','os_privilege','os_memory','os_callbacks','os_communication','os_integrity','hvci','performance','driver_reference_code','os_handle_access','os_notifications','driver_io','kernel_integrity','driver_provenance','driver_disclosure','driver_architecture']},
   {id:'attestation',name:'Boot & attestation',symbol:'◇',topics:['attestation','tpm_mechanics','boot_security','troubleshooting','attestation_client','attestation_api','attestation_code','remote_attestation','attestation_vulnerability']},
   {id:'server',name:'Server protections',symbol:'▤',topics:['mitigations','server_culling','client_server_boundary']},
-  {id:'unlocks',name:'Unlocks & progression',symbol:'›',topics:['content_entitlements','modding_support','modding_scope','unlockall_history','boosting']},
+  {id:'unlocks',name:'Unlocks & progression',symbol:'›',topics:['content_entitlements','modding_support','modding_scope','unlockall_history','boosting','commerce_reference','license_validation','inventory_reference','inventory_authority','inventory_concurrency','inventory_transactions','steam_inventory','steam_commerce','progression_state','content_compatibility']},
+  {id:'engineering',name:'Menu engineering',symbol:'⟨/⟩',topics:['menu_architecture','ui_backends','input_routing','rendering_reference','graphics_lifecycle','graphics_resources','menu_reference','mod_tools_reference']},
   {id:'devices',name:'DMA & input devices',symbol:'⌁',topics:['dma','dma_mechanics','input_devices']},
   {id:'detection',name:'Detection & enforcement',symbol:'◎',topics:['ml','replay','detection_pipeline','telemetry','enforcement','reports','lmm','ranked','enforcement_strategy','evasion_defense','detection_component_updates']},
   {id:'artifact',name:'Diagnostic code',symbol:'⟨⟩',topics:['artifact_packaging','artifact_provenance','attestation_native','attestation_managed','attestation_keys']},
@@ -97,7 +99,7 @@ function filteredSources(){
   const terms=tokenize(state.query);
   return sources.filter(s=>{
     const linked=usage[s.id]||[];
-    const context=linked.some(c=>(state.category==='all'||c._category===state.category)&&(state.level==='all'||c.level===state.level));
+    const context=linked.some(c=>(state.category==='all'||c._category===state.category)&&(state.level==='all'||c.level===state.level)) || (s.bibliography_only && state.level==='all' && ['all','context'].includes(state.category));
     return context&&terms.every(t=>s._search.includes(t)||linked.some(c=>c._primary.includes(t)));
   }).sort((a,b)=>{
     if(state.sort==='newest')return (b.published||'').localeCompare(a.published||'')||a.id.localeCompare(b.id);
@@ -106,7 +108,7 @@ function filteredSources(){
   });
 }
 function findingCard(c){return `<article class="result-card" data-id="${c.id}"><div class="card-meta"><span class="finding-id">${c.id}</span>${badge(c.level)}<time class="card-date" datetime="${c.date}">${escapeHTML(dateLabel(c.date))}</time></div><p class="card-text">${highlight(c.text)}</p><p class="card-scope"><span>SCOPE</span>${escapeHTML(c.scope)}</p><div class="card-bottom"><div class="citation-group"><span>SOURCES</span>${c.src.map(s=>`<button class="citation" data-source="${s}" title="${escapeHTML(sourceMap[s].title)}">${s}</button>`).join('')}</div><button class="detail-button" data-finding="${c.id}" aria-label="Read details for ${c.id}">Read finding <span aria-hidden="true">›</span></button></div></article>`;}
-function sourceCard(s){return `<article class="result-card" data-id="${s.id}"><div class="card-meta"><span class="finding-id">${s.id}</span><span class="source-kind">${escapeHTML(topicName(s.kind))}</span><span class="card-date">${s.published?escapeHTML(dateLabel(s.published)):'Publication date not established'}</span></div><h3 class="source-title">${highlight(s.title)}</h3><a class="source-url" href="${safeURL(s.url)}" target="_blank" rel="noopener">${escapeHTML(new URL(s.url).hostname)} ›</a>${s.note?`<p class="card-scope">${escapeHTML(s.note)}</p>`:''}<div class="card-bottom"><span class="finding-id">CITED BY ${(usage[s.id]||[]).length} FINDING${usage[s.id]?.length===1?'':'S'}</span><button class="detail-button" data-source="${s.id}" aria-label="View source ${s.id}">Source details ›</button></div></article>`;}
+function sourceCard(s){return `<article class="result-card" data-id="${s.id}"><div class="card-meta"><span class="finding-id">${s.id}</span><span class="source-kind">${escapeHTML(topicName(s.kind))}</span><span class="card-date">${s.published?escapeHTML(dateLabel(s.published)):'Publication date not established'}</span></div><h3 class="source-title">${highlight(s.title)}</h3><a class="source-url" href="${safeURL(s.url)}" target="_blank" rel="noopener">${escapeHTML(new URL(s.url).hostname)} ›</a>${s.note?`<p class="card-scope">${escapeHTML(s.note)}</p>`:''}<div class="card-bottom"><span class="finding-id">${s.bibliography_only?'SOURCE-ONLY REFERENCE':`CITED BY ${(usage[s.id]||[]).length} FINDING${usage[s.id]?.length===1?'':'S'}`} </span><button class="detail-button" data-source="${s.id}" aria-label="View source ${s.id}">Source details ›</button></div></article>`;}
 function renderCategories(){
   $('categories').innerHTML=CATEGORIES.map((g,i)=>`${i===1?'<div class="category-divider"></div>':''}<button class="category" data-category="${g.id}" aria-current="${state.category===g.id}"><span class="category-symbol" aria-hidden="true">${g.symbol}</span><span>${g.name}</span><span class="category-count">${g.id==='all'?claims.length:claims.filter(c=>c._category===g.id).length}</span></button>`).join('');
 }
@@ -147,7 +149,7 @@ function showFinding(id){
 }
 function showSource(id){
   const s=sourceMap[id];if(!s)return;
-  showDialog(s.title,'SOURCE '+s.id,`<span class="source-kind">${escapeHTML(topicName(s.kind))}</span><div class="detail-scope"><span class="detail-label">Publication / update date</span>${escapeHTML(dateLabel(s.published))}${s.sections?`<br><br><span class="detail-label">Reviewed sections</span>${escapeHTML(s.sections)}`:''}</div>${s.note?`<p class="detail-text">${escapeHTML(s.note)}</p>`:''}<a class="source-ref" href="${safeURL(s.url)}" target="_blank" rel="noopener">Open original source ›<small>${escapeHTML(s.url)}</small></a><div class="detail-section"><h3>Cited findings</h3><div class="citation-group">${(usage[id]||[]).map(c=>`<button class="citation" data-finding="${c.id}" title="${escapeHTML(c.text)}">${c.id}</button>`).join('')}</div></div><details><summary>Source metadata</summary><pre>${escapeHTML(JSON.stringify(s._original,null,2))}</pre></details>`);
+  showDialog(s.title,'SOURCE '+s.id,`<span class="source-kind">${escapeHTML(topicName(s.kind))}</span><div class="detail-scope"><span class="detail-label">Publication / update date</span>${escapeHTML(dateLabel(s.published))}${s.sections?`<br><br><span class="detail-label">Reviewed sections</span>${escapeHTML(s.sections)}`:''}</div>${s.note?`<p class="detail-text">${escapeHTML(s.note)}</p>`:''}<a class="source-ref" href="${safeURL(s.url)}" target="_blank" rel="noopener">Open original source ›<small>${escapeHTML(s.url)}</small></a><div class="detail-section"><h3>${s.bibliography_only?'Bibliography entry':'Cited findings'}</h3>${s.bibliography_only?'<p class="detail-scope">Source-only research reference. No current MW4/Warzone bypass is established by this entry.</p>':''}<div class="citation-group">${(usage[id]||[]).map(c=>`<button class="citation" data-finding="${c.id}" title="${escapeHTML(c.text)}">${c.id}</button>`).join('')}</div></div><details><summary>Source metadata</summary><pre>${escapeHTML(JSON.stringify(s._original,null,2))}</pre></details>`);
   history.replaceState(null,'',location.pathname+location.search+'#'+s.id);
 }
 function evidenceGuide(){showDialog('Read the evidence, with its scope.','EVIDENCE GUIDE',Object.entries(LEVELS).map(([id,l])=>`<div class="level-explanation">${badge(id)}<p>${escapeHTML(l.description)}</p></div>`).join('')+'<p class="detail-scope">Source support is not a universal current-build guarantee. Preserve the game, date, test period and artifact identity when interpreting a finding.</p>');}
@@ -156,20 +158,20 @@ function exportView(){
   const initial=state.view==='sources'?visible.flatMap(s=>usage[s.id]||[]):matchedClaims;
   const selected=new Map(initial.map(c=>[c.id,c]));const queue=[...selected.values()];
   while(queue.length){const c=queue.pop();for(const id of [...(c.updates||[]),...(c.contrasts_with||[]),...(c.basis_claims||[])])if(!selected.has(id)&&claimMap[id]){selected.set(id,claimMap[id]);queue.push(claimMap[id]);}}
-  const selectedClaims=[...selected.values()];const needed=new Set(selectedClaims.flatMap(c=>c.src));
-  const subsetMeta={...meta,subset:true,sources:needed.size,claims:selectedClaims.length,source_supported_claims:selectedClaims.filter(c=>c.level!=='O').length,static_artifact_observations:selectedClaims.filter(c=>c.level==='O').length,selection:{query:state.query,category:state.category,level:state.level}};
+  const selectedClaims=[...selected.values()];const needed=new Set([...selectedClaims.flatMap(c=>c.src),...(state.view==='sources'?visible.map(s=>s.id):[])]);
+  const subsetMeta={...meta,subset:true,sources:needed.size,claims:selectedClaims.length,source_supported_claims:selectedClaims.filter(c=>c.level!=='O').length,static_artifact_observations:selectedClaims.filter(c=>c.level==='O').length,bibliography_sources:sources.filter(s=>needed.has(s.id)&&s.bibliography_only).length,selection:{view:state.view,query:state.query,category:state.category,level:state.level}};
   const output=[subsetMeta,...sources.filter(s=>needed.has(s.id)).map(s=>s._original),...selectedClaims.map(plainClaim)];
   const url=URL.createObjectURL(new Blob([output.map(r=>JSON.stringify(r)).join('\n')+'\n'],{type:'application/x-ndjson'}));
   const a=document.createElement('a');a.href=url;a.download='ricochet-research-selection.jsonl';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
-  toast(`Exported ${selectedClaims.length} findings with citations and linked context.`);
+  toast(`Exported ${selectedClaims.length} findings and ${needed.size} sources.`);
 }
 function initialize(records){
   const m=records.find(r=>r.type==='meta');const ss=records.filter(r=>r.type==='source');const cs=records.filter(r=>r.type==='claim');
-  if(!m||m.format!=='ricochet-research/2.0'||m.claims!==cs.length||m.sources!==ss.length)throw new Error('Research format/count mismatch');
+  if(!m||m.format!=='ricochet-research/2.0'||m.claims!==cs.length||m.sources!==ss.length||m.revision<SNAPSHOT_REVISION)throw new Error('Research format/count/revision mismatch');
   const sm=Object.fromEntries(ss.map(s=>[s.id,s]));
   if(new Set(cs.map(c=>c.id)).size!==cs.length||cs.some(c=>!LEVELS[c.level]||!c.src.every(id=>sm[id])))throw new Error('Citation or identity mismatch');
   meta=m;claims=cs;sourceMap=sm;sources=ss;claimMap=Object.fromEntries(cs.map(c=>[c.id,c]));usage={};
-  sources.forEach(s=>{s._original=JSON.parse(JSON.stringify(s));s._search=normalize([s.id,s.title,s.url,s.note,s.sections,s.published].join(' '));});
+  sources.forEach(s=>{s._original=JSON.parse(JSON.stringify(s));s._search=normalize([s.id,s.title,s.url,s.note,s.summary,s.scope,s.authors,s.sections,s.published].join(' '));});
   claims.forEach(c=>{
     c._category=categoryFor(c);c._primary=normalize([c.id,c.text,c.topic.replaceAll('_',' ')].join(' '));
     c._secondary=normalize([c.scope,c.date,...c.src,...c.src.map(s=>sourceMap[s].title)].join(' '));c._artifact=normalize(JSON.stringify(c.evidence||{}));
