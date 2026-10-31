@@ -1,5 +1,14 @@
 # Validation record
 
+Revision 5, reviewed on 2026-10-31:
+
+- 262 core records: one metadata record, 64 sources, and 197 supported entries.
+- Four new primary-text retrievals have response hashes and paragraph locators; the complete ledger has 66 attempts.
+- New code summaries retain Microsoft sample scope and commit pins. Interview summaries retain vendor attribution and announced rollout dates.
+- Core integrity, schema, citation closure, query filtering and byte-index checks pass.
+
+Earlier validation:
+
 Revision 4, reviewed on 2026-10-31:
 
 - 244 main-file records: one metadata record, 60 sources, and 183 supported entries.

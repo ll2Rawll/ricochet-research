@@ -1,6 +1,6 @@
 # Confirmation method
 
-The strict main file, [ricochet.jsonl](ricochet.jsonl), contains **183 source-supported entries from 60 sources**. Every retained entry has primary-text paragraph locators and a verification record. Every original entry has a disposition in [claim_review.jsonl](claim_review.jsonl).
+The strict main file, [ricochet.jsonl](ricochet.jsonl), contains **197 source-supported entries from 64 sources**. Every retained entry has primary-text paragraph locators and a verification record. Every original entry has a disposition in [claim_review.jsonl](claim_review.jsonl).
 
 **Confirmation means the retrieved primary text supports the attributed statement.** It does not independently establish a vendor’s accuracy, runtime behavior, performance, or universal coverage. Vendor statements, documented platform facilities, pinned artifacts, and historical experimental reports have separate labels. No driver experiment was performed here.
 
@@ -12,7 +12,9 @@ The 45 items in [review.jsonl](review.jsonl) comprise 16 research gaps, 15 analy
 
 Primary sources were retrieved directly over HTTPS; pinned GitHub files used its raw-content host. Four official X posts used the publisher oEmbed endpoint. Only visible text was used when long posts were truncated. News reports supplied discovery leads, not low-level implementation proof.
 
-[source_checks.json](source_checks.json) records URLs, retrieval methods, HTTP status, byte counts, hashes, and content-validation outcomes for all 62 attempts. No full articles, game binaries, leaked code, or cheat programs are redistributed. A source hash identifies the reviewed response, not its truth or future immutability.
+[source_checks.json](source_checks.json) records URLs, retrieval methods, HTTP status, byte counts, hashes, and content-validation outcomes for all 66 attempts. No full articles, game binaries, leaked code, or cheat programs are redistributed. A source hash identifies the reviewed response, not its truth or future immutability.
+
+The MW4/Warzone follow-up adds a first-person David Andrews interview published by DETONATED and three pinned Microsoft code files. Interview answers remain attributed vendor testimony. Microsoft's samples explain a public implementation path; they are not Activision code. Sample authentication choices, key names and API selection must not be transferred to the games. The pin is commit 84a502dcbedb674b505262f3eee022fd88ebc3ef, dated November 18, 2025; individual file publication dates are not asserted.
 
 Paragraph IDs such as P0085 refer to normalized extraction, not the website’s own line numbering. HTML block boundaries become nonempty paragraphs; research PDFs use pdftotext -layout. Source records include the normalized-text hash and paragraph count. The optional evidence-fetching tool regenerates local review files for comparison. A changed hash requires review; it does not automatically mean a factual change.
 

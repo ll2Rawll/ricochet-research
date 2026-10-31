@@ -2,14 +2,14 @@
 
 Public-source research on Call of Duty’s anti-cheat, reviewed on **2026-10-31**.
 
-Start with **[ricochet.jsonl](ricochet.jsonl)**: **183 source-supported entries from 60 sources**, with dates, scope, citations, evidence labels, paragraph locators, and verification metadata. Standalone UTF-8 JSONL, approximately 128 KB, suitable for streaming or selective AI retrieval.
+Start with **[ricochet.jsonl](ricochet.jsonl)**: **197 source-supported entries from 64 sources**, with dates, scope, citations, evidence labels, paragraph locators, and verification metadata. Standalone UTF-8 JSONL, approximately 138 KB, suitable for streaming or selective AI retrieval.
 
 **Source-confirmed is not independently proven runtime behavior.** Activision’s statements remain attributed. Platform capabilities are not proof of a RICOCHET implementation. Historical experiments retain their test dates. Unconfirmed internals are outside the main file.
 
 - [GUIDE.md](GUIDE.md): reading map.
 - [SOURCES.md](SOURCES.md): retained-source bibliography.
 - [index.json](index.json): topic/ID lookup and UTF-8 byte offsets.
-- [source_checks.json](source_checks.json): 62 source attempts, content checks, and hashes.
+- [source_checks.json](source_checks.json): 66 source attempts, content checks, and hashes.
 - [claim_review.jsonl](claim_review.jsonl): disposition of every original entry.
 - [review.jsonl](review.jsonl): 45 excluded interpretations, gaps, unreplicated findings, unavailable verifications, and duplicates; **not confirmed facts**.
 - [METHODS.md](METHODS.md): confirmation method and limits.
@@ -24,6 +24,8 @@ python tools/query.py --topic kernel
 python tools/query.py --search attestation --limit 8
 python tools/query.py --status study_report
 python tools/query.py --id C051
+python tools/query.py --topic attestation_code
+python tools/query.py --topic server_culling
 python tools/validate.py
 ~~~
 

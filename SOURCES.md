@@ -64,3 +64,7 @@ The complete source metadata and reviewed-section locators are in [ricochet.json
 | S60 | not established | [CheckMATE 2024 research repository README](https://github.com/SamCollins1327/Anti-Cheat_2024/blob/09bb0588b85b1474a2d0747cb943a5da64e5c73d/README.md) | independent_artifact |
 | S61 | 2015-05 | [RFC 7519: JSON Web Token](https://www.rfc-editor.org/rfc/rfc7519.html) | platform_primary |
 | S62 | not established | [Crossref DOI registration for the CheckMATE paper](https://api.crossref.org/works/10.1145/3689934.3690816) | academic_primary |
+| S63 | 2026-10-07 | [David Andrews interview on MW4 and Warzone anti-cheat](https://detonated.com/exclusive-mw4-anti-cheat-interview-with-senior-game-security-director-david-andrews/) | vendor_primary |
+| S64 | not established | [Microsoft attestation client: stateful TPM service exchange](https://github.com/microsoft/Attestation-Client-Samples/blob/84a502dcbedb674b505262f3eee022fd88ebc3ef/attestation/attest.cpp) | platform_primary |
+| S65 | not established | [Microsoft boot attestation sample: AIK, request key and nonce](https://github.com/microsoft/Attestation-Client-Samples/blob/84a502dcbedb674b505262f3eee022fd88ebc3ef/attestation/sample_boot_att.cpp) | platform_primary |
+| S66 | not established | [Microsoft EnrollAik sample: enrollment and optional key-file permissions](https://github.com/microsoft/Attestation-Client-Samples/blob/84a502dcbedb674b505262f3eee022fd88ebc3ef/EnrollAik.ps1) | platform_primary |

@@ -18,6 +18,8 @@ Use these IDs in [ricochet.jsonl](ricochet.jsonl). Every retained entry contains
 | October DMA/Server Culling | C183–C185 | Visible official posts; no mechanism extrapolation. |
 | Independent experiments | C221–C227 | 2023 observations, not current-build certification. |
 | Artifact and research scope | C174, C180–C181, C228 | Contents verified; no cross-product transfer of findings. |
+| MW4/Warzone registration and culling | C229, C232–C236 | Current support wording and attributed October interview; Warzone Season 1 remains the announced rollout scope. |
+| Attestation APIs and actual sample code | C230–C231, C237–C242 | Microsoft protocol and pinned C++/PowerShell source; not proprietary game code. |
 
 Some IDs in ranges were excluded during the strict review. Their dispositions are in [claim_review.jsonl](claim_review.jsonl). Do not fill numbering gaps with assumptions.
 
