@@ -1,5 +1,0 @@
-# Optional dependencies for inspecting the official diagnostic ZIP as data.
-pefile==2024.8.26
-dnfile==0.18.0
-dncil==1.0.2
-cryptography==50.0.0
