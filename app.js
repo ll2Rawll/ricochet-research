@@ -2,7 +2,7 @@
 const REPO = 'https://github.com/ll2Rawll/ricochet-research';
 const RAW = 'https://raw.githubusercontent.com/ll2Rawll/ricochet-research/main/ricochet.jsonl';
 const PAGE_SIZE = 18;
-const SNAPSHOT_REVISION = 12;
+const SNAPSHOT_REVISION = 13;
 const LEVELS = {
   V: {name:'Vendor statement', description:'A statement supported by the cited vendor or policy source. This does not independently reproduce the vendor’s runtime or performance claims.'},
   P: {name:'Platform reference', description:'Documented platform, protocol, upstream UI or sample-code behavior. It is not evidence that a particular RICOCHET build uses that API or mechanism.'},
@@ -12,7 +12,7 @@ const LEVELS = {
 };
 const CATEGORIES = [
   {id:'all',name:'All research',symbol:'▦',topics:[]},
-  {id:'kernel',name:'Windows & kernel',symbol:'⌘',topics:['architecture','kernel','coverage','kernel_names','os_privilege','os_memory','os_callbacks','os_communication','os_integrity','hvci','performance','driver_reference_code','os_handle_access','os_notifications','driver_io','kernel_integrity','driver_provenance','driver_disclosure','driver_architecture','thread_callbacks','registry_callbacks','registry_context','callback_lifecycle','client_hardening']},
+  {id:'kernel',name:'Windows & kernel',symbol:'⌘',topics:['architecture','kernel','coverage','kernel_names','os_privilege','os_memory','os_callbacks','os_communication','os_integrity','hvci','performance','driver_reference_code','os_handle_access','os_notifications','driver_io','kernel_integrity','driver_provenance','driver_disclosure','driver_architecture','thread_callbacks','registry_callbacks','registry_context','callback_lifecycle','client_hardening','driver_identity','driver_signature_scope','driver_blocking','code_integrity_diagnostics','kernel_detection_boundaries']},
   {id:'attestation',name:'Boot & attestation',symbol:'◇',topics:['attestation','tpm_mechanics','boot_security','troubleshooting','attestation_client','attestation_api','attestation_code','remote_attestation','attestation_vulnerability','attestation_metadata','attestation_token_validation','attestation_claims','attestation_policy','attestation_deployment_security','attestation_service_trust','attestation_sdk_validation']},
   {id:'server',name:'Server protections',symbol:'▤',topics:['mitigations','server_culling','client_server_boundary']},
   {id:'unlocks',name:'Unlocks & progression',symbol:'›',topics:['content_entitlements','modding_support','modding_scope','unlockall_history','boosting','commerce_reference','license_validation','inventory_reference','inventory_authority','inventory_concurrency','inventory_transactions','steam_inventory','steam_commerce','progression_state','content_compatibility']},
@@ -26,7 +26,7 @@ const CATEGORIES = [
 ];
 const $ = id => document.getElementById(id);
 const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const normalize = value => String(value ?? '').toLowerCase().normalize('NFKD').replace(/unlock[\s-]*all/g,'unlock all').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+const normalize = value => String(value ?? '').toLowerCase().normalize('NFKD').replace(/\brangrid\b/g,'randgrid').replace(/unlock[\s-]*all/g,'unlock all').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 const topicName = value => value.replaceAll('_',' ');
 const categoryFor = claim => CATEGORIES.slice(1).find(g=>g.topics.includes(claim.topic))?.id || 'context';
 const safeURL = value => {try {const u=new URL(value);return u.protocol==='https:' ? u.href : '#';} catch{return '#';}};
