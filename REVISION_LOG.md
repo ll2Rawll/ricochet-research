@@ -21,3 +21,9 @@ The strict main file now holds 183 supported entries from 60 sources. Forty-five
 ## Revision 5 — MW4/Warzone technical primary sources
 
 Added 14 located statements, bringing the core to 197 entries from 64 retained sources. Verified the current CODBrokerInstaller registration wording, public TPM protocol API names, the MW4-launch/Warzone-Season-1 culling distinction, and the vendor's description of combined enforcement signals. Added pinned Microsoft C++ attestation state-machine/boot samples and PowerShell enrollment source, with explicit boundaries against attributing this sample code to Activision. The source ledger now records 66 attempts. No enrollment code or driver experiment was executed.
+
+## Revision 6 — reproducible static code evidence
+
+Inspected Activision's official Secure Attestation Wizard 1.3.0 ZIP as data, with archive/executable/component hashes. Located its .NET bundle, native readiness/diagnostic exports, TPM/key-storage imports, 13 managed readiness identifiers, data-model fields, desired-value comparison, enrollment/elevation call references and diagnostic buffer handling. Added a focused AI file with 58 unchanged cited core entries plus 16 static observations, a human technical guide, raw metadata report, provenance manifest, dedicated schema and evidence validator.
+
+Added a hash-checking fetcher and read-only ZIP/.NET/PE/CLR inspector with pinned optional dependencies. Twelve malformed-input/format checks pass. A fresh download matched the recorded archive hash and a fresh Python environment reproduced the complete static report. Query output now preserves focused subset counts. Unreplicated driver reports, undisclosed server algorithms and historical-to-current assumptions remain outside the confirmed technical observations.

@@ -23,3 +23,13 @@ Publication/update dates preserve available precision. Crossref registers the Ch
 Microsoft/AMD documentation explains platform behavior. It does not establish RICOCHET’s actual private API selection, scan schedule, attestation policy, hardware identifiers, or model parameters. Those remain outside the confirmed implementation scope.
 
 Automated checks establish schema, citation, evidence-location, ledger, and index consistency. **They do not automatically prove factual truth.** Retained summaries were reviewed against their located primary passages.
+
+## Build-identified diagnostic observations
+
+The separate [technical dataset](technical/mw4-warzone.jsonl) adds 16 static observations to a citation-closed selection of 58 core entries. Its additional artifact source, A01, is the official Secure Attestation Wizard 1.3.0 ZIP linked by S27. The main 197-entry primary-text corpus is unchanged by these artifact observations.
+
+The ZIP was downloaded twice and matched the same SHA-256. A bounded reader located the .NET format-6 manifest, decompressed selected components in memory, and inspected PE imports/exports, certificate metadata, CLR tables and selected IL references. No contained Windows code was loaded or executed. No kernel driver was inspected. The generated report was reproduced in a fresh Python environment using pinned parser versions.
+
+Static-observation evidence uses report JSON pointers, component hashes, file offsets, RVAs, CLR tokens and IL offsets rather than webpage paragraphs. Artifact packaging, imports, strings and call references establish file contents; they do not establish execution frequency, complete control flow, server policy or game deployment. Selected behavior summaries were manually reviewed against their IL. The inspector's compact reference lists are not complete decompilations.
+
+Certificate subjects are metadata observations, not verified signatures. Embedded release metadata, outer PE version resources and storage-object modification dates are preserved separately. The inspector rejects an archive hash mismatch, and the focused builder remains pinned to this reviewed artifact. The repository redistributes no executable or complete proprietary code.

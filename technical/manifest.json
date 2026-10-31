@@ -1,0 +1,16 @@
+{
+  "revision": 6,
+  "sources": 29,
+  "core_claims": 58,
+  "static_observations": 16,
+  "bytes": 73637,
+  "sha256": "aa8a5b8a23f60b1fac93c11ae950d57ab11bbdca38cb04212db31ee1561efd65",
+  "report_sha256": "2f04a5332632b6cebe23641038c9bf27ed2dafb1b0108ea7376e85d56ad19280",
+  "statuses": {
+    "official_statement": 35,
+    "platform_context": 17,
+    "artifact_statement": 1,
+    "study_report": 5,
+    "static_observation": 16
+  }
+}

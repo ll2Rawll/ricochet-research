@@ -2,6 +2,8 @@
 
 Public-source research on Call of Duty’s anti-cheat, reviewed on **2026-10-31**.
 
+**MW4 / Warzone code-focused research:** [technical guide](MW4_WARZONE_TECHNICAL.md) · [fast AI file](technical/mw4-warzone.jsonl) · [reproduced static report](technical/wizard-1.3.0-static.json). The focused file combines 58 cited entries with 16 observations from Activision's official diagnostic utility; it identifies the exact inspected build.
+
 Start with **[ricochet.jsonl](ricochet.jsonl)**: **197 source-supported entries from 64 sources**, with dates, scope, citations, evidence labels, paragraph locators, and verification metadata. Standalone UTF-8 JSONL, approximately 138 KB, suitable for streaming or selective AI retrieval.
 
 **Source-confirmed is not independently proven runtime behavior.** Activision’s statements remain attributed. Platform capabilities are not proof of a RICOCHET implementation. Historical experiments retain their test dates. Unconfirmed internals are outside the main file.
@@ -34,6 +36,8 @@ Repeat a topic, status, or ID option for OR within that category; different cate
 Keep metadata, attribution, date/game scope, and evidence labels attached when supplying this file to an AI. The main statuses are official_statement, platform_context, artifact_statement, and study_report. Use the separate review file when investigating open questions.
 
 This repository contains original summaries and references, not game binaries, leaked source, copied articles, or executed cheat programs. It does not claim exhaustive coverage or complete knowledge of Activision’s private implementation. GitHub repository: [ll2Rawll/ricochet-research](https://github.com/ll2Rawll/ricochet-research).
+
+The technical extension includes a read-only ZIP/.NET/PE/CLR inspector and hash-checking fetcher for the public diagnostic utility. No contained Windows code was executed. Its artifact observations have a separate schema and status from the primary-text core.
 
 To regenerate a source’s paragraph-labeled evidence locally:
 

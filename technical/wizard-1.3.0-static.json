@@ -1,0 +1,2357 @@
+{
+  "report_schema": "wizard-static-1.0",
+  "analysis": "Static file parsing only; no contained code executed.",
+  "archive": {
+    "name": "CODSecureAttestationWizard_1.3.0.zip",
+    "sha256": "75a49a5743cc975fed640a65e333419f45caa544bc93a2d0d55972d660d0b1b2",
+    "bytes": 61580746,
+    "members": [
+      "CODSecureAttestationWizard/",
+      "CODSecureAttestationWizard/CODSecureAttestationWizard.exe"
+    ]
+  },
+  "executable": {
+    "sha256": "5bfbedb08b94cefae839216c8df04384a679e157f280b81c889acc89325d4d06",
+    "bytes": 67343400,
+    "pe": {
+      "machine": "0x8664",
+      "subsystem": 2,
+      "pe_timestamp_untrusted": 1744739965,
+      "version_resource": {
+        "FileDescription": "CODSecureAttestationWizard",
+        "FileVersion": "1.0.0.0",
+        "InternalName": "CODSecureAttestationWizard.dll",
+        "LegalCopyright": " ",
+        "OriginalFilename": "CODSecureAttestationWizard.dll",
+        "ProductName": "CODSecureAttestationWizard",
+        "ProductVersion": "1.0.0",
+        "Assembly Version": "1.0.0.0"
+      },
+      "imports": {
+        "KERNEL32.dll": [
+          "AcquireSRWLockExclusive",
+          "ActivateActCtx",
+          "AddVectoredExceptionHandler",
+          "CancelIoEx",
+          "CloseHandle",
+          "CloseThreadpoolTimer",
+          "ConnectNamedPipe",
+          "CopyContext",
+          "CreateActCtxW",
+          "CreateDirectoryW",
+          "CreateEventW",
+          "CreateFileA",
+          "CreateFileMappingA",
+          "CreateFileMappingW",
+          "CreateFileW",
+          "CreateMemoryResourceNotification",
+          "CreateMutexW",
+          "CreateNamedPipeA",
+          "CreateProcessW",
+          "CreateSemaphoreExW",
+          "CreateThread",
+          "CreateThreadpoolTimer",
+          "DebugBreak",
+          "DecodePointer",
+          "DeleteCriticalSection",
+          "DisconnectNamedPipe",
+          "DuplicateHandle",
+          "EncodePointer",
+          "EnterCriticalSection",
+          "ExitProcess",
+          "ExitThread",
+          "FindClose",
+          "FindFirstFileExW",
+          "FindNextFileW",
+          "FindResourceW",
+          "FlsAlloc",
+          "FlsGetValue",
+          "FlsSetValue",
+          "FlushFileBuffers",
+          "FlushInstructionCache",
+          "FlushProcessWriteBuffers",
+          "FormatMessageW",
+          "FreeEnvironmentStringsW",
+          "FreeLibrary",
+          "GetACP",
+          "GetActiveProcessorGroupCount",
+          "GetCPInfo",
+          "GetCommandLineW",
+          "GetConsoleMode",
+          "GetConsoleOutputCP",
+          "GetCurrentDirectoryW",
+          "GetCurrentProcess",
+          "GetCurrentProcessId",
+          "GetCurrentProcessorNumberEx",
+          "GetCurrentThread",
+          "GetCurrentThreadId",
+          "GetEnabledXStateFeatures",
+          "GetEnvironmentStringsW",
+          "GetEnvironmentVariableW",
+          "GetExitCodeProcess",
+          "GetExitCodeThread",
+          "GetFileAttributesExW",
+          "GetFileSize",
+          "GetFileSizeEx",
+          "GetFinalPathNameByHandleW",
+          "GetFullPathNameW",
+          "GetLargePageMinimum",
+          "GetLastError",
+          "GetLocaleInfoEx",
+          "GetLogicalProcessorInformation",
+          "GetLogicalProcessorInformationEx",
+          "GetModuleFileNameW",
+          "GetModuleHandleExW",
+          "GetModuleHandleW",
+          "GetNumaHighestNodeNumber",
+          "GetNumaProcessorNodeEx",
+          "GetOverlappedResult",
+          "GetProcAddress",
+          "GetProcessAffinityMask",
+          "GetProcessGroupAffinity",
+          "GetProcessHeap",
+          "GetStdHandle",
+          "GetStringTypeW",
+          "GetSystemDefaultLCID",
+          "GetSystemInfo",
+          "GetSystemTime",
+          "GetSystemTimeAsFileTime",
+          "GetTempPathW",
+          "GetThreadContext",
+          "GetThreadGroupAffinity",
+          "GetThreadIdealProcessorEx",
+          "GetThreadPriority",
+          "GetTickCount",
+          "GetTickCount64",
+          "GetUserDefaultLCID",
+          "GetUserDefaultLocaleName",
+          "GetWindowsDirectoryW",
+          "GlobalMemoryStatusEx",
+          "HeapAlloc",
+          "HeapCreate",
+          "HeapDestroy",
+          "HeapFree",
+          "HeapReAlloc",
+          "InitializeContext",
+          "InitializeCriticalSection",
+          "InitializeCriticalSectionAndSpinCount",
+          "InitializeCriticalSectionEx",
+          "InitializeSListHead",
+          "InterlockedFlushSList",
+          "InterlockedPopEntrySList",
+          "InterlockedPushEntrySList",
+          "IsDebuggerPresent",
+          "IsProcessInJob",
+          "IsProcessorFeaturePresent",
+          "IsWow64Process",
+          "K32GetProcessMemoryInfo",
+          "LCMapStringEx",
+          "LeaveCriticalSection",
+          "LoadLibraryA",
+          "LoadLibraryExA",
+          "LoadLibraryExW",
+          "LocalFree",
+          "LocateXStateFeature",
+          "MapViewOfFile",
+          "MapViewOfFileEx",
+          "MultiByteToWideChar",
+          "OpenEventW",
+          "OutputDebugStringA",
+          "OutputDebugStringW",
+          "QueryInformationJobObject",
+          "QueryPerformanceCounter",
+          "QueryPerformanceFrequency",
+          "QueryThreadCycleTime",
+          "QueueUserAPC",
+          "RaiseException",
+          "RaiseFailFastException",
+          "ReadFile",
+          "ReleaseMutex",
+          "ReleaseSRWLockExclusive",
+          "ReleaseSemaphore",
+          "RemoveDirectoryW",
+          "ResetEvent",
+          "ResumeThread",
+          "RtlAddFunctionTable",
+          "RtlCaptureContext",
+          "RtlDeleteFunctionTable",
+          "RtlInstallFunctionTableCallback",
+          "RtlLookupFunctionEntry",
+          "RtlPcToFileHeader",
+          "RtlRestoreContext",
+          "RtlUnwind",
+          "RtlUnwindEx",
+          "RtlVirtualUnwind",
+          "SetConsoleCtrlHandler",
+          "SetEnvironmentVariableW",
+          "SetErrorMode",
+          "SetEvent",
+          "SetFilePointer",
+          "SetLastError",
+          "SetThreadAffinityMask",
+          "SetThreadContext",
+          "SetThreadErrorMode",
+          "SetThreadGroupAffinity",
+          "SetThreadIdealProcessorEx",
+          "SetThreadPriority",
+          "SetThreadStackGuarantee",
+          "SetThreadpoolTimer",
+          "SetUnhandledExceptionFilter",
+          "SetXStateFeaturesMask",
+          "SignalObjectAndWait",
+          "Sleep",
+          "SleepConditionVariableSRW",
+          "SleepEx",
+          "SuspendThread",
+          "SwitchToThread",
+          "TerminateProcess",
+          "TlsAlloc",
+          "TlsFree",
+          "TlsGetValue",
+          "TlsSetValue",
+          "TryAcquireSRWLockExclusive",
+          "UnhandledExceptionFilter",
+          "UnmapViewOfFile",
+          "VerSetConditionMask",
+          "VerifyVersionInfoW",
+          "VirtualAlloc",
+          "VirtualAllocExNuma",
+          "VirtualFree",
+          "VirtualProtect",
+          "VirtualQuery",
+          "VirtualUnlock",
+          "WaitForMultipleObjects",
+          "WaitForMultipleObjectsEx",
+          "WaitForSingleObject",
+          "WaitForSingleObjectEx",
+          "WakeAllConditionVariable",
+          "WerRegisterRuntimeExceptionModule",
+          "WideCharToMultiByte",
+          "WriteConsoleW",
+          "WriteFile"
+        ],
+        "ADVAPI32.dll": [
+          "AdjustTokenPrivileges",
+          "DeregisterEventSource",
+          "EventRegister",
+          "EventWrite",
+          "EventWriteTransfer",
+          "GetSidSubAuthority",
+          "GetSidSubAuthorityCount",
+          "GetTokenInformation",
+          "LookupPrivilegeValueW",
+          "OpenProcessToken",
+          "OpenThreadToken",
+          "RegCloseKey",
+          "RegGetValueW",
+          "RegOpenKeyExW",
+          "RegQueryValueExW",
+          "RegisterEventSourceW",
+          "ReportEventW",
+          "RevertToSelf",
+          "SetKernelObjectSecurity",
+          "SetThreadToken"
+        ],
+        "ole32.dll": [
+          "CLSIDFromProgID",
+          "CoCreateFreeThreadedMarshaler",
+          "CoCreateGuid",
+          "CoGetClassObject",
+          "CoGetContextToken",
+          "CoGetMarshalSizeMax",
+          "CoGetObjectContext",
+          "CoInitializeEx",
+          "CoMarshalInterface",
+          "CoRegisterInitializeSpy",
+          "CoReleaseMarshalData",
+          "CoRevokeInitializeSpy",
+          "CoTaskMemAlloc",
+          "CoTaskMemFree",
+          "CoUninitialize",
+          "CoUnmarshalInterface",
+          "CoWaitForMultipleHandles",
+          "CreateStreamOnHGlobal"
+        ],
+        "OLEAUT32.dll": [
+          "CreateErrorInfo",
+          "GetErrorInfo",
+          "GetRecordInfoFromTypeInfo",
+          "LoadRegTypeLib",
+          "LoadTypeLibEx",
+          "QueryPathOfRegTypeLib",
+          "SafeArrayAllocData",
+          "SafeArrayAllocDescriptorEx",
+          "SafeArrayCreateVector",
+          "SafeArrayDestroy",
+          "SafeArrayGetDim",
+          "SafeArrayGetElemsize",
+          "SafeArrayGetLBound",
+          "SafeArrayGetVartype",
+          "SafeArrayPutElement",
+          "SafeArraySetRecordInfo",
+          "SetErrorInfo",
+          "SysAllocString",
+          "SysAllocStringByteLen",
+          "SysAllocStringLen",
+          "SysFreeString",
+          "SysStringByteLen",
+          "SysStringLen",
+          "VarCyFromDec",
+          "VariantChangeType",
+          "VariantClear",
+          "VariantInit"
+        ],
+        "USER32.dll": [
+          "LoadStringW",
+          "MessageBoxW"
+        ],
+        "SHELL32.dll": [
+          "ShellExecuteW"
+        ],
+        "api-ms-win-crt-string-l1-1-0.dll": [
+          "__strncnt",
+          "_strdup",
+          "_stricmp",
+          "_strnicmp",
+          "_wcsdup",
+          "_wcsicmp",
+          "_wcsnicmp",
+          "isalpha",
+          "isdigit",
+          "islower",
+          "isspace",
+          "isupper",
+          "iswascii",
+          "iswspace",
+          "iswupper",
+          "strcat_s",
+          "strcmp",
+          "strcpy_s",
+          "strlen",
+          "strncat_s",
+          "strncmp",
+          "strncpy",
+          "strncpy_s",
+          "strnlen",
+          "strtok_s",
+          "tolower",
+          "toupper",
+          "towlower",
+          "towupper",
+          "wcscat_s",
+          "wcscpy_s",
+          "wcsncat_s",
+          "wcsncmp",
+          "wcsncpy_s",
+          "wcsnlen"
+        ],
+        "api-ms-win-crt-stdio-l1-1-0.dll": [
+          "__acrt_iob_func",
+          "__p__commode",
+          "__stdio_common_vfprintf",
+          "__stdio_common_vfwprintf",
+          "__stdio_common_vsnprintf_s",
+          "__stdio_common_vsnwprintf_s",
+          "__stdio_common_vsprintf_s",
+          "__stdio_common_vsscanf",
+          "__stdio_common_vswprintf",
+          "_dup",
+          "_fileno",
+          "_flushall",
+          "_fseeki64",
+          "_get_stream_buffer_pointers",
+          "_set_fmode",
+          "_setmode",
+          "_wfopen",
+          "_wfsopen",
+          "fclose",
+          "fflush",
+          "fgetc",
+          "fgetpos",
+          "fgets",
+          "fopen",
+          "fputc",
+          "fputs",
+          "fputwc",
+          "fread",
+          "fseek",
+          "fsetpos",
+          "ftell",
+          "fwrite",
+          "setvbuf",
+          "ungetc"
+        ],
+        "api-ms-win-crt-runtime-l1-1-0.dll": [
+          "__p___argc",
+          "__p___wargv",
+          "_beginthreadex",
+          "_c_exit",
+          "_cexit",
+          "_configure_wide_argv",
+          "_controlfp_s",
+          "_crt_atexit",
+          "_errno",
+          "_exit",
+          "_get_initial_wide_environment",
+          "_initialize_onexit_table",
+          "_initialize_wide_environment",
+          "_initterm",
+          "_initterm_e",
+          "_invalid_parameter_noinfo",
+          "_invalid_parameter_noinfo_noreturn",
+          "_register_onexit_function",
+          "_register_thread_local_exe_atexit_callback",
+          "_seh_filter_exe",
+          "_set_app_type",
+          "_wcserror_s",
+          "abort",
+          "exit",
+          "terminate"
+        ],
+        "api-ms-win-crt-convert-l1-1-0.dll": [
+          "_atoi64",
+          "_ltow_s",
+          "_wcstoui64",
+          "_wtoi",
+          "atol",
+          "strtoul",
+          "strtoull",
+          "wcstoul"
+        ],
+        "api-ms-win-crt-heap-l1-1-0.dll": [
+          "_aligned_free",
+          "_aligned_malloc",
+          "_callnewh",
+          "_set_new_mode",
+          "calloc",
+          "free",
+          "malloc",
+          "realloc"
+        ],
+        "api-ms-win-crt-utility-l1-1-0.dll": [
+          "qsort"
+        ],
+        "api-ms-win-crt-math-l1-1-0.dll": [
+          "__setusermatherr",
+          "_fdopen",
+          "acos",
+          "acosf",
+          "acosh",
+          "acoshf",
+          "asin",
+          "asinf",
+          "asinh",
+          "asinhf",
+          "atan",
+          "atan2",
+          "atan2f",
+          "atanf",
+          "atanh",
+          "atanhf",
+          "cbrt",
+          "cbrtf",
+          "ceil",
+          "ceilf",
+          "copysign",
+          "copysignf",
+          "cos",
+          "cosf",
+          "cosh",
+          "coshf",
+          "exp",
+          "expf",
+          "floor",
+          "floorf",
+          "fma",
+          "fmaf",
+          "fmod",
+          "fmodf",
+          "ilogbf",
+          "log",
+          "log10",
+          "log10f",
+          "log2",
+          "log2f",
+          "logf",
+          "modf",
+          "modff",
+          "pow",
+          "powf",
+          "round",
+          "roundf",
+          "sin",
+          "sinf",
+          "sinh",
+          "sinhf",
+          "sqrt",
+          "sqrtf",
+          "tan",
+          "tanf",
+          "tanh",
+          "tanhf",
+          "trunc",
+          "truncf"
+        ],
+        "api-ms-win-crt-time-l1-1-0.dll": [
+          "_gmtime64_s",
+          "_time64",
+          "wcsftime"
+        ],
+        "api-ms-win-crt-environment-l1-1-0.dll": [
+          "getenv"
+        ],
+        "api-ms-win-crt-filesystem-l1-1-0.dll": [
+          "_lock_file",
+          "_unlock_file",
+          "_wremove",
+          "_wrename"
+        ],
+        "api-ms-win-crt-locale-l1-1-0.dll": [
+          "___lc_codepage_func",
+          "___lc_locale_name_func",
+          "___mb_cur_max_func",
+          "__pctype_func",
+          "_configthreadlocale",
+          "_create_locale",
+          "_free_locale",
+          "_lock_locales",
+          "_unlock_locales",
+          "setlocale"
+        ]
+      },
+      "exports": [
+        {
+          "name": "CLRJitAttachState",
+          "rva": 8286304,
+          "file_offset": 8275040
+        },
+        {
+          "name": "DotNetRuntimeContractDescriptor",
+          "rva": 8217696,
+          "file_offset": 8206432
+        },
+        {
+          "name": "DotNetRuntimeInfo",
+          "rva": 8217744,
+          "file_offset": 8206480
+        },
+        {
+          "name": "MetaDataGetDispenser",
+          "rva": 3240768,
+          "file_offset": 3237696
+        },
+        {
+          "name": "g_CLREngineMetrics",
+          "rva": 8215688,
+          "file_offset": 8204424
+        },
+        {
+          "name": "g_dacTable",
+          "rva": 7359824,
+          "file_offset": 7349584
+        }
+      ],
+      "pdb_paths": [
+        {
+          "file_offset": 7675896,
+          "path": "D:\\a\\_work\\1\\s\\artifacts\\obj\\coreclr\\windows.x64.Release\\Corehost.Static\\singlefilehost.pdb"
+        }
+      ],
+      "certificate_table_present": true,
+      "embedded_certificate_subjects": [
+        {
+          "subject": "CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1,O=DigiCert\\, Inc.,C=US",
+          "issuer": "CN=DigiCert Trusted Root G4,OU=www.digicert.com,O=DigiCert Inc,C=US"
+        },
+        {
+          "subject": "CN=Activision Publishing Inc,OU=Activision Publishing Inc,O=Activision Publishing Inc,L=SANTA MONICA,ST=CALIFORNIA,C=US,2.5.4.5=2256184,2.5.4.15=Private Organization,1.3.6.1.4.1.311.60.2.1.2=Delaware,1.3.6.1.4.1.311.60.2.1.3=US",
+          "issuer": "CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1,O=DigiCert\\, Inc.,C=US"
+        }
+      ],
+      "authenticode_signature_verified": false
+    }
+  },
+  "bundle": {
+    "format": "6.0",
+    "marker_file_offset": 8220912,
+    "header_file_offset": 67310263,
+    "bundle_id": "NnJ1EPzr0Y7k",
+    "entry_count": 382,
+    "flags": 1,
+    "deps_json_offset": 67277112,
+    "deps_json_size": 33151,
+    "runtimeconfig_offset": 10029556,
+    "runtimeconfig_size": 524
+  },
+  "bundle_paths": [
+    "SecureAttestation.dll",
+    "Resources/LicenseAgreementNoticeHtmlTemplate.html",
+    "version.json",
+    "enrollaik.exe",
+    "CODSecureAttestationWizard.runtimeconfig.json",
+    "D3DCompiler_47_cor3.dll",
+    "PenImc_cor3.dll",
+    "PresentationNative_cor3.dll",
+    "vcruntime140_cor3.dll",
+    "wpfgfx_cor3.dll",
+    "cs/PresentationCore.resources.dll",
+    "cs/PresentationFramework.resources.dll",
+    "cs/PresentationUI.resources.dll",
+    "cs/ReachFramework.resources.dll",
+    "cs/System.Windows.Controls.Ribbon.resources.dll",
+    "cs/System.Windows.Input.Manipulations.resources.dll",
+    "cs/System.Xaml.resources.dll",
+    "cs/UIAutomationClient.resources.dll",
+    "cs/UIAutomationClientSideProviders.resources.dll",
+    "cs/UIAutomationProvider.resources.dll",
+    "cs/UIAutomationTypes.resources.dll",
+    "cs/WindowsBase.resources.dll",
+    "de/PresentationCore.resources.dll",
+    "de/PresentationFramework.resources.dll",
+    "de/PresentationUI.resources.dll",
+    "de/ReachFramework.resources.dll",
+    "de/System.Windows.Controls.Ribbon.resources.dll",
+    "de/System.Windows.Input.Manipulations.resources.dll",
+    "de/System.Xaml.resources.dll",
+    "de/UIAutomationClient.resources.dll",
+    "de/UIAutomationClientSideProviders.resources.dll",
+    "de/UIAutomationProvider.resources.dll",
+    "de/UIAutomationTypes.resources.dll",
+    "de/WindowsBase.resources.dll",
+    "es/PresentationCore.resources.dll",
+    "es/PresentationFramework.resources.dll",
+    "es/PresentationUI.resources.dll",
+    "es/ReachFramework.resources.dll",
+    "es/System.Windows.Controls.Ribbon.resources.dll",
+    "es/System.Windows.Input.Manipulations.resources.dll",
+    "es/System.Xaml.resources.dll",
+    "es/UIAutomationClient.resources.dll",
+    "es/UIAutomationClientSideProviders.resources.dll",
+    "es/UIAutomationProvider.resources.dll",
+    "es/UIAutomationTypes.resources.dll",
+    "es/WindowsBase.resources.dll",
+    "fr/PresentationCore.resources.dll",
+    "fr/PresentationFramework.resources.dll",
+    "fr/PresentationUI.resources.dll",
+    "fr/ReachFramework.resources.dll",
+    "fr/System.Windows.Controls.Ribbon.resources.dll",
+    "fr/System.Windows.Input.Manipulations.resources.dll",
+    "fr/System.Xaml.resources.dll",
+    "fr/UIAutomationClient.resources.dll",
+    "fr/UIAutomationClientSideProviders.resources.dll",
+    "fr/UIAutomationProvider.resources.dll",
+    "fr/UIAutomationTypes.resources.dll",
+    "fr/WindowsBase.resources.dll",
+    "it/PresentationCore.resources.dll",
+    "it/PresentationFramework.resources.dll",
+    "it/PresentationUI.resources.dll",
+    "it/ReachFramework.resources.dll",
+    "it/System.Windows.Controls.Ribbon.resources.dll",
+    "it/System.Windows.Input.Manipulations.resources.dll",
+    "it/System.Xaml.resources.dll",
+    "it/UIAutomationClient.resources.dll",
+    "it/UIAutomationClientSideProviders.resources.dll",
+    "it/UIAutomationProvider.resources.dll",
+    "it/UIAutomationTypes.resources.dll",
+    "it/WindowsBase.resources.dll",
+    "ja/PresentationCore.resources.dll",
+    "ja/PresentationFramework.resources.dll",
+    "ja/PresentationUI.resources.dll",
+    "ja/ReachFramework.resources.dll",
+    "ja/System.Windows.Controls.Ribbon.resources.dll",
+    "ja/System.Windows.Input.Manipulations.resources.dll",
+    "ja/System.Xaml.resources.dll",
+    "ja/UIAutomationClient.resources.dll",
+    "ja/UIAutomationClientSideProviders.resources.dll",
+    "ja/UIAutomationProvider.resources.dll",
+    "ja/UIAutomationTypes.resources.dll",
+    "ja/WindowsBase.resources.dll",
+    "ko/PresentationCore.resources.dll",
+    "ko/PresentationFramework.resources.dll",
+    "ko/PresentationUI.resources.dll",
+    "ko/ReachFramework.resources.dll",
+    "ko/System.Windows.Controls.Ribbon.resources.dll",
+    "ko/System.Windows.Input.Manipulations.resources.dll",
+    "ko/System.Xaml.resources.dll",
+    "ko/UIAutomationClient.resources.dll",
+    "ko/UIAutomationClientSideProviders.resources.dll",
+    "ko/UIAutomationProvider.resources.dll",
+    "ko/UIAutomationTypes.resources.dll",
+    "ko/WindowsBase.resources.dll",
+    "pl/PresentationCore.resources.dll",
+    "pl/PresentationFramework.resources.dll",
+    "pl/PresentationUI.resources.dll",
+    "pl/ReachFramework.resources.dll",
+    "pl/System.Windows.Controls.Ribbon.resources.dll",
+    "pl/System.Windows.Input.Manipulations.resources.dll",
+    "pl/System.Xaml.resources.dll",
+    "pl/UIAutomationClient.resources.dll",
+    "pl/UIAutomationClientSideProviders.resources.dll",
+    "pl/UIAutomationProvider.resources.dll",
+    "pl/UIAutomationTypes.resources.dll",
+    "pl/WindowsBase.resources.dll",
+    "pt-BR/PresentationCore.resources.dll",
+    "pt-BR/PresentationFramework.resources.dll",
+    "pt-BR/PresentationUI.resources.dll",
+    "pt-BR/ReachFramework.resources.dll",
+    "pt-BR/System.Windows.Controls.Ribbon.resources.dll",
+    "pt-BR/System.Windows.Input.Manipulations.resources.dll",
+    "pt-BR/System.Xaml.resources.dll",
+    "pt-BR/UIAutomationClient.resources.dll",
+    "pt-BR/UIAutomationClientSideProviders.resources.dll",
+    "pt-BR/UIAutomationProvider.resources.dll",
+    "pt-BR/UIAutomationTypes.resources.dll",
+    "pt-BR/WindowsBase.resources.dll",
+    "ru/PresentationCore.resources.dll",
+    "ru/PresentationFramework.resources.dll",
+    "ru/PresentationUI.resources.dll",
+    "ru/ReachFramework.resources.dll",
+    "ru/System.Windows.Controls.Ribbon.resources.dll",
+    "ru/System.Windows.Input.Manipulations.resources.dll",
+    "ru/System.Xaml.resources.dll",
+    "ru/UIAutomationClient.resources.dll",
+    "ru/UIAutomationClientSideProviders.resources.dll",
+    "ru/UIAutomationProvider.resources.dll",
+    "ru/UIAutomationTypes.resources.dll",
+    "ru/WindowsBase.resources.dll",
+    "tr/PresentationCore.resources.dll",
+    "tr/PresentationFramework.resources.dll",
+    "tr/PresentationUI.resources.dll",
+    "tr/ReachFramework.resources.dll",
+    "tr/System.Windows.Controls.Ribbon.resources.dll",
+    "tr/System.Windows.Input.Manipulations.resources.dll",
+    "tr/System.Xaml.resources.dll",
+    "tr/UIAutomationClient.resources.dll",
+    "tr/UIAutomationClientSideProviders.resources.dll",
+    "tr/UIAutomationProvider.resources.dll",
+    "tr/UIAutomationTypes.resources.dll",
+    "tr/WindowsBase.resources.dll",
+    "zh-Hans/PresentationCore.resources.dll",
+    "zh-Hans/PresentationFramework.resources.dll",
+    "zh-Hans/PresentationUI.resources.dll",
+    "zh-Hans/ReachFramework.resources.dll",
+    "zh-Hans/System.Windows.Controls.Ribbon.resources.dll",
+    "zh-Hans/System.Windows.Input.Manipulations.resources.dll",
+    "zh-Hans/System.Xaml.resources.dll",
+    "zh-Hans/UIAutomationClient.resources.dll",
+    "zh-Hans/UIAutomationClientSideProviders.resources.dll",
+    "zh-Hans/UIAutomationProvider.resources.dll",
+    "zh-Hans/UIAutomationTypes.resources.dll",
+    "zh-Hans/WindowsBase.resources.dll",
+    "zh-Hant/PresentationCore.resources.dll",
+    "zh-Hant/PresentationFramework.resources.dll",
+    "zh-Hant/PresentationUI.resources.dll",
+    "zh-Hant/ReachFramework.resources.dll",
+    "zh-Hant/System.Windows.Controls.Ribbon.resources.dll",
+    "zh-Hant/System.Windows.Input.Manipulations.resources.dll",
+    "zh-Hant/System.Xaml.resources.dll",
+    "zh-Hant/UIAutomationClient.resources.dll",
+    "zh-Hant/UIAutomationClientSideProviders.resources.dll",
+    "zh-Hant/UIAutomationProvider.resources.dll",
+    "zh-Hant/UIAutomationTypes.resources.dll",
+    "zh-Hant/WindowsBase.resources.dll",
+    "CODSecureAttestationWizard.dll",
+    "Microsoft.CSharp.dll",
+    "Microsoft.VisualBasic.Core.dll",
+    "Microsoft.VisualBasic.dll",
+    "Microsoft.Win32.Primitives.dll",
+    "Microsoft.Win32.Registry.dll",
+    "System.AppContext.dll",
+    "System.Buffers.dll",
+    "System.Collections.Concurrent.dll",
+    "System.Collections.Immutable.dll",
+    "System.Collections.NonGeneric.dll",
+    "System.Collections.Specialized.dll",
+    "System.Collections.dll",
+    "System.ComponentModel.Annotations.dll",
+    "System.ComponentModel.DataAnnotations.dll",
+    "System.ComponentModel.EventBasedAsync.dll",
+    "System.ComponentModel.Primitives.dll",
+    "System.ComponentModel.TypeConverter.dll",
+    "System.ComponentModel.dll",
+    "System.Configuration.dll",
+    "System.Console.dll",
+    "System.Core.dll",
+    "System.Data.Common.dll",
+    "System.Data.DataSetExtensions.dll",
+    "System.Data.dll",
+    "System.Diagnostics.Contracts.dll",
+    "System.Diagnostics.Debug.dll",
+    "System.Diagnostics.DiagnosticSource.dll",
+    "System.Diagnostics.FileVersionInfo.dll",
+    "System.Diagnostics.Process.dll",
+    "System.Diagnostics.StackTrace.dll",
+    "System.Diagnostics.TextWriterTraceListener.dll",
+    "System.Diagnostics.Tools.dll",
+    "System.Diagnostics.TraceSource.dll",
+    "System.Diagnostics.Tracing.dll",
+    "System.Drawing.Primitives.dll",
+    "System.Drawing.dll",
+    "System.Dynamic.Runtime.dll",
+    "System.Formats.Asn1.dll",
+    "System.Formats.Tar.dll",
+    "System.Globalization.Calendars.dll",
+    "System.Globalization.Extensions.dll",
+    "System.Globalization.dll",
+    "System.IO.Compression.Brotli.dll",
+    "System.IO.Compression.FileSystem.dll",
+    "System.IO.Compression.ZipFile.dll",
+    "System.IO.Compression.dll",
+    "System.IO.FileSystem.AccessControl.dll",
+    "System.IO.FileSystem.DriveInfo.dll",
+    "System.IO.FileSystem.Primitives.dll",
+    "System.IO.FileSystem.Watcher.dll",
+    "System.IO.FileSystem.dll",
+    "System.IO.IsolatedStorage.dll",
+    "System.IO.MemoryMappedFiles.dll",
+    "System.IO.Pipelines.dll",
+    "System.IO.Pipes.AccessControl.dll",
+    "System.IO.Pipes.dll",
+    "System.IO.UnmanagedMemoryStream.dll",
+    "System.IO.dll",
+    "System.Linq.Expressions.dll",
+    "System.Linq.Parallel.dll",
+    "System.Linq.Queryable.dll",
+    "System.Linq.dll",
+    "System.Memory.dll",
+    "System.Net.Http.Json.dll",
+    "System.Net.Http.dll",
+    "System.Net.HttpListener.dll",
+    "System.Net.Mail.dll",
+    "System.Net.NameResolution.dll",
+    "System.Net.NetworkInformation.dll",
+    "System.Net.Ping.dll",
+    "System.Net.Primitives.dll",
+    "System.Net.Quic.dll",
+    "System.Net.Requests.dll",
+    "System.Net.Security.dll",
+    "System.Net.ServicePoint.dll",
+    "System.Net.Sockets.dll",
+    "System.Net.WebClient.dll",
+    "System.Net.WebHeaderCollection.dll",
+    "System.Net.WebProxy.dll",
+    "System.Net.WebSockets.Client.dll",
+    "System.Net.WebSockets.dll",
+    "System.Net.dll",
+    "System.Numerics.Vectors.dll",
+    "System.Numerics.dll",
+    "System.ObjectModel.dll",
+    "System.Private.CoreLib.dll",
+    "System.Private.DataContractSerialization.dll",
+    "System.Private.Uri.dll",
+    "System.Private.Xml.Linq.dll",
+    "System.Private.Xml.dll",
+    "System.Reflection.DispatchProxy.dll",
+    "System.Reflection.Emit.ILGeneration.dll",
+    "System.Reflection.Emit.Lightweight.dll",
+    "System.Reflection.Emit.dll",
+    "System.Reflection.Extensions.dll",
+    "System.Reflection.Metadata.dll",
+    "System.Reflection.Primitives.dll",
+    "System.Reflection.TypeExtensions.dll",
+    "System.Reflection.dll",
+    "System.Resources.Reader.dll",
+    "System.Resources.ResourceManager.dll",
+    "System.Resources.Writer.dll",
+    "System.Runtime.CompilerServices.Unsafe.dll",
+    "System.Runtime.CompilerServices.VisualC.dll",
+    "System.Runtime.Extensions.dll",
+    "System.Runtime.Handles.dll",
+    "System.Runtime.InteropServices.JavaScript.dll",
+    "System.Runtime.InteropServices.RuntimeInformation.dll",
+    "System.Runtime.InteropServices.dll",
+    "System.Runtime.Intrinsics.dll",
+    "System.Runtime.Loader.dll",
+    "System.Runtime.Numerics.dll",
+    "System.Runtime.Serialization.Formatters.dll",
+    "System.Runtime.Serialization.Json.dll",
+    "System.Runtime.Serialization.Primitives.dll",
+    "System.Runtime.Serialization.Xml.dll",
+    "System.Runtime.Serialization.dll",
+    "System.Runtime.dll",
+    "System.Security.AccessControl.dll",
+    "System.Security.Claims.dll",
+    "System.Security.Cryptography.Algorithms.dll",
+    "System.Security.Cryptography.Cng.dll",
+    "System.Security.Cryptography.Csp.dll",
+    "System.Security.Cryptography.Encoding.dll",
+    "System.Security.Cryptography.OpenSsl.dll",
+    "System.Security.Cryptography.Primitives.dll",
+    "System.Security.Cryptography.X509Certificates.dll",
+    "System.Security.Cryptography.dll",
+    "System.Security.Principal.Windows.dll",
+    "System.Security.Principal.dll",
+    "System.Security.SecureString.dll",
+    "System.Security.dll",
+    "System.ServiceModel.Web.dll",
+    "System.ServiceProcess.dll",
+    "System.Text.Encoding.CodePages.dll",
+    "System.Text.Encoding.Extensions.dll",
+    "System.Text.Encoding.dll",
+    "System.Text.Encodings.Web.dll",
+    "System.Text.Json.dll",
+    "System.Text.RegularExpressions.dll",
+    "System.Threading.Channels.dll",
+    "System.Threading.Overlapped.dll",
+    "System.Threading.Tasks.Dataflow.dll",
+    "System.Threading.Tasks.Extensions.dll",
+    "System.Threading.Tasks.Parallel.dll",
+    "System.Threading.Tasks.dll",
+    "System.Threading.Thread.dll",
+    "System.Threading.ThreadPool.dll",
+    "System.Threading.Timer.dll",
+    "System.Threading.dll",
+    "System.Transactions.Local.dll",
+    "System.Transactions.dll",
+    "System.ValueTuple.dll",
+    "System.Web.HttpUtility.dll",
+    "System.Web.dll",
+    "System.Windows.dll",
+    "System.Xml.Linq.dll",
+    "System.Xml.ReaderWriter.dll",
+    "System.Xml.Serialization.dll",
+    "System.Xml.XDocument.dll",
+    "System.Xml.XPath.XDocument.dll",
+    "System.Xml.XPath.dll",
+    "System.Xml.XmlDocument.dll",
+    "System.Xml.XmlSerializer.dll",
+    "System.Xml.dll",
+    "System.dll",
+    "mscorlib.dll",
+    "netstandard.dll",
+    "Accessibility.dll",
+    "DirectWriteForwarder.dll",
+    "Microsoft.Win32.Registry.AccessControl.dll",
+    "Microsoft.Win32.SystemEvents.dll",
+    "PresentationCore.dll",
+    "PresentationFramework-SystemCore.dll",
+    "PresentationFramework-SystemData.dll",
+    "PresentationFramework-SystemDrawing.dll",
+    "PresentationFramework-SystemXml.dll",
+    "PresentationFramework-SystemXmlLinq.dll",
+    "PresentationFramework.Aero.dll",
+    "PresentationFramework.Aero2.dll",
+    "PresentationFramework.AeroLite.dll",
+    "PresentationFramework.Classic.dll",
+    "PresentationFramework.Fluent.dll",
+    "PresentationFramework.Luna.dll",
+    "PresentationFramework.Royale.dll",
+    "PresentationFramework.dll",
+    "PresentationUI.dll",
+    "ReachFramework.dll",
+    "System.CodeDom.dll",
+    "System.Configuration.ConfigurationManager.dll",
+    "System.Diagnostics.EventLog.Messages.dll",
+    "System.Diagnostics.EventLog.dll",
+    "System.Diagnostics.PerformanceCounter.dll",
+    "System.DirectoryServices.dll",
+    "System.Formats.Nrbf.dll",
+    "System.IO.Packaging.dll",
+    "System.Printing.dll",
+    "System.Resources.Extensions.dll",
+    "System.Security.Cryptography.Pkcs.dll",
+    "System.Security.Cryptography.ProtectedData.dll",
+    "System.Security.Cryptography.Xml.dll",
+    "System.Security.Permissions.dll",
+    "System.Threading.AccessControl.dll",
+    "System.Windows.Controls.Ribbon.dll",
+    "System.Windows.Extensions.dll",
+    "System.Windows.Input.Manipulations.dll",
+    "System.Windows.Presentation.dll",
+    "System.Xaml.dll",
+    "UIAutomationClient.dll",
+    "UIAutomationClientSideProviders.dll",
+    "UIAutomationProvider.dll",
+    "UIAutomationTypes.dll",
+    "WindowsBase.dll",
+    "CODSecureAttestationWizard.r2r.dll",
+    "CODSecureAttestationWizard.deps.json"
+  ],
+  "components": {
+    "SecureAttestation.dll": {
+      "sha256": "628fbea8e9648006893c830c9e52b0f8a39eb73919ba8d42654da909c1a294f5",
+      "bytes": 212480,
+      "bundle_entry": {
+        "path": "SecureAttestation.dll",
+        "offset": 9892864,
+        "size": 212480,
+        "compressed_size": 98036,
+        "type": 2
+      },
+      "pe": {
+        "machine": "0x8664",
+        "subsystem": 3,
+        "pe_timestamp_untrusted": 1792618351,
+        "version_resource": {},
+        "imports": {
+          "ADVAPI32.dll": [
+            "CloseServiceHandle",
+            "ControlService",
+            "OpenSCManagerW",
+            "OpenServiceW",
+            "QueryServiceConfigW",
+            "RegCloseKey",
+            "RegOpenKeyExW",
+            "RegQueryValueExW",
+            "StartServiceW"
+          ],
+          "ole32.dll": [
+            "CoCreateInstance",
+            "CoInitializeEx",
+            "CoInitializeSecurity",
+            "CoSetProxyBlanket",
+            "CoUninitialize"
+          ],
+          "KERNEL32.dll": [
+            "CloseHandle",
+            "CreateFileW",
+            "DeleteCriticalSection",
+            "DeviceIoControl",
+            "EncodePointer",
+            "EnterCriticalSection",
+            "ExitProcess",
+            "FindClose",
+            "FindFirstFileExW",
+            "FindNextFileW",
+            "FlsAlloc",
+            "FlsFree",
+            "FlsGetValue",
+            "FlsSetValue",
+            "FlushFileBuffers",
+            "FreeEnvironmentStringsW",
+            "FreeLibrary",
+            "GetACP",
+            "GetCPInfo",
+            "GetCommandLineA",
+            "GetCommandLineW",
+            "GetConsoleMode",
+            "GetConsoleOutputCP",
+            "GetCurrentProcess",
+            "GetCurrentProcessId",
+            "GetCurrentThreadId",
+            "GetEnvironmentStringsW",
+            "GetFileType",
+            "GetFirmwareEnvironmentVariableW",
+            "GetLastError",
+            "GetModuleFileNameW",
+            "GetModuleHandleExW",
+            "GetModuleHandleW",
+            "GetOEMCP",
+            "GetProcAddress",
+            "GetProcessHeap",
+            "GetStartupInfoW",
+            "GetStdHandle",
+            "GetStringTypeW",
+            "GetSystemTimeAsFileTime",
+            "HeapAlloc",
+            "HeapFree",
+            "HeapReAlloc",
+            "HeapSize",
+            "InitializeCriticalSectionAndSpinCount",
+            "InitializeCriticalSectionEx",
+            "InitializeSListHead",
+            "InterlockedFlushSList",
+            "IsDebuggerPresent",
+            "IsProcessorFeaturePresent",
+            "IsValidCodePage",
+            "LCMapStringW",
+            "LeaveCriticalSection",
+            "LoadLibraryExW",
+            "LoadLibraryW",
+            "MultiByteToWideChar",
+            "QueryPerformanceCounter",
+            "RaiseException",
+            "RtlCaptureContext",
+            "RtlLookupFunctionEntry",
+            "RtlPcToFileHeader",
+            "RtlUnwindEx",
+            "RtlVirtualUnwind",
+            "SetFilePointerEx",
+            "SetLastError",
+            "SetStdHandle",
+            "SetUnhandledExceptionFilter",
+            "TerminateProcess",
+            "TlsAlloc",
+            "TlsFree",
+            "TlsGetValue",
+            "TlsSetValue",
+            "UnhandledExceptionFilter",
+            "VirtualProtect",
+            "WideCharToMultiByte",
+            "WriteConsoleW",
+            "WriteFile"
+          ],
+          "OLEAUT32.dll": [
+            "SafeArrayGetElement",
+            "SafeArrayGetLBound",
+            "SafeArrayGetUBound",
+            "SysAllocString",
+            "SysFreeString",
+            "VariantClear",
+            "VariantInit"
+          ],
+          "tbs.dll": [
+            "Tbsi_Context_Create",
+            "Tbsi_GetDeviceInfo",
+            "Tbsi_Get_TCG_Log",
+            "Tbsi_Get_TCG_Log_Ex",
+            "Tbsip_Context_Close",
+            "Tbsip_Submit_Command"
+          ],
+          "ntdll.dll": [
+            "NtQuerySystemInformation"
+          ],
+          "ncrypt.dll": [
+            "NCryptFreeObject",
+            "NCryptGetProperty",
+            "NCryptOpenKey",
+            "NCryptOpenStorageProvider"
+          ],
+          "CRYPT32.dll": [
+            "CryptBinaryToStringA"
+          ]
+        },
+        "exports": [
+          {
+            "name": "SecureAttestationGetDiagnosticInfo",
+            "rva": 36160,
+            "file_offset": 33088
+          },
+          {
+            "name": "SecureAttestationReadinessVerify",
+            "rva": 31328,
+            "file_offset": 28256
+          }
+        ],
+        "pdb_paths": [
+          {
+            "file_offset": 184052,
+            "path": "E:\\rex_release\\code\\common\\libs\\SecureAttestation\\..\\..\\..\\CodeOutput\\bin\\MSBuild\\SecureAttestation\\Win64\\ToolRelease\\SecureAttestation.pdb"
+          }
+        ],
+        "certificate_table_present": false,
+        "embedded_certificate_subjects": [],
+        "authenticode_signature_verified": false
+      },
+      "literals": [
+        {
+          "text": "AIK_CERT_PRESENT",
+          "encoding": "ascii",
+          "file_offset": 171138
+        },
+        {
+          "text": "AIK_KEY_EXISTS",
+          "encoding": "ascii",
+          "file_offset": 171224
+        },
+        {
+          "text": "ActivisionAIK",
+          "encoding": "utf-16le",
+          "file_offset": 173298
+        },
+        {
+          "text": "COD.Broker.Service",
+          "encoding": "utf-16le",
+          "file_offset": 172752
+        },
+        {
+          "text": "HARDWARE\\DESCRIPTION\\System\\BIOS",
+          "encoding": "utf-16le",
+          "file_offset": 173140
+        },
+        {
+          "text": "PCP_TPM_FW_VERSION",
+          "encoding": "utf-16le",
+          "file_offset": 173206
+        },
+        {
+          "text": "PCP_TPM_MANUFACTURER_ID",
+          "encoding": "utf-16le",
+          "file_offset": 173380
+        },
+        {
+          "text": "TCG_LOG_PRESENT",
+          "encoding": "ascii",
+          "file_offset": 171179
+        },
+        {
+          "text": "TPM2_PRESENT",
+          "encoding": "ascii",
+          "file_offset": 171195
+        },
+        {
+          "text": "UEFI_BIOS_MODE",
+          "encoding": "ascii",
+          "file_offset": 171358
+        }
+      ]
+    },
+    "version.json": {
+      "sha256": "eeaa4a5fcd93deb394a2f483331653404e960c70668b6051a19e8a2d92e3d4ff",
+      "bytes": 97,
+      "bundle_entry": {
+        "path": "version.json",
+        "offset": 9991277,
+        "size": 97,
+        "compressed_size": 0,
+        "type": 0
+      },
+      "json": {
+        "Version": {
+          "Major": 1,
+          "Minor": 3,
+          "Bugfix": 0
+        },
+        "Date": "2026-10-21"
+      }
+    },
+    "enrollaik.exe": {
+      "sha256": "01e3b8bd3e4c22f481fba82f1ee225389ea2aa08dbcefde9672142a38e50a4ce",
+      "bytes": 90184,
+      "bundle_entry": {
+        "path": "enrollaik.exe",
+        "offset": 9991374,
+        "size": 90184,
+        "compressed_size": 38182,
+        "type": 2
+      },
+      "pe": {
+        "machine": "0x8664",
+        "subsystem": 2,
+        "pe_timestamp_untrusted": 1792610114,
+        "version_resource": {
+          "CompanyName": "Activision Publishing Inc.",
+          "FileDescription": "EnrollAIK",
+          "FileVersion": "3.0.0.0",
+          "InternalName": "EnrollAIK.exe",
+          "LegalCopyright": "Copyright (C) 2026",
+          "OriginalFilename": "EnrollAIK.exe",
+          "ProductName": "EnrollAIK",
+          "ProductVersion": "3.0.0.0"
+        },
+        "imports": {
+          "KERNEL32.dll": [
+            "CloseHandle",
+            "CreatePipe",
+            "CreateProcessA",
+            "GetCurrentProcess",
+            "GetCurrentProcessId",
+            "GetCurrentThreadId",
+            "GetExitCodeProcess",
+            "GetLastError",
+            "GetModuleHandleW",
+            "GetStartupInfoW",
+            "GetSystemTimeAsFileTime",
+            "GetTickCount64",
+            "InitializeSListHead",
+            "IsDebuggerPresent",
+            "IsProcessorFeaturePresent",
+            "LocalFree",
+            "QueryPerformanceCounter",
+            "ReadFile",
+            "RtlCaptureContext",
+            "RtlLookupFunctionEntry",
+            "RtlVirtualUnwind",
+            "SetHandleInformation",
+            "SetUnhandledExceptionFilter",
+            "Sleep",
+            "TerminateProcess",
+            "UnhandledExceptionFilter",
+            "WaitForSingleObject"
+          ],
+          "USER32.dll": [
+            "CreateWindowExW",
+            "DefWindowProcW",
+            "DispatchMessageW",
+            "GetMessageW",
+            "PostQuitMessage",
+            "RegisterClassW",
+            "TranslateMessage"
+          ],
+          "ADVAPI32.dll": [
+            "ConvertStringSidToSidA",
+            "GetNamedSecurityInfoA",
+            "GetTokenInformation",
+            "OpenProcessToken",
+            "SetEntriesInAclA",
+            "SetNamedSecurityInfoA"
+          ],
+          "SHELL32.dll": [
+            "ShellExecuteExW"
+          ],
+          "MSVCP140.dll": [
+            "??0?$basic_ios@DU?$char_traits@D@std@@@std@@IEAA@XZ",
+            "??0?$basic_istream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z",
+            "??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAA@XZ",
+            "??1?$basic_ios@DU?$char_traits@D@std@@@std@@UEAA@XZ",
+            "??1?$basic_istream@DU?$char_traits@D@std@@@std@@UEAA@XZ",
+            "??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAA@XZ",
+            "??Bios_base@std@@QEBA_NXZ",
+            "?_Ipfx@?$basic_istream@DU?$char_traits@D@std@@@std@@QEAA_N_N@Z",
+            "?_Lock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ",
+            "?_Unlock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ",
+            "?_Xbad_alloc@std@@YAXXZ",
+            "?_Xlength_error@std@@YAXPEBD@Z",
+            "?_Xout_of_range@std@@YAXPEBD@Z",
+            "?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAXAEBVlocale@2@@Z",
+            "?sbumpc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHXZ",
+            "?setbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAPEAV12@PEAD_J@Z",
+            "?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z",
+            "?sgetc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHXZ",
+            "?showmanyc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JXZ",
+            "?snextc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHXZ",
+            "?sync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ",
+            "?uflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ",
+            "?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADD@Z",
+            "?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z",
+            "?xsputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEBD_J@Z"
+          ],
+          "VCRUNTIME140_1.dll": [
+            "__CxxFrameHandler4"
+          ],
+          "VCRUNTIME140.dll": [
+            "_CxxThrowException",
+            "__C_specific_handler",
+            "__current_exception",
+            "__current_exception_context",
+            "__std_exception_copy",
+            "__std_exception_destroy",
+            "__std_terminate",
+            "memchr",
+            "memcmp",
+            "memcpy",
+            "memmove",
+            "memset"
+          ],
+          "api-ms-win-crt-runtime-l1-1-0.dll": [
+            "_c_exit",
+            "_cexit",
+            "_configure_wide_argv",
+            "_crt_atexit",
+            "_exit",
+            "_get_wide_winmain_command_line",
+            "_initialize_onexit_table",
+            "_initialize_wide_environment",
+            "_initterm",
+            "_initterm_e",
+            "_invalid_parameter_noinfo_noreturn",
+            "_register_onexit_function",
+            "_register_thread_local_exe_atexit_callback",
+            "_seh_filter_exe",
+            "_set_app_type",
+            "exit",
+            "terminate"
+          ],
+          "api-ms-win-crt-heap-l1-1-0.dll": [
+            "_callnewh",
+            "_set_new_mode",
+            "free",
+            "malloc"
+          ],
+          "api-ms-win-crt-math-l1-1-0.dll": [
+            "__setusermatherr"
+          ],
+          "api-ms-win-crt-stdio-l1-1-0.dll": [
+            "__p__commode",
+            "_set_fmode"
+          ],
+          "api-ms-win-crt-locale-l1-1-0.dll": [
+            "_configthreadlocale"
+          ]
+        },
+        "exports": [],
+        "pdb_paths": [
+          {
+            "file_offset": 24840,
+            "path": "C:\\workspace\\nda1\\branches\\master\\qq_runtime\\Valkyrie\\EnrollAIK\\x64\\Release\\EnrollAIK.pdb"
+          }
+        ],
+        "certificate_table_present": true,
+        "embedded_certificate_subjects": [
+          {
+            "subject": "CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1,O=DigiCert\\, Inc.,C=US",
+            "issuer": "CN=DigiCert Trusted Root G4,OU=www.digicert.com,O=DigiCert Inc,C=US"
+          },
+          {
+            "subject": "CN=Activision Publishing Inc,O=Activision Publishing Inc,L=SANTA MONICA,ST=CALIFORNIA,C=US,2.5.4.5=2256184,2.5.4.15=Private Organization,1.3.6.1.4.1.311.60.2.1.2=Delaware,1.3.6.1.4.1.311.60.2.1.3=US",
+            "issuer": "CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1,O=DigiCert\\, Inc.,C=US"
+          }
+        ],
+        "authenticode_signature_verified": false
+      },
+      "literals": [
+        {
+          "text": "ActivisionAIK",
+          "encoding": "ascii",
+          "file_offset": 22472
+        },
+        {
+          "text": "ActivisionAIK",
+          "encoding": "ascii",
+          "file_offset": 22534
+        },
+        {
+          "text": "EnrollAIKWindowClass",
+          "encoding": "utf-16le",
+          "file_offset": 22600
+        },
+        {
+          "text": "Microsoft\\Crypto\\PCPKSP",
+          "encoding": "ascii",
+          "file_offset": 21800
+        },
+        {
+          "text": "certreq.exe -enrollaik -f -q -machine -config \"\" ",
+          "encoding": "ascii",
+          "file_offset": 22416
+        }
+      ]
+    },
+    "CODSecureAttestationWizard.runtimeconfig.json": {
+      "sha256": "b1632e75f8f2602b302c19c271562658cf3f9c5e6ace16e39cd659ce0f7f0d86",
+      "bytes": 524,
+      "bundle_entry": {
+        "path": "CODSecureAttestationWizard.runtimeconfig.json",
+        "offset": 10029556,
+        "size": 524,
+        "compressed_size": 0,
+        "type": 4
+      },
+      "json": {
+        "runtimeOptions": {
+          "tfm": "net9.0",
+          "includedFrameworks": [
+            {
+              "name": "Microsoft.NETCore.App",
+              "version": "9.0.5"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App",
+              "version": "9.0.5"
+            }
+          ],
+          "configProperties": {
+            "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,
+            "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false,
+            "CSWINRT_USE_WINDOWS_UI_XAML_PROJECTIONS": false
+          }
+        }
+      }
+    },
+    "CODSecureAttestationWizard.dll": {
+      "sha256": "46422603e2231cdb96bc0f167b5de7e234282a91583f4810f33a948d5eb01168",
+      "bytes": 450560,
+      "bundle_entry": {
+        "path": "CODSecureAttestationWizard.dll",
+        "offset": 17230198,
+        "size": 450560,
+        "compressed_size": 125464,
+        "type": 1
+      },
+      "pe": {
+        "machine": "0x8664",
+        "subsystem": 2,
+        "pe_timestamp_untrusted": 4048340491,
+        "version_resource": {
+          "FileDescription": "CODSecureAttestationWizard",
+          "FileVersion": "1.0.0.0",
+          "InternalName": "CODSecureAttestationWizard.dll",
+          "LegalCopyright": " ",
+          "OriginalFilename": "CODSecureAttestationWizard.dll",
+          "ProductName": "CODSecureAttestationWizard",
+          "ProductVersion": "1.0.0",
+          "Assembly Version": "1.0.0.0"
+        },
+        "imports": {},
+        "exports": [],
+        "pdb_paths": [],
+        "certificate_table_present": false,
+        "embedded_certificate_subjects": [],
+        "authenticode_signature_verified": false
+      },
+      "managed": {
+        "enums": {
+          "SecureAttestationWizard.Models.Check": {
+            "TPM2_PRESENT": 0,
+            "AMDFW_NEEDS_UPDATE": 1,
+            "SHOULD_TURN_ON_SECURE_BOOT": 2,
+            "CAN_TURN_ON_SECURE_BOOT": 3,
+            "TCG_LOG_PRESENT": 4,
+            "EFI_MEASUREMENT_PRESENT": 5,
+            "GPT_BOOT_PARTITION": 6,
+            "UEFI_BIOS_MODE": 7,
+            "AIK_KEY_EXISTS": 8,
+            "BAD_KEYSET": 9,
+            "AIK_CERT_PRESENT": 10,
+            "COD_BROKER_INSTALLED": 11,
+            "COD_BROKER_DISABLED": 12,
+            "COUNT": 13
+          },
+          "SecureAttestationWizard.Models.CheckCategory": {
+            "TPM": 0,
+            "ATTESTATION": 1,
+            "SECURE_BOOT": 2,
+            "COUNT": 3
+          },
+          "SecureAttestationWizard.Models.Level": {
+            "REQUIRED": 0,
+            "EXPECTED": 1,
+            "INFORMATIONAL": 2,
+            "COUNT": 3
+          }
+        },
+        "check_info_fields": [
+          {
+            "name": "check",
+            "token": "0x4000073",
+            "signature_hex": "061174"
+          },
+          {
+            "name": "checkCategory",
+            "token": "0x4000074",
+            "signature_hex": "061178"
+          },
+          {
+            "name": "value",
+            "token": "0x4000075",
+            "signature_hex": "0602"
+          },
+          {
+            "name": "desiredValue",
+            "token": "0x4000076",
+            "signature_hex": "0602"
+          },
+          {
+            "name": "level",
+            "token": "0x4000077",
+            "signature_hex": "06117c"
+          }
+        ],
+        "pinvokes": [
+          {
+            "module": "shell32.dll",
+            "entry_point": "ShellExecuteEx",
+            "managed_method": "ShellExecuteEx",
+            "token": "0x60000e0"
+          },
+          {
+            "module": "kernel32.dll",
+            "entry_point": "WaitForSingleObject",
+            "managed_method": "WaitForSingleObject",
+            "token": "0x60000e1"
+          },
+          {
+            "module": "kernel32.dll",
+            "entry_point": "GetExitCodeProcess",
+            "managed_method": "GetExitCodeProcess",
+            "token": "0x60000e2"
+          },
+          {
+            "module": "kernel32.dll",
+            "entry_point": "CloseHandle",
+            "managed_method": "CloseHandle",
+            "token": "0x60000e3"
+          },
+          {
+            "module": "kernel32.dll",
+            "entry_point": "TerminateProcess",
+            "managed_method": "TerminateProcess",
+            "token": "0x60000e4"
+          },
+          {
+            "module": "advapi32.dll",
+            "entry_point": "OpenProcessToken",
+            "managed_method": "OpenProcessToken",
+            "token": "0x60000e5"
+          },
+          {
+            "module": "advapi32.dll",
+            "entry_point": "GetTokenInformation",
+            "managed_method": "GetTokenInformation",
+            "token": "0x60000e6"
+          },
+          {
+            "module": "SecureAttestation.dll",
+            "entry_point": "SecureAttestationReadinessVerify",
+            "managed_method": "SecureAttestationReadinessVerify",
+            "token": "0x60000ff"
+          },
+          {
+            "module": "SecureAttestation.dll",
+            "entry_point": "SecureAttestationGetDiagnosticInfo",
+            "managed_method": "SecureAttestationGetDiagnosticInfo",
+            "token": "0x6000100"
+          }
+        ],
+        "selected_methods": [
+          {
+            "owner": "SecureAttestationWizard.Views.ReportCompatibilityIssueView",
+            "name": "GetDiagnosticInfo",
+            "token": "0x6000042",
+            "rva": 363128,
+            "file_offset": 363128,
+            "il_header_size": 12,
+            "il_size": 161,
+            "code_sha256": "bce7579f3060b91acf2a75217985e1d4052ee59c2c6be54ee79079edc0a9811c",
+            "references": [
+              {
+                "il_offset": 8,
+                "opcode": "call",
+                "token": "0x6000100",
+                "target": "SecureAttestationWizard.Models.SecureAttestationNative::SecureAttestationGetDiagnosticInfo"
+              },
+              {
+                "il_offset": 16,
+                "opcode": "call",
+                "token": "0xa000099",
+                "target": "System.UIntPtr::ToUInt64"
+              },
+              {
+                "il_offset": 29,
+                "opcode": "newobj",
+                "token": "0xa00009a",
+                "target": "System.InvalidOperationException::.ctor"
+              },
+              {
+                "il_offset": 49,
+                "opcode": "newobj",
+                "token": "0xa00009a",
+                "target": "System.InvalidOperationException::.ctor"
+              },
+              {
+                "il_offset": 66,
+                "opcode": "call",
+                "token": "0x6000100",
+                "target": "SecureAttestationWizard.Models.SecureAttestationNative::SecureAttestationGetDiagnosticInfo"
+              },
+              {
+                "il_offset": 78,
+                "opcode": "newobj",
+                "token": "0xa00009a",
+                "target": "System.InvalidOperationException::.ctor"
+              },
+              {
+                "il_offset": 86,
+                "opcode": "call",
+                "token": "0xa000099",
+                "target": "System.UIntPtr::ToUInt64"
+              },
+              {
+                "il_offset": 107,
+                "opcode": "newobj",
+                "token": "0xa00009a",
+                "target": "System.InvalidOperationException::.ctor"
+              },
+              {
+                "il_offset": 140,
+                "opcode": "newobj",
+                "token": "0xa00009a",
+                "target": "System.InvalidOperationException::.ctor"
+              },
+              {
+                "il_offset": 146,
+                "opcode": "call",
+                "token": "0xa00009b",
+                "target": "System.Text.Encoding::get_UTF8"
+              },
+              {
+                "il_offset": 155,
+                "opcode": "callvirt",
+                "token": "0xa00009c",
+                "target": "System.Text.Encoding::GetString"
+              }
+            ]
+          },
+          {
+            "owner": "SecureAttestationWizard.Views.ReportCompatibilityIssueView",
+            "name": "BuildCertreqCommandArguments",
+            "token": "0x6000043",
+            "rva": 363304,
+            "file_offset": 363304,
+            "il_header_size": 12,
+            "il_size": 223,
+            "code_sha256": "0b226d38c1af2726e564577e91ef8ccec986449d27ea45351d8152e37c3227ec",
+            "references": [
+              {
+                "il_offset": 52,
+                "opcode": "ldstr",
+                "token": "0x70000b89",
+                "string": "The certreq path cannot be safely passed to cmd.exe."
+              },
+              {
+                "il_offset": 62,
+                "opcode": "newobj",
+                "token": "0xa00009f",
+                "target": "System.ArgumentException::.ctor"
+              },
+              {
+                "il_offset": 120,
+                "opcode": "ldstr",
+                "token": "0x70000c0b",
+                "string": "The certreq output path cannot be safely passed to cmd.exe."
+              },
+              {
+                "il_offset": 130,
+                "opcode": "newobj",
+                "token": "0xa00009f",
+                "target": "System.ArgumentException::.ctor"
+              },
+              {
+                "il_offset": 168,
+                "opcode": "ldstr",
+                "token": "0x70000cab",
+                "string": "\" -enrollaik -f -q -machine -config \"\" > \""
+              },
+              {
+                "il_offset": 206,
+                "opcode": "ldstr",
+                "token": "0x70000d0f",
+                "string": "/d /v:off /s /c \""
+              }
+            ]
+          },
+          {
+            "owner": "SecureAttestationWizard.ViewModels.CheckInfoViewModel",
+            "name": "get_IsPassed",
+            "token": "0x6000061",
+            "rva": 365104,
+            "file_offset": 365104,
+            "il_header_size": 1,
+            "il_size": 15,
+            "code_sha256": "40219afa127f8250afdef06f3fd27af6c059416fbcb56ea8409c686fcc3be109",
+            "references": [
+              {
+                "il_offset": 1,
+                "opcode": "call",
+                "token": "0x600005e",
+                "target": "SecureAttestationWizard.ViewModels.CheckInfoViewModel::get_Value"
+              },
+              {
+                "il_offset": 7,
+                "opcode": "call",
+                "token": "0x600005f",
+                "target": "SecureAttestationWizard.ViewModels.CheckInfoViewModel::get_DesiredValue"
+              },
+              {
+                "il_offset": 12,
+                "opcode": "ceq"
+              }
+            ]
+          },
+          {
+            "owner": "SecureAttestationWizard.ViewModels.CheckInfoViewModel",
+            "name": "StoreAikEnrollmentResult",
+            "token": "0x6000083",
+            "rva": 366924,
+            "file_offset": 366924,
+            "il_header_size": 12,
+            "il_size": 117,
+            "code_sha256": "97ed9f18572ec5bf82ee9f64f75cf94b0dc9e70f7f3334e15c47e7a3fa652750",
+            "references": [
+              {
+                "il_offset": 5,
+                "opcode": "ldstr",
+                "token": "0x70002074",
+                "string": "Software\\Activision\\Call Of Duty"
+              },
+              {
+                "il_offset": 10,
+                "opcode": "callvirt",
+                "token": "0xa0000d4",
+                "target": "Microsoft.Win32.RegistryKey::CreateSubKey"
+              },
+              {
+                "il_offset": 20,
+                "opcode": "ldstr",
+                "token": "0x700020b6",
+                "string": "EnrollAIK"
+              },
+              {
+                "il_offset": 32,
+                "opcode": "callvirt",
+                "token": "0xa0000d5",
+                "target": "Microsoft.Win32.RegistryKey::SetValue"
+              },
+              {
+                "il_offset": 48,
+                "opcode": "ldstr",
+                "token": "0x700020ca",
+                "string": "Stored EnrollAIK result ("
+              },
+              {
+                "il_offset": 85,
+                "opcode": "call",
+                "token": "0x60000db",
+                "target": "SecureAttestationWizard.Utils.Logger::Info"
+              },
+              {
+                "il_offset": 96,
+                "opcode": "callvirt",
+                "token": "0xa000059",
+                "target": "System.IDisposable::Dispose"
+              },
+              {
+                "il_offset": 104,
+                "opcode": "ldstr",
+                "token": "0x7000211c",
+                "string": "Exception writing EnrollAIK result to registry"
+              },
+              {
+                "il_offset": 109,
+                "opcode": "call",
+                "token": "0x60000de",
+                "target": "SecureAttestationWizard.Utils.Logger::Exception"
+              }
+            ]
+          },
+          {
+            "owner": "SecureAttestationWizard.Models.SecureAttestationData",
+            "name": "calculateData",
+            "token": "0x60000fc",
+            "rva": 374712,
+            "file_offset": 374712,
+            "il_header_size": 12,
+            "il_size": 74,
+            "code_sha256": "e3a08b51dca804f1b1a293da894809b458046709054a9904002000bf3a7f47a9",
+            "references": [
+              {
+                "il_offset": 0,
+                "opcode": "ldc.i4.s",
+                "constant": 13
+              },
+              {
+                "il_offset": 2,
+                "opcode": "newarr",
+                "token": "0x2000020",
+                "target": "CheckInfo"
+              },
+              {
+                "il_offset": 17,
+                "opcode": "call",
+                "token": "0x60000ff",
+                "target": "SecureAttestationWizard.Models.SecureAttestationNative::SecureAttestationReadinessVerify"
+              },
+              {
+                "il_offset": 22,
+                "opcode": "newobj",
+                "token": "0xa00014c",
+                "target": ".ctor"
+              },
+              {
+                "il_offset": 48,
+                "opcode": "callvirt",
+                "token": "0xa00014d",
+                "target": "Add"
+              }
+            ]
+          },
+          {
+            "owner": "<CreateDiagnosticFileAsync>d__11",
+            "name": "MoveNext",
+            "token": "0x6000134",
+            "rva": 375776,
+            "file_offset": 375776,
+            "il_header_size": 12,
+            "il_size": 1277,
+            "code_sha256": "f00ebb6d6fc5994a0b44424d71c06fe6fd10012d0a6b0624d55a7934e9e3f896",
+            "references": [
+              {
+                "il_offset": 23,
+                "opcode": "newobj",
+                "token": "0x6000132",
+                "target": "<>c__DisplayClass11_0::.ctor"
+              },
+              {
+                "il_offset": 76,
+                "opcode": "call",
+                "token": "0x60000db",
+                "target": "SecureAttestationWizard.Utils.Logger::Info"
+              },
+              {
+                "il_offset": 97,
+                "opcode": "newobj",
+                "token": "0xa00015d",
+                "target": ".ctor"
+              },
+              {
+                "il_offset": 108,
+                "opcode": "call",
+                "token": "0x2b00002e",
+                "target": "System.Threading.Tasks.Task::Run"
+              },
+              {
+                "il_offset": 122,
+                "opcode": "call",
+                "token": "0xa000160",
+                "target": "get_IsCompleted"
+              },
+              {
+                "il_offset": 196,
+                "opcode": "call",
+                "token": "0xa000162",
+                "target": "GetResult"
+              },
+              {
+                "il_offset": 216,
+                "opcode": "call",
+                "token": "0xa00013c",
+                "target": "System.Environment::GetFolderPath"
+              },
+              {
+                "il_offset": 235,
+                "opcode": "newobj",
+                "token": "0xa00009a",
+                "target": "System.InvalidOperationException::.ctor"
+              },
+              {
+                "il_offset": 253,
+                "opcode": "call",
+                "token": "0x2b000030",
+                "target": "<PrivateImplementationDetails>::InlineArrayElementRef"
+              },
+              {
+                "il_offset": 263,
+                "opcode": "call",
+                "token": "0x2b000030",
+                "target": "<PrivateImplementationDetails>::InlineArrayElementRef"
+              },
+              {
+                "il_offset": 268,
+                "opcode": "ldstr",
+                "token": "0x7000337e",
+                "string": "Activision"
+              },
+              {
+                "il_offset": 277,
+                "opcode": "call",
+                "token": "0x2b000030",
+                "target": "<PrivateImplementationDetails>::InlineArrayElementRef"
+              },
+              {
+                "il_offset": 291,
+                "opcode": "call",
+                "token": "0x2b000030",
+                "target": "<PrivateImplementationDetails>::InlineArrayElementRef"
+              },
+              {
+                "il_offset": 305,
+                "opcode": "call",
+                "token": "0x2b000030",
+                "target": "<PrivateImplementationDetails>::InlineArrayElementRef"
+              },
+              {
+                "il_offset": 333,
+                "opcode": "call",
+                "token": "0xa0000a9",
+                "target": "System.Guid::NewGuid"
+              },
+              {
+                "il_offset": 359,
+                "opcode": "call",
+                "token": "0x2b000031",
+                "target": "<PrivateImplementationDetails>::InlineArrayAsReadOnlySpan"
+              },
+              {
+                "il_offset": 364,
+                "opcode": "call",
+                "token": "0xa000163",
+                "target": "System.IO.Path::Combine"
+              },
+              {
+                "il_offset": 381,
+                "opcode": "ldstr",
+                "token": "0x70000dc5",
+                "string": "certreq_output.txt"
+              },
+              {
+                "il_offset": 386,
+                "opcode": "call",
+                "token": "0xa0000ab",
+                "target": "System.IO.Path::Combine"
+              },
+              {
+                "il_offset": 423,
+                "opcode": "call",
+                "token": "0xa00013e",
+                "target": "System.IO.Directory::CreateDirectory"
+              },
+              {
+                "il_offset": 429,
+                "opcode": "call",
+                "token": "0xa000164",
+                "target": "System.Environment::get_SystemDirectory"
+              },
+              {
+                "il_offset": 434,
+                "opcode": "ldstr",
+                "token": "0x70003852",
+                "string": "certreq.exe"
+              },
+              {
+                "il_offset": 439,
+                "opcode": "call",
+                "token": "0xa0000ab",
+                "target": "System.IO.Path::Combine"
+              },
+              {
+                "il_offset": 446,
+                "opcode": "call",
+                "token": "0xa000164",
+                "target": "System.Environment::get_SystemDirectory"
+              },
+              {
+                "il_offset": 451,
+                "opcode": "ldstr",
+                "token": "0x7000386a",
+                "string": "cmd.exe"
+              },
+              {
+                "il_offset": 456,
+                "opcode": "call",
+                "token": "0xa0000ab",
+                "target": "System.IO.Path::Combine"
+              },
+              {
+                "il_offset": 465,
+                "opcode": "call",
+                "token": "0xa0000b2",
+                "target": "System.IO.File::Exists"
+              },
+              {
+                "il_offset": 472,
+                "opcode": "ldstr",
+                "token": "0x7000387a",
+                "string": "certreq.exe could not be found."
+              },
+              {
+                "il_offset": 479,
+                "opcode": "newobj",
+                "token": "0xa000165",
+                "target": "System.IO.FileNotFoundException::.ctor"
+              },
+              {
+                "il_offset": 487,
+                "opcode": "call",
+                "token": "0xa0000b2",
+                "target": "System.IO.File::Exists"
+              },
+              {
+                "il_offset": 494,
+                "opcode": "ldstr",
+                "token": "0x700038ba",
+                "string": "cmd.exe could not be found."
+              },
+              {
+                "il_offset": 501,
+                "opcode": "newobj",
+                "token": "0xa000165",
+                "target": "System.IO.FileNotFoundException::.ctor"
+              },
+              {
+                "il_offset": 507,
+                "opcode": "call",
+                "token": "0xa00005a",
+                "target": "System.Windows.Application::get_Current"
+              },
+              {
+                "il_offset": 519,
+                "opcode": "call",
+                "token": "0xa000166",
+                "target": "System.Windows.Application::get_MainWindow"
+              },
+              {
+                "il_offset": 539,
+                "opcode": "newobj",
+                "token": "0xa000168",
+                "target": "System.Windows.Interop.WindowInteropHelper::.ctor"
+              },
+              {
+                "il_offset": 544,
+                "opcode": "call",
+                "token": "0xa000169",
+                "target": "System.Windows.Interop.WindowInteropHelper::get_Handle"
+              },
+              {
+                "il_offset": 559,
+                "opcode": "call",
+                "token": "0x6000043",
+                "target": "SecureAttestationWizard.Views.ReportCompatibilityIssueView::BuildCertreqCommandArguments"
+              },
+              {
+                "il_offset": 566,
+                "opcode": "ldstr",
+                "token": "0x700038f2",
+                "string": "Starting elevated certreq.exe with output redirected to '"
+              },
+              {
+                "il_offset": 587,
+                "opcode": "call",
+                "token": "0x60000db",
+                "target": "SecureAttestationWizard.Utils.Logger::Info"
+              },
+              {
+                "il_offset": 604,
+                "opcode": "call",
+                "token": "0x60000e9",
+                "target": "SecureAttestationWizard.Utils.ShellExecuteHelper::RunElevatedAsync"
+              },
+              {
+                "il_offset": 618,
+                "opcode": "call",
+                "token": "0xa00016b",
+                "target": "get_IsCompleted"
+              },
+              {
+                "il_offset": 692,
+                "opcode": "call",
+                "token": "0xa00016c",
+                "target": "GetResult"
+              },
+              {
+                "il_offset": 713,
+                "opcode": "call",
+                "token": "0xa0000b2",
+                "target": "System.IO.File::Exists"
+              },
+              {
+                "il_offset": 720,
+                "opcode": "ldstr",
+                "token": "0x70003966",
+                "string": "certreq.exe output was not captured at '"
+              },
+              {
+                "il_offset": 741,
+                "opcode": "call",
+                "token": "0x60000dc",
+                "target": "SecureAttestationWizard.Utils.Logger::Warning"
+              },
+              {
+                "il_offset": 752,
+                "opcode": "call",
+                "token": "0xa0000b2",
+                "target": "System.IO.File::Exists"
+              },
+              {
+                "il_offset": 775,
+                "opcode": "call",
+                "token": "0xa00016d",
+                "target": "System.IO.File::ReadAllBytesAsync"
+              },
+              {
+                "il_offset": 789,
+                "opcode": "call",
+                "token": "0xa00016f",
+                "target": "get_IsCompleted"
+              },
+              {
+                "il_offset": 863,
+                "opcode": "call",
+                "token": "0xa000170",
+                "target": "GetResult"
+              },
+              {
+                "il_offset": 872,
+                "opcode": "call",
+                "token": "0x2b000034",
+                "target": "System.Array::Empty"
+              },
+              {
+                "il_offset": 904,
+                "opcode": "ldstr",
+                "token": "0x700039b8",
+                "string": "certreq.exe exited with code "
+              },
+              {
+                "il_offset": 946,
+                "opcode": "call",
+                "token": "0x60000db",
+                "target": "SecureAttestationWizard.Utils.Logger::Info"
+              },
+              {
+                "il_offset": 971,
+                "opcode": "ldstr",
+                "token": "0x700039f4",
+                "string": "certreq.exe returned a non-zero exit code: "
+              },
+              {
+                "il_offset": 1013,
+                "opcode": "call",
+                "token": "0x60000dc",
+                "target": "SecureAttestationWizard.Utils.Logger::Warning"
+              },
+              {
+                "il_offset": 1030,
+                "opcode": "newobj",
+                "token": "0xa000040",
+                "target": "System.Action::.ctor"
+              },
+              {
+                "il_offset": 1035,
+                "opcode": "call",
+                "token": "0xa000171",
+                "target": "System.Threading.Tasks.Task::Run"
+              },
+              {
+                "il_offset": 1154,
+                "opcode": "call",
+                "token": "0x60000db",
+                "target": "SecureAttestationWizard.Utils.Logger::Info"
+              },
+              {
+                "il_offset": 1171,
+                "opcode": "call",
+                "token": "0x6000046",
+                "target": "SecureAttestationWizard.Views.ReportCompatibilityIssueView::DeleteTemporaryFile"
+              },
+              {
+                "il_offset": 1182,
+                "opcode": "call",
+                "token": "0x6000047",
+                "target": "SecureAttestationWizard.Views.ReportCompatibilityIssueView::DeleteTemporaryDirectory"
+              }
+            ]
+          },
+          {
+            "owner": "<GenerateAikKey>d__71",
+            "name": "MoveNext",
+            "token": "0x600013d",
+            "rva": 377732,
+            "file_offset": 377732,
+            "il_header_size": 12,
+            "il_size": 308,
+            "code_sha256": "53737517e94e8cbdf54a7ace3a0966182bf8c5f494a73e7c765d24efb52056f3",
+            "references": [
+              {
+                "il_offset": 13,
+                "opcode": "call",
+                "token": "0xa000188",
+                "target": "System.AppContext::get_BaseDirectory"
+              },
+              {
+                "il_offset": 18,
+                "opcode": "ldstr",
+                "token": "0x70003b56",
+                "string": "enrollaik.exe"
+              },
+              {
+                "il_offset": 23,
+                "opcode": "call",
+                "token": "0xa0000ab",
+                "target": "System.IO.Path::Combine"
+              },
+              {
+                "il_offset": 30,
+                "opcode": "call",
+                "token": "0xa0000b2",
+                "target": "System.IO.File::Exists"
+              },
+              {
+                "il_offset": 37,
+                "opcode": "ldstr",
+                "token": "0x70003b72",
+                "string": "enrollaik.exe could not be found."
+              },
+              {
+                "il_offset": 43,
+                "opcode": "newobj",
+                "token": "0xa000165",
+                "target": "System.IO.FileNotFoundException::.ctor"
+              },
+              {
+                "il_offset": 49,
+                "opcode": "call",
+                "token": "0xa00005a",
+                "target": "System.Windows.Application::get_Current"
+              },
+              {
+                "il_offset": 61,
+                "opcode": "call",
+                "token": "0xa000166",
+                "target": "System.Windows.Application::get_MainWindow"
+              },
+              {
+                "il_offset": 81,
+                "opcode": "newobj",
+                "token": "0xa000168",
+                "target": "System.Windows.Interop.WindowInteropHelper::.ctor"
+              },
+              {
+                "il_offset": 86,
+                "opcode": "call",
+                "token": "0xa000169",
+                "target": "System.Windows.Interop.WindowInteropHelper::get_Handle"
+              },
+              {
+                "il_offset": 103,
+                "opcode": "call",
+                "token": "0x60000db",
+                "target": "SecureAttestationWizard.Utils.Logger::Info"
+              },
+              {
+                "il_offset": 112,
+                "opcode": "call",
+                "token": "0x60000e9",
+                "target": "SecureAttestationWizard.Utils.ShellExecuteHelper::RunElevatedAsync"
+              },
+              {
+                "il_offset": 126,
+                "opcode": "call",
+                "token": "0xa00016b",
+                "target": "get_IsCompleted"
+              },
+              {
+                "il_offset": 159,
+                "opcode": "call",
+                "token": "0x2b000037",
+                "target": "AwaitUnsafeOnCompleted"
+              },
+              {
+                "il_offset": 200,
+                "opcode": "call",
+                "token": "0xa00016c",
+                "target": "GetResult"
+              },
+              {
+                "il_offset": 245,
+                "opcode": "call",
+                "token": "0x60000db",
+                "target": "SecureAttestationWizard.Utils.Logger::Info"
+              },
+              {
+                "il_offset": 252,
+                "opcode": "call",
+                "token": "0x6000083",
+                "target": "SecureAttestationWizard.ViewModels.CheckInfoViewModel::StoreAikEnrollmentResult"
+              },
+              {
+                "il_offset": 280,
+                "opcode": "call",
+                "token": "0xa00018a",
+                "target": "SetException"
+              },
+              {
+                "il_offset": 302,
+                "opcode": "call",
+                "token": "0xa00018b",
+                "target": "SetResult"
+              }
+            ]
+          }
+        ],
+        "offsets": "File offsets refer to the decompressed component; IL offsets start at the method instruction stream."
+      }
+    }
+  },
+  "analyst_packages": {
+    "pefile": "2024.8.26",
+    "dnfile": "0.18.0",
+    "dncil": "1.0.2",
+    "cryptography": "50.0.0"
+  },
+  "limits": [
+    "Diagnostic utility only; not the RICOCHET kernel driver or current game client.",
+    "Imports and strings establish file contents, not execution frequency or detection policy.",
+    "Certificate subjects are metadata; signature, chain, timestamp and revocation were not verified.",
+    "PE timestamps/version resources do not establish publication dates."
+  ]
+}

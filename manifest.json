@@ -1,11 +1,11 @@
 {
   "schema_version": "1.1.0",
-  "revision": 5,
+  "revision": 6,
   "researched_on": "2026-10-31",
   "sources": 64,
   "claims": 197,
   "bytes": 138382,
-  "sha256": "bffa8ae47c59b1b55be83ef73d7623e5ed6c808ac33bc1ff69ced7d882139d5d",
+  "sha256": "436421549019e4af7257bde3c962dfdd75ad673100ffc63f36712ea3a2cd6aeb",
   "topics": {
     "account_security": 5,
     "appeals": 2,

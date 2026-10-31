@@ -1,5 +1,25 @@
 # Validation record
 
+Revision 6, reviewed on 2026-10-31:
+
+- The core remains 197 statements from 64 sources; its metadata revision is 6.
+- The focused technical file has 104 records: one metadata record, 29 sources (including one diagnostic artifact), 58 core entries and 16 static observations.
+- Both datasets pass their JSON Schemas. Core citations/paragraphs/index and focused citations/report pointers/build hashes pass integrity checks.
+- Technical query cases cover observation IDs, status/topic filters, citation closure, subset counts, empty matches and invalid inputs.
+- Twelve format/malformed-input checks pass for the read-only bundle parser, including truncation, traversal, duplicate/missing entries, size bounds, DEFLATE overexpansion and archive hash rejection.
+- The official ZIP was downloaded again through the checked-in fetcher and matched the reviewed SHA-256. A fresh virtual environment installed the pinned requirements and reproduced the static report byte for byte.
+- Certificate metadata was parsed; signature trust was not verified. No contained Windows code, game, enrollment command or kernel driver was executed.
+
+~~~sh
+python tools/build_index.py
+python tools/build_technical.py
+python tools/validate.py
+python tools/validate_technical.py
+python tools/test_static_inspector.py
+~~~
+
+See [MW4_WARZONE_TECHNICAL.md](MW4_WARZONE_TECHNICAL.md) for the artifact reproduction commands. Dedicated artifact parsers require the optional pinned packages; normal queries and integrity checks use standard Python.
+
 Revision 5, reviewed on 2026-10-31:
 
 - 262 core records: one metadata record, 64 sources, and 197 supported entries.

@@ -1,6 +1,6 @@
 {
   "knowledge_file": "ricochet.jsonl",
-  "sha256": "bffa8ae47c59b1b55be83ef73d7623e5ed6c808ac33bc1ff69ced7d882139d5d",
+  "sha256": "436421549019e4af7257bde3c962dfdd75ad673100ffc63f36712ea3a2cd6aeb",
   "offset_unit": "UTF-8 bytes; zero-based; length includes newline",
   "topics": {
     "account_security": [

@@ -12,7 +12,7 @@ def main():
     p.add_argument('--file', type=Path, default=ROOT / 'ricochet.jsonl')
     p.add_argument('--topic', action='append', default=[], help='Exact topic; repeat for OR')
     p.add_argument('--status', action='append', default=[], help='Exact status; repeat for OR')
-    p.add_argument('--id', action='append', default=[], help='Claim ID; repeat for OR')
+    p.add_argument('--id', action='append', default=[], help='Claim/observation ID; repeat for OR')
     p.add_argument('--search', default='', help='Case-insensitive substring in claim text/scope')
     p.add_argument('--limit', type=int, help='Maximum directly matched claims; dependencies are additional')
     a = p.parse_args()
@@ -47,6 +47,11 @@ def main():
     meta.update(subset=True, parent_sha256=hashlib.sha256(raw).hexdigest(),
                 matched_claim_ids=[c['id'] for c in matches],
                 claim_count=len(selected), source_count=len(used))
+    if meta['schema_version']=='mw4-warzone-technical-1.0':
+        static_count=sum(claims[id]['status']=='static_observation' for id in selected)
+        meta.update(core_claim_count=len(selected)-static_count,
+                    static_observation_count=static_count,
+                    artifact_source_count=sum(sources[id]['kind']=='vendor_diagnostic_artifact' for id in used))
     emit = [meta] + [s for id,s in sources.items() if id in used] + [c for id,c in claims.items() if id in selected]
     for item in emit:
         print(json.dumps(item,ensure_ascii=False,separators=(',',':')))

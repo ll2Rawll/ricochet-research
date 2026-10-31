@@ -1,5 +1,7 @@
 # Reading map
 
+For the new MW4/Warzone code focus, start with [MW4_WARZONE_TECHNICAL.md](MW4_WARZONE_TECHNICAL.md) and [technical/mw4-warzone.jsonl](technical/mw4-warzone.jsonl). T001–T016 describe the hash-identified public diagnostic utility; C IDs retain the core evidence labels and dates.
+
 Use these IDs in [ricochet.jsonl](ricochet.jsonl). Every retained entry contains a primary-text locator and scope. This is a navigation aid, not a reverse-engineered protocol.
 
 | Area | Main-file entries | Evidence boundary |
