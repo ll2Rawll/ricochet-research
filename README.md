@@ -6,15 +6,15 @@
 
 Kernel integration · boot trust · attestation · server protections · public code evidence
 
-[Overview](#overview) · [Kernel](#kernel-component) · [Kernel APIs](#kernel-interfaces--public-driver-code) · [Attestation](#boot-trust--attestation) · [Code findings](#inspected-code) · [Servers](#server-protections) · [Unlocks & mods](#unlocks--modding-scope) · [Full catalogue](#complete-research-catalogue) · [Sources](#sources)
+[Overview](#overview) · [Bypass-related evidence](#bypass-related-evidence) · [Kernel](#kernel-component) · [Kernel APIs](#kernel-interfaces--public-driver-code) · [Attestation](#boot-trust--attestation) · [Code findings](#inspected-code) · [Servers](#server-protections) · [Unlocks & mods](#unlocks--modding-scope) · [Full catalogue](#complete-research-catalogue) · [Sources](#sources)
 
 </div>
 
 ---
 
 **Reviewed:** October 31, 2026<br>
-**Coverage:** 229 source-supported findings + 16 reproduced static observations<br>
-**References:** 81 cited sources + 1 inspected official diagnostic artifact
+**Coverage:** 250 source-supported findings + 16 reproduced static observations<br>
+**References:** 87 cited sources + 1 inspected official diagnostic artifact
 
 For AI ingestion, use **[ricochet.jsonl](ricochet.jsonl)**. It contains the same research in compact, self-contained records with source IDs, dates, scope, evidence labels and artifact metadata. This page is the human reading edition.
 
@@ -40,6 +40,39 @@ flowchart LR
     B["TPM + boot-state attestation"] --> A["Access / matchmaking checks"]
     E --> O["Mitigations / enforcement"]
 ```
+
+## Bypass-related evidence
+
+This online-source pass adds **21 findings** about documented vulnerability history, exploit closures and security boundaries. Statements remain attributed and tied to their affected products and dates.
+
+### A documented attestation spoofing flaw
+
+**CVE-2026-45642** is a Microsoft-assigned Azure Attestation / Device Health Attestation spoofing vulnerability, published June 9, 2026. Microsoft's CVSS assessment is **3.9 / Low**, with a **physical** attack vector and **high** required privileges. The record concerns attestation services; it does not identify a Randgrid driver bug or demonstrate a current MW4 unlock/menu bypass. **C286–C287.**[^S84]
+
+Microsoft's advisory states that a **service-side fix was deployed** and requires no customer OS patch installation for that fix. It also provides separate guidance for attestation-policy owners: **C288–C291.**[^S85]
+
+| Advisory detail | Confirmed scope |
+| --- | --- |
+| `EV_EFI_VARIABLE_AUTHORITY` and `EV_EFI_BOOT_SERVICES_APPLICATION` | Microsoft says these event types must not be trusted for security assertions. |
+| `allEvents` | The same event types may remain available for diagnostics; their presence does not supply an integrity guarantee. |
+| Policy version `1.2` | The FAQ says customers already using the recommended version need no action; policies relying on the named events may require changes. |
+
+These are service/policy-owner distinctions, not instructions to change a player's local game settings. The visible June 10 CallofDutyCM response also says Microsoft fixed the issue under discussion and retains MAA as a RICOCHET component. **C292.**[^S86]
+
+### Unlock-all history and evasion-related statements
+
+| Subject | What the primary source actually establishes | Scope |
+| --- | --- | --- |
+| Earlier unlock-all exploits | Activision's December 2025 update says they had been shut down and describes a shift to paid boosting/botting. | Historical BO7/Warzone vendor report; no exploit implementation or perpetual protection claim. |
+| Persistent content | The same report describes boosted content persisting between matches. | Progression-state observation reported by the vendor. |
+| Spoofers / evasion services | The September 2026 report links technical/behavioral detections, MAA and improved hardware bans to its response. | No disclosed hardware-identity formula or evasion algorithm. |
+| DMA / IOMMU | Andrews' official AMA prioritizes DMA and describes IOMMU as an option under assessment. | An assessment statement, not a current enforcement audit. |
+| MW4 client information | Andrews credits studios/Demonware with moving sensitive data out of the client and continuing that direction. | Architectural direction, not a recovered game call graph. |
+| A telemetry outage | February 2024 patch notes describe maintenance on one telemetry system while RICOCHET remained active. | Historical MWIII/Warzone statement. |
+
+See **C275–C285, C293–C295** for the exact findings and scope. The AMA's refusal to disclose driver internals does not validate the routine lists suggested by other commenters. Its answers also explain internal red teaming and enforcement timing. Only official answers are included.[^S22][^S26][^S33][^S87]
+
+MW4's beta notes separately acknowledge that firmware, hardware or OS issues can prevent MAA success after TPM/Secure Boot setup. This documents a compatibility boundary, not a bypass. **C295.**[^S88]
 
 ## Kernel component
 
@@ -537,6 +570,35 @@ Every finding in the AI edition appears below. Expand a topic to read its dates,
 
 </details>
 
+<details>
+<summary><strong>Bypass-related primary evidence: attestation CVE, unlock history and official answers</strong> · 21 findings</summary>
+
+| ID | Date / scope | Finding | Evidence |
+| --- | --- | --- | --- |
+| <a id="c275"></a>**C275** | 2025-12-04<br><sub>BO7/Warzone vendor report; historical exploit closure</sub> | The December 2025 report states that earlier unlock-all exploits had been shut down; it provides no current working bypass or exploit implementation. | **V** [^S22] |
+| <a id="c276"></a>**C276** | 2025-12-04<br><sub>Published shift in cheating services, not an unlock recipe</sub> | Activision describes a subsequent pivot from instant gear unlocks to paid boosting/botting and artificial account leveling for resale. | **V** [^S22] |
+| <a id="c277"></a>**C277** | 2025-12-04<br><sub>Vendor-described progression persistence</sub> | The same report says illicitly earned content from boosting persists in inventory between matches. | **V** [^S22] |
+| <a id="c278"></a>**C278** | 2026-09-18<br><sub>Vendor-described response to spoofers/evasion services</sub> | Activision links technical/behavioral detections, Microsoft Azure Attestation and improved hardware bans to its response to spoofers and evasion services. | **V** [^S26] |
+| <a id="c279"></a>**C279** | 2026-10-31<br><sub>Official AMA assessment statement; not a present-enforcement audit</sub> | Andrews identifies DMA as a priority and describes IOMMU/other Windows protections as options under assessment, without announcing a universal requirement. | **V** [^S33] |
+| <a id="c280"></a>**C280** | 2026-10-31<br><sub>Official AMA; MW4-related direction, not a recovered call graph</sub> | Andrews credits studios and Demonware with moving sensitive information out of the client and describes continuing that direction around MW4. | **V** [^S33] |
+| <a id="c281"></a>**C281** | 2026-10-31<br><sub>Official AMA explanation of enforcement timing</sub> | Andrews says ban timing can limit feedback to cheat developers; tactical waves may prolong cheat downtime alongside normal rapid enforcement. | **V** [^S33] |
+| <a id="c282"></a>**C282** | 2026-10-31<br><sub>Official AMA, attributed use of AI and behavioral signals</sub> | Andrews distinguishes AI-assisted workflows from enforcement decisions and describes behavioral detection as one signal among multiple evidence sources. | **V** [^S33] |
+| <a id="c283"></a>**C283** | 2026-10-31<br><sub>Official AMA response; community API lists remain unverified</sub> | Andrews declines to disclose specific driver capabilities or source code. The reply does not verify the questioner’s proposed Randgrid routine list. | **V** [^S33] |
+| <a id="c284"></a>**C284** | 2026-10-31<br><sub>Official AMA account of internal research</sub> | Andrews describes red teaming the client/services and reverse engineering cheats as core RICOCHET research activities. | **V** [^S33] |
+| <a id="c285"></a>**C285** | 2026-10-31<br><sub>Official AMA, conditional future direction only</sub> | Andrews describes Microsoft collaboration and conditional interest in meeting security needs without a kernel driver; he does not announce its removal. | **V** [^S33] |
+| <a id="c286"></a>**C286** | 2026-06-09<br><sub>Microsoft-assigned platform CVE; not a game-specific exploit demonstration</sub> | CVE-2026-45642 records an input-validation spoofing flaw in Azure Attestation/Device Health Attestation involving an authorized physical attacker. | **P** [^S84] |
+| <a id="c287"></a>**C287** | 2026-10-31<br><sub>Microsoft CNA CVSS assessment as retrieved</sub> | Microsoft assigns CVSS 3.1 base severity Low, score 3.9, physical attack vector and high required privileges to CVE-2026-45642. | **P** [^S84] |
+| <a id="c288"></a>**C288** | 2026-10-31<br><sub>Microsoft CVE FAQ; service fix, not a universal game-security claim</sub> | Microsoft states that an Azure Attestation service-side fix was already deployed, requiring no customer OS patch installation for that service fix. | **P** [^S85] |
+| <a id="c289"></a>**C289** | 2026-10-31<br><sub>Microsoft guidance for attestation-policy owners</sub> | The advisory excludes EV_EFI_VARIABLE_AUTHORITY and EV_EFI_BOOT_SERVICES_APPLICATION as trustworthy security-assertion inputs and directs policies to stop relying on them. | **P** [^S85] |
+| <a id="c290"></a>**C290** | 2026-10-31<br><sub>Microsoft guidance; the two named event types only</sub> | Those event types may remain in allEvents for diagnostics, but Microsoft does not guarantee their integrity or trustworthiness. | **P** [^S85] |
+| <a id="c291"></a>**C291** | 2026-10-31<br><sub>Microsoft advisory policy guidance; not RICOCHET policy identification</sub> | The FAQ says no action is required for customers already using recommended attestation policy version 1.2; other policies may need changes. | **P** [^S85] |
+| <a id="c292"></a>**C292** | 2026-06-10<br><sub>Visible official response; truncated publisher text only</sub> | CallofDutyCM states Microsoft had fixed the issue under discussion and retains Azure Attestation as a RICOCHET component. | **V** [^S86] |
+| <a id="c293"></a>**C293** | 2024-02-21<br><sub>Historical MWIII/Warzone official security update</sub> | Activision says one telemetry system was temporarily offline for upgrades, while RICOCHET itself remained active despite contrary cheat-developer claims. | **V** [^S87] |
+| <a id="c294"></a>**C294** | 2024-02-21<br><sub>Historical MWIII/Warzone game-code hardening</sub> | The February 21 security entry records disabling game code for limited-time perks, with super speed as its example. | **V** [^S87] |
+| <a id="c295"></a>**C295** | 2026-09-01<br><sub>MW4 beta compatibility acknowledgement; not current failure prevalence</sub> | MW4 beta notes acknowledge firmware, hardware or OS problems that can prevent Azure Attestation success even after players complete TPM/Secure Boot setup. | **V** [^S88] |
+
+</details>
+
 ## Sources
 
 All sources were accessed/reviewed on October 31, 2026. Publication/update dates are retained where established. Source IDs match the AI edition; A01 identifies the inspected diagnostic package.
@@ -704,3 +766,15 @@ All sources were accessed/reviewed on October 31, 2026. Publication/update dates
 [^S82]: **S82** — [Process security and access rights](https://learn.microsoft.com/en-us/windows/win32/procthread/process-security-and-access-rights). 2025-07-14. Windows process permissions, not game entitlement permissions.
 
 [^S83]: **S83** — [MmGetSystemRoutineAddress](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-mmgetsystemroutineaddress). 2024-02-22. Documented runtime export resolution; not proof RICOCHET invokes it.
+
+[^S33]: **S33** — [David Andrews: official RICOCHET AMA answers](https://www.reddit.com/r/CallOfDuty/comments/1wdl9o3/cod_ricochet_anticheat_ama/). exact publication date not established. Only answers attributed to u/RICOCHETcm are used. Earlier direct retrieval was blocked; the web-rendered primary text is now available. Exact posting date was not established. Community assertions/API lists are not adopted as facts.
+
+[^S84]: **S84** — [Microsoft CNA record: CVE-2026-45642](https://www.cve.org/CVERecord?id=CVE-2026-45642). 2026-06-09. Retrieved through the CVE program JSON API. NVD was cross-checked; its cited metrics originate from Microsoft. This is an attestation-service record, not a verified Randgrid.sys vulnerability.
+
+[^S85]: **S85** — [Microsoft CVRF advisory: CVE-2026-45642 FAQ](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-45642). 2026-06-09. The browser page requires JavaScript; the official Microsoft CVRF API supplied the readable advisory. FAQ policy guidance is recorded as retrieved on 2026-10-31. A service-side fix and relying-party policy review are distinct actions.
+
+[^S86]: **S86** — [CallofDutyCM response to attestation bypass discussion](https://x.com/CallofDutyCM/status/2064581708259987841). 2026-06-10. Only the visible fix statement and MAA-component clause are used. The truncated tail is not reconstructed from news coverage.
+
+[^S87]: **S87** — [MWIII Season 2 patch notes: February 21 security entry](https://www.callofduty.com/patchnotes/2024/02/call-of-duty-modern-warfare-iii-season-2-patch-notes). exact publication date not established. Historical MWIII/Warzone telemetry and game-code changes. These notes do not certify current MW4 behavior.
+
+[^S88]: **S88** — [MW4 beta patch notes: Windows Secure Attestation](https://www.callofduty.com/patchnotes/2026/08/call-of-duty-modern-warfare-4-beta-patch-notes). 2026-09-01. Living beta notes last updated September 1. The entry acknowledges firmware/hardware/OS compatibility problems; it does not disclose an attestation bypass or identify current affected machines.
