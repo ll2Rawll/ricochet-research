@@ -1,3 +1,5 @@
+> **Implementation branch:** [Run and explore the independent reference source](reference/README.md). The code demonstrates public architecture concepts; it is not recovered RICOCHET code or an MW4-compatible replacement. [Open the research-only main branch](https://github.com/ll2Rawll/ricochet-research/tree/main).
+
 <div align="center">
 
 <sub>INDEPENDENT PUBLIC-SOURCE RESEARCH</sub>

@@ -1,0 +1,688 @@
+{
+  "format": "ricochet-reference-source-map/1",
+  "reviewed": "2026-10-31",
+  "component_paths_relative_to": "../",
+  "research_dataset": {
+    "path": "../../ricochet.jsonl",
+    "revision": 12,
+    "claim_count": 423,
+    "source_count": 149
+  },
+  "scope": "Independently authored teaching implementation based on public component roles and documented platform contracts. All component design fields describe this lab, not recovered vendor implementation.",
+  "labels": {
+    "PUBLISHED_BEHAVIOR": "Attributed dated vendor statement; no independent runtime replication.",
+    "PLATFORM_CONTRACT": "Documented API/protocol behavior; not proof of RICOCHET API selection.",
+    "OUR_DESIGN": "Original lab choice, including all private-to-this-project formats and rule thresholds.",
+    "NOT_IMPLEMENTED": "Unavailable or outside delivered prototype scope; never reported as a passed real check."
+  },
+  "components": [
+    {
+      "id": "kernel_observation",
+      "paths": [
+        "windows/driver.c"
+      ],
+      "published_source_ids": [
+        "S01"
+      ],
+      "contract_source_ids": [
+        "S41",
+        "S43",
+        "S80",
+        "S81",
+        "S134",
+        "D02",
+        "D06",
+        "D07"
+      ],
+      "design": "Collector-scoped process/thread/image observations in a bounded ring; collection events alone are not cheat findings.",
+      "parity": "No private callback inventory, call graph or detection policy authenticated."
+    },
+    {
+      "id": "driver_boundary",
+      "paths": [
+        "windows/protocol.h",
+        "windows/collector.c"
+      ],
+      "published_source_ids": [],
+      "contract_source_ids": [
+        "S72",
+        "S73",
+        "S79",
+        "D01"
+      ],
+      "design": "Original versioned fixed-width buffered IOCTL ABI, restricted default ACL and matching JSONL collector.",
+      "parity": "No compatibility with an Activision driver/device/service implied."
+    },
+    {
+      "id": "session_protocol",
+      "paths": [
+        "ricochet_lab/protocol.py"
+      ],
+      "published_source_ids": [],
+      "contract_source_ids": [
+        "D03",
+        "D05"
+      ],
+      "design": "Bounded in-memory sessions, fresh one-use challenges, ordered batches and HMAC-SHA256 envelope validation.",
+      "parity": "Key-possession demonstration only, not TPM, Secure Boot, Azure Attestation or a production RICOCHET protocol."
+    },
+    {
+      "id": "integrity",
+      "paths": [
+        "ricochet_lab/integrity.py"
+      ],
+      "published_source_ids": [
+        "S12"
+      ],
+      "contract_source_ids": [
+        "D04"
+      ],
+      "design": "SHA-256 comparisons of explicitly selected owned files against a supplied trusted baseline.",
+      "parity": "No live game memory verification, trusted runtime or Activision manifest format."
+    },
+    {
+      "id": "game_authority",
+      "paths": [
+        "ricochet_lab/rules.py"
+      ],
+      "published_source_ids": [
+        "S08",
+        "S93"
+      ],
+      "contract_source_ids": [],
+      "design": "Fictional movement, ammo and entitlement checks with server-owned configuration.",
+      "parity": "No real weapon rules, game state, account API or inventory mutation."
+    },
+    {
+      "id": "visibility",
+      "paths": [
+        "ricochet_lab/visibility.py"
+      ],
+      "published_source_ids": [
+        "S57",
+        "S63"
+      ],
+      "contract_source_ids": [],
+      "design": "Synthetic distance/AABB visibility filter before client snapshot construction.",
+      "parity": "No COD map geometry or recovered Server Culling implementation."
+    },
+    {
+      "id": "journal",
+      "paths": [
+        "ricochet_lab/replay.py"
+      ],
+      "published_source_ids": [
+        "S12",
+        "S18"
+      ],
+      "contract_source_ids": [
+        "D03",
+        "D05"
+      ],
+      "design": "HMAC-chained diagnostic records; trusted checkpoint required for prefix-truncation detection.",
+      "parity": "No Replay Investigation Tool, video reconstruction, model or evidence of completeness."
+    },
+    {
+      "id": "local_transport",
+      "paths": [
+        "ricochet_lab/service.py"
+      ],
+      "published_source_ids": [],
+      "contract_source_ids": [
+        "D08"
+      ],
+      "design": "Loopback HTTP teaching transport.",
+      "parity": "No production service identity, TLS deployment or Activision endpoint."
+    }
+  ],
+  "not_implemented": [
+    "Authenticated RICOCHET/MW4 private source or compatible game integration",
+    "TPM evidence/enrollment and Azure Attestation verification",
+    "Current private detection rules or calibrated ML classifiers",
+    "Game executable hardening or live memory protection",
+    "DMA/hypervisor/input-device detection",
+    "Real replay video reconstruction",
+    "Live mitigations, inventory mutations or account enforcement",
+    "Production deployment and operational infrastructure"
+  ],
+  "source_availability": "Online official Activision research/open-source index and dated vendor publications; Microsoft kernel examples, Azure SDK source and platform docs. No authenticated complete current RICOCHET implementation located in reviewed material. Search absence does not prove worldwide nonexistence.",
+  "upstream_code_references": [
+    {
+      "component": "Process/handle callback reference",
+      "source_ids": [
+        "S67",
+        "S68",
+        "S69"
+      ],
+      "language": "C",
+      "publisher": "Microsoft",
+      "commit": "f4c1ff842b6a0001152f44cb61788b216a1c7627",
+      "license": "MS-PL",
+      "license_url": "https://github.com/microsoft/Windows-driver-samples/blob/f4c1ff842b6a0001152f44cb61788b216a1c7627/LICENSE",
+      "relationship": "Windows reference sample; no RICOCHET code identity or private API use established."
+    },
+    {
+      "component": "TPM challenge/enrollment reference",
+      "source_ids": [
+        "S64",
+        "S65",
+        "S66"
+      ],
+      "language": "C++ and PowerShell",
+      "publisher": "Microsoft",
+      "commit": "84a502dcbedb674b505262f3eee022fd88ebc3ef",
+      "license": "MIT",
+      "license_url": "https://github.com/microsoft/Attestation-Client-Samples/blob/84a502dcbedb674b505262f3eee022fd88ebc3ef/LICENSE",
+      "relationship": "Demonstration client code. Sample settings are not an Activision policy or production client."
+    },
+    {
+      "component": "Registry callback reference",
+      "source_ids": [
+        "S138",
+        "S139"
+      ],
+      "language": "C",
+      "publisher": "Microsoft",
+      "commit": "f4c1ff842b6a0001152f44cb61788b216a1c7627",
+      "license": "MS-PL",
+      "license_url": "https://github.com/microsoft/Windows-driver-samples/blob/f4c1ff842b6a0001152f44cb61788b216a1c7627/LICENSE",
+      "relationship": "Minimal RegFltr teaching sample with explicit non-production limitations."
+    },
+    {
+      "component": "Attestation metadata and token validation",
+      "source_ids": [
+        "S140",
+        "S141"
+      ],
+      "language": "Python",
+      "publisher": "Microsoft Azure SDK",
+      "commit": "21387f1976a22aae98eec2a5a5260f3c80d0772d",
+      "license": "MIT",
+      "license_url": "https://github.com/Azure/azure-sdk-for-python/blob/21387f1976a22aae98eec2a5a5260f3c80d0772d/sdk/attestation/azure-security-attestation/LICENSE",
+      "relationship": "SDK reference implementation; no evidence COD uses this language, package or integration."
+    }
+  ],
+  "upstream_code_relationship": "Licensed reading references only; no claim of RICOCHET source identity or of copying upstream code into this branch.",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "RICOCHET overview / FAQ",
+      "url": "https://support.activision.com/articles/ricochet-overview",
+      "evidence_kind": "vendor_primary",
+      "published": "2026-10-20",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "8cdc1367a087729326b21eba8fcb4c05a486f1fa5bedadb0b2cef0b57cad2c12",
+      "scope_note": "Living support page; retains historical MWII-era wording alongside its current title list.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S08",
+      "title": "MWII / Warzone 2.0 beta recap and unified platform",
+      "url": "https://www.callofduty.com/blog/2022/10/call-of-duty-modern-warfare-II-warzone-ricochet-anti-cheat-open-beta-recap",
+      "evidence_kind": "vendor_primary",
+      "published": "2022-10-13",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "fca8091535c194d5164f888ace340248a0f6d9e003ef5492bef20f5d2850c632",
+      "scope_note": "Preserve publisher scope and date; no production implementation equivalence implied.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S12",
+      "title": "MWIII readiness, machine learning, Splat",
+      "url": "https://www.callofduty.com/blog/2023/11/call-of-duty-ricochet-anti-cheat-modern-warfare-III-progress-report",
+      "evidence_kind": "vendor_primary",
+      "published": "2023-11-09",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "48873b1fdac3794c8fb95e4b3e995ef78e6106ede55cb74a5849fe9ea7e745b0",
+      "scope_note": "Preserve publisher scope and date; no production implementation equivalence implied.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S18",
+      "title": "Season 03 recap and replay ML preview",
+      "url": "https://www.callofduty.com/blog/2025/05/call-of-duty-black-ops-6-warzone-ricochet-anti-cheat-season-three-recap",
+      "evidence_kind": "vendor_primary",
+      "published": "2025-05-07",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "9ad48b68fdf87b6777b4ca62870f53029a7df5305b63cb813fd2a00b35203dea",
+      "scope_note": "Preserve publisher scope and date; no production implementation equivalence implied.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S23",
+      "title": "Season 02: MAA and input behavior",
+      "url": "https://www.callofduty.com/blog/2026/02/call-of-duty-black-ops-7-ricochet-anti-cheat-season-02",
+      "evidence_kind": "vendor_primary",
+      "published": "2026-02-02",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "fb78a959aca5650ebd5309e8a564270612af2b882c3540ee24d058046a882b03",
+      "scope_note": "Preserve publisher scope and date; no production implementation equivalence implied.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S27",
+      "title": "TPM 2.0 / Secure Boot support and Secure Attestation Wizard",
+      "url": "https://support.activision.com/articles/trusted-platform-module-and-secure-boot",
+      "evidence_kind": "vendor_primary",
+      "published": "2026-10-21",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "6bd669c7b368cc8a86fe58042ab8836e54715713aa13f78a72eee67721caf87f",
+      "scope_note": "Living support document. Wizard listing: 1.3.0, October 21, 2026. Requirements vary by title.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S41",
+      "title": "PsSetCreateProcessNotifyRoutineEx",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-pssetcreateprocessnotifyroutineex",
+      "evidence_kind": "platform_primary",
+      "published": "2022-04-18",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "fed038b1fd1599a2af5ac6859603a4443aa56252dfe81c244befa6b08ac10a45",
+      "scope_note": "Preserve publisher scope and date; no production implementation equivalence implied.",
+      "reopened_online_for_this_implementation": true
+    },
+    {
+      "id": "S43",
+      "title": "PsSetLoadImageNotifyRoutine",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-pssetloadimagenotifyroutine",
+      "evidence_kind": "platform_primary",
+      "published": "2024-02-22",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "cb063bf3d23d1d7d3ba874010d7dd45e98d3ddb1e0c605579c8a7843bd22fea2",
+      "scope_note": "Preserve publisher scope and date; no production implementation equivalence implied.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S45",
+      "title": "Windows driver signing policy",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/install/kernel-mode-code-signing-policy--windows-vista-and-later-",
+      "evidence_kind": "platform_primary",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "79159195a11eb43b58a24fae0a770e75282692e30c42486387d9b85f48e64454",
+      "scope_note": "Preserve publisher scope and date; no production implementation equivalence implied.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S46",
+      "title": "Azure TPM attestation concepts",
+      "url": "https://learn.microsoft.com/en-us/azure/attestation/tpm-attestation-concepts",
+      "evidence_kind": "platform_primary",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "0cee89d5c5781dba95b75d87654422d819b10fafbd58d4a468f4287d92af23f5",
+      "scope_note": "Preserve publisher scope and date; no production implementation equivalence implied.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S49",
+      "title": "Windows Kernel DMA Protection",
+      "url": "https://learn.microsoft.com/en-us/windows/security/hardware-security/kernel-dma-protection-for-thunderbolt",
+      "evidence_kind": "platform_primary",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "f16bbb207f847a98bea894c25792c0af8eb1dac6a72cabc85669d265daad65e7",
+      "scope_note": "Preserve publisher scope and date; no production implementation equivalence implied.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S50",
+      "title": "Memory integrity and VBS enablement",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-hvci-enablement",
+      "evidence_kind": "platform_primary",
+      "published": "2025-10-28",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "bf3ff7797a2047bb8bb665d7b01fa19bd6e63d52be568f68f73396521788e499",
+      "scope_note": "Preserve publisher scope and date; no production implementation equivalence implied.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S55",
+      "title": "Azure TPM/VBS enclave attestation protocol",
+      "url": "https://learn.microsoft.com/en-us/azure/attestation/virtualization-based-security-protocol",
+      "evidence_kind": "platform_primary",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "c091749fe040ca0e685d3dc9abfd84d914e9d9c30e50ed40373174eb5ac60484",
+      "scope_note": "Documents Microsoft protocol capabilities, not the particular deployment policy used by Activision.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S57",
+      "title": "Call of Duty: Server Culling",
+      "url": "https://x.com/CallofDuty/status/2116183418144772179",
+      "evidence_kind": "vendor_primary",
+      "published": "2026-10-30",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "2b5218e261d6774b8f7a00e517b0c4dd0a60ad62c12dae434022d5cc8e9a3366",
+      "scope_note": "Publisher oEmbed verified the author/date and data-withholding explanation. Long-post tail truncated; map-coverage claims from news reports were not promoted to verified facts.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S63",
+      "title": "David Andrews interview on MW4 and Warzone anti-cheat",
+      "url": "https://detonated.com/exclusive-mw4-anti-cheat-interview-with-senior-game-security-director-david-andrews/",
+      "evidence_kind": "vendor_primary",
+      "published": "2026-10-07",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "f51fbb480090a8259b3756da047484245d94078bb552f166a3714d07dc392c6a",
+      "scope_note": "First-person vendor interview published by DETONATED; attribution is confirmed on the page, not independent verification of deployment.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S64",
+      "title": "Microsoft attestation client: stateful TPM service exchange",
+      "url": "https://github.com/microsoft/Attestation-Client-Samples/blob/84a502dcbedb674b505262f3eee022fd88ebc3ef/attestation/attest.cpp",
+      "evidence_kind": "platform_primary",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "6c0e564c3aed064ee0b972fc60a032988f60dfdf445c121c0d4962fc625aa9b6",
+      "scope_note": "Pinned Microsoft sample commit 84a502dcbedb674b505262f3eee022fd88ebc3ef; public example, not Activision source or proof of its authentication configuration.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S65",
+      "title": "Microsoft boot attestation sample: AIK, request key and nonce",
+      "url": "https://github.com/microsoft/Attestation-Client-Samples/blob/84a502dcbedb674b505262f3eee022fd88ebc3ef/attestation/sample_boot_att.cpp",
+      "evidence_kind": "platform_primary",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "b080740ba280fcb1deaa4905e2e0507018f93f6fe01fb5313285aed91ddb67f6",
+      "scope_note": "Pinned Microsoft sample commit 84a502dcbedb674b505262f3eee022fd88ebc3ef; demonstration uses a fixed nonce marked for replacement. Not RICOCHET code.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S66",
+      "title": "Microsoft EnrollAik sample: enrollment and optional key-file permissions",
+      "url": "https://github.com/microsoft/Attestation-Client-Samples/blob/84a502dcbedb674b505262f3eee022fd88ebc3ef/EnrollAik.ps1",
+      "evidence_kind": "platform_primary",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "0b0fbfa01219509e610178c6da2a01b03a334cb2fff6c5ebb985559132d81b05",
+      "scope_note": "Pinned Microsoft sample commit 84a502dcbedb674b505262f3eee022fd88ebc3ef; reviewed as source text only. Enrollment/ACL changes were not executed.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S67",
+      "title": "Microsoft ObCallback process-protection sample",
+      "url": "https://github.com/microsoft/Windows-driver-samples/blob/f4c1ff842b6a0001152f44cb61788b216a1c7627/general/obcallback/README.md",
+      "evidence_kind": "platform_primary",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "041ba3e285924a71b09af8c17bd4a312357037b8425cc9521891f0e0c17c8660",
+      "scope_note": "Pinned Windows-driver-samples commit f4c1ff842b6a0001152f44cb61788b216a1c7627, dated 2026-10-28. Microsoft reference implementation, not Activision code.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S68",
+      "title": "ObCallback sample: callback.c",
+      "url": "https://github.com/microsoft/Windows-driver-samples/blob/f4c1ff842b6a0001152f44cb61788b216a1c7627/general/obcallback/driver/callback.c",
+      "evidence_kind": "platform_primary",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "d54f137257ff84871bcd2994458105e7250ad5954e3b3f7148b26ac110b4e549",
+      "scope_note": "Pinned commit f4c1ff842b6a0001152f44cb61788b216a1c7627; reviewed as source text. No sample driver was compiled or loaded.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S69",
+      "title": "ObCallback sample: tdriver.c",
+      "url": "https://github.com/microsoft/Windows-driver-samples/blob/f4c1ff842b6a0001152f44cb61788b216a1c7627/general/obcallback/driver/tdriver.c",
+      "evidence_kind": "platform_primary",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "3a915c4a4a29155186a74690b7f41b1cec31f3fc06822089682725b28468f19c",
+      "scope_note": "Pinned commit f4c1ff842b6a0001152f44cb61788b216a1c7627; process filtering and cleanup belong to this Microsoft sample, not a verified RICOCHET implementation.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S72",
+      "title": "Buffer descriptions for I/O control codes",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/buffer-descriptions-for-i-o-control-codes",
+      "evidence_kind": "platform_primary",
+      "published": "2025-04-30",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "d81961c34b369a45d2386fc196563e89bcbc0ed8269b116d1cc9219d87cac10b",
+      "scope_note": "Documented Windows buffering semantics, not a discovered RICOCHET protocol.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S73",
+      "title": "Security issues for I/O control codes",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/security-issues-for-i-o-control-codes",
+      "evidence_kind": "platform_primary",
+      "published": "2021-12-15",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "f7ce47e22266ae40432156e8a577b93defe3fb8e97ae8c4fcb0084828162564e",
+      "scope_note": "Microsoft driver-interface design guidance. No private anti-cheat control codes were verified.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S79",
+      "title": "Defining I/O control codes",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/defining-i-o-control-codes",
+      "evidence_kind": "platform_primary",
+      "published": "2025-06-19",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "c3ccc3d5a239a429e102253ef7b623d7069f568b69eca7f1d388e5f81da4879d",
+      "scope_note": "Visible update date retained rather than the differing internal ms.date metadata. Generic Windows definitions are not private RICOCHET command definitions.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S80",
+      "title": "PCREATE_PROCESS_NOTIFY_ROUTINE_EX",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nc-ntddk-pcreate_process_notify_routine_ex",
+      "evidence_kind": "platform_primary",
+      "published": "2024-02-22",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "de4e8d9babbe6f6ced6ce182c3d769dd9fe9c906dad73abe5e641262fa296f27",
+      "scope_note": "Generic process creation/exit notification contract, not a game-specific process blacklist.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S81",
+      "title": "PLOAD_IMAGE_NOTIFY_ROUTINE",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nc-ntddk-pload_image_notify_routine",
+      "evidence_kind": "platform_primary",
+      "published": "2022-03-02",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "ca6b1e73522ef6198ff39692a3c7a9d9bebf98c4c68973948801b07ec1ce13f5",
+      "scope_note": "Generic image-load callback contract. No completeness claim about any anti-cheat monitoring pipeline.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S93",
+      "title": "Call of Duty: Modern Warfare 4 In-Game Account Registration",
+      "url": "https://support.activision.com/modern-warfare-4/articles/modern-warfare-4-in-game-account-registration",
+      "evidence_kind": "official_support",
+      "published": "2026-08-20",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "cf571318630d89b4ddfd0e069a4d825dbe764ecf8958aecc0e208f74c38adf0a",
+      "scope_note": "Documents account association and progress availability; it does not disclose server database format or a public inventory-write API.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S134",
+      "title": "PCREATE_THREAD_NOTIFY_ROUTINE: callback parameters and IRQL",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nc-ntddk-pcreate_thread_notify_routine",
+      "evidence_kind": "platform_primary",
+      "published": "2024-02-22",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "741d446b23b3d2405eaef2fb60efc5300bd9372525cd219d069b8bfbde7079da",
+      "scope_note": "Microsoft Windows contract or sample only. No evidence that a particular RICOCHET build uses this API, callback, policy or lifecycle implementation.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S138",
+      "title": "Microsoft RegFltr sample: declared purpose and limitations",
+      "url": "https://github.com/microsoft/Windows-driver-samples/blob/f4c1ff842b6a0001152f44cb61788b216a1c7627/general/registry/regfltr/README.md",
+      "evidence_kind": "upstream_sample_code",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "d71f996751170d7f60e60756ee0bde283ea586997666b4386c44b80691fc89e9",
+      "scope_note": "Microsoft Windows contract or sample only. No evidence that a particular RICOCHET build uses this API, callback, policy or lifecycle implementation.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S139",
+      "title": "Microsoft RegFltr driver.c: device interface and teardown",
+      "url": "https://github.com/microsoft/Windows-driver-samples/blob/f4c1ff842b6a0001152f44cb61788b216a1c7627/general/registry/regfltr/sys/driver.c",
+      "evidence_kind": "upstream_sample_code",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "2670a96ebdba1b90792f3687e7374cd52d5148c542a7b87e960574f5ef8a194e",
+      "scope_note": "Microsoft Windows contract or sample only. No evidence that a particular RICOCHET build uses this API, callback, policy or lifecycle implementation.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S140",
+      "title": "Azure SDK for Python: attestation client metadata and signer handling (pinned source)",
+      "url": "https://github.com/Azure/azure-sdk-for-python/blob/21387f1976a22aae98eec2a5a5260f3c80d0772d/sdk/attestation/azure-security-attestation/azure/security/attestation/_patch.py",
+      "evidence_kind": "platform_source_code",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "4f615e04106a3c336d93c92ced4664b8d99cfb8f52b034dca44e6bc66490a6ec",
+      "scope_note": "Microsoft SDK source, inspected statically; not COD/RICOCHET source or evidence of a protected game's SDK/API choices.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S141",
+      "title": "Azure SDK for Python: attestation token model and validation (pinned source)",
+      "url": "https://github.com/Azure/azure-sdk-for-python/blob/21387f1976a22aae98eec2a5a5260f3c80d0772d/sdk/attestation/azure-security-attestation/azure/security/attestation/models/_patch.py",
+      "evidence_kind": "platform_source_code",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "2f55f613ee31cda6308692d0cbcd5e2f42578fd3f41a40218db6d53a63610eb4",
+      "scope_note": "Microsoft SDK token-validation implementation; chosen validation options and application policy matter. No live service, game or bypass was tested.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S143",
+      "title": "Authoring an Azure Attestation policy: grammar and evaluation stages",
+      "url": "https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy",
+      "evidence_kind": "platform_primary",
+      "published": "2025-04-15",
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "6c3edf82997dd10eb5e0b1db20515341610b2c7cbef1b6af00c4637c3bda6b51",
+      "scope_note": "Platform policy-language reference. It does not identify a private Activision attestation policy. Grammar version is distinct from any product-specific policy-recommendation label.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "S146",
+      "title": "Activision Research: official open-source index",
+      "url": "https://research.activision.com/opensource",
+      "evidence_kind": "vendor_primary",
+      "published": null,
+      "reviewed": "2026-10-31",
+      "review_method": "Existing research revision 12 source snapshot and associated claims reviewed for this implementation; no new runtime experiment.",
+      "research_snapshot_sha256": "7e9d64311914029b54b52d33a4521dc09ff63e6128d263e75e651f9e829243fb",
+      "scope_note": "Reviewed contents of the official index only. This is not an exhaustive proof about all public or private code and does not identify an authenticated RICOCHET implementation.",
+      "reopened_online_for_this_implementation": false
+    },
+    {
+      "id": "D01",
+      "title": "IoCreateDeviceSecure / WdmlibIoCreateDeviceSecure",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdmsec/nf-wdmsec-wdmlibiocreatedevicesecure",
+      "evidence_kind": "platform_contract",
+      "reviewed": "2026-10-31",
+      "review_method": "Primary online documentation opened during implementation review.",
+      "scope_note": "Named device default security, custom class GUID, registry overrides, Wdmsec.lib and caller cleanup."
+    },
+    {
+      "id": "D02",
+      "title": "PsSetCreateThreadNotifyRoutine",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-pssetcreatethreadnotifyroutine",
+      "evidence_kind": "platform_contract",
+      "reviewed": "2026-10-31",
+      "review_method": "Primary online documentation opened during implementation review.",
+      "scope_note": "Legacy thread-notification registration and removal-before-unload requirement. This source describes the API used by the lab; S133 in the research describes the separate Ex API."
+    },
+    {
+      "id": "D03",
+      "title": "Python hmac documentation",
+      "url": "https://docs.python.org/3/library/hmac.html",
+      "evidence_kind": "platform_contract",
+      "reviewed": "2026-10-31",
+      "review_method": "Primary online documentation opened during implementation review.",
+      "scope_note": "HMAC interface and compare_digest; message authentication does not certify hardware state or truthful telemetry."
+    },
+    {
+      "id": "D04",
+      "title": "Python 3.12 hashlib documentation",
+      "url": "https://docs.python.org/3.12/library/hashlib.html",
+      "evidence_kind": "platform_contract",
+      "reviewed": "2026-10-31",
+      "review_method": "Primary online documentation opened during implementation review.",
+      "scope_note": "SHA-256 digest interface; this is not a game-specific integrity algorithm."
+    },
+    {
+      "id": "D05",
+      "title": "RFC 2104: HMAC",
+      "url": "https://datatracker.ietf.org/doc/html/rfc2104",
+      "evidence_kind": "protocol_reference",
+      "reviewed": "2026-10-31",
+      "review_method": "Primary online documentation opened during implementation review.",
+      "scope_note": "Shared-secret message authentication construction. The lab uses HMAC-SHA256, not the historical MD5 sample in the RFC."
+    },
+    {
+      "id": "D06",
+      "title": "PsRemoveLoadImageNotifyRoutine",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-psremoveloadimagenotifyroutine",
+      "evidence_kind": "platform_contract",
+      "reviewed": "2026-10-31",
+      "review_method": "Primary online documentation opened during implementation review.",
+      "scope_note": "Image callback removal waits for running callback; do not remove from that callback."
+    },
+    {
+      "id": "D07",
+      "title": "PsRemoveCreateThreadNotifyRoutine",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nf-ntddk-psremovecreatethreadnotifyroutine",
+      "evidence_kind": "platform_contract",
+      "reviewed": "2026-10-31",
+      "review_method": "Primary online documentation opened during implementation review.",
+      "scope_note": "Thread callback removal waits for running callback; do not remove from that callback."
+    },
+    {
+      "id": "D08",
+      "title": "Python http.server documentation",
+      "url": "https://docs.python.org/3/library/http.server.html",
+      "evidence_kind": "platform_contract",
+      "reviewed": "2026-10-31",
+      "review_method": "Primary online documentation opened during implementation review.",
+      "scope_note": "Development HTTP server; the local demonstration is not a production deployment."
+    }
+  ]
+}
