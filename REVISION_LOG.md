@@ -7,3 +7,7 @@ Established the source/claim format and assembled the 2021–2023 primary-source
 ## Revision 2 — expanded evidence and platform explanation
 
 Expanded the primary-source history through 2026: behavioral/replay ML, driver update announcements, reporting, Limited Matchmaking, hardware/account enforcement, TPM/Secure Boot, remote attestation, input-device behavior, privacy, and firmware compatibility. Added Microsoft documentation to explain the underlying Windows/TPM mechanisms while explicitly separating platform capability from proven RICOCHET implementation. Added AMD’s own attestation advisory for corroboration.
+
+## Revision 3 — corroboration, contradictions, and retrieval
+
+Added pinned independent Randgrid research with provenance caveats, scoped TAC/academic context, the official erroneous-ban admission, and October 2026 DMA/Server Culling announcements verified through publisher oEmbed. Expanded the vendor’s Hallucinations implementation details. Audited historical/current requirements, attestation versus enforcement states, ML versus ban decisions, and unsupported import-based conclusions. Added explicit research gaps, a diagram, bibliography, schema, byte/topic index, retrieval tool, and integrity validator. Corrected the Hallucinations whitepaper date to March 30, 2023.
