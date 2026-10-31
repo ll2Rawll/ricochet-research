@@ -1,78 +1,316 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:ricochet-public-research:record:1.0.0",
+  "$id": "urn:ricochet-public-research:record:1.1.0",
   "title": "RICOCHET research JSONL record",
-  "description": "Apply this schema to each decoded JSONL line; cross-record citation integrity is checked by tools/validate.py.",
+  "description": "Each JSONL line is a source-supported record. Verification denotes primary-text support, not independently proven runtime behavior. Cross-record checks use tools/validate.py.",
   "oneOf": [
-    {"$ref": "#/$defs/meta"},
-    {"$ref": "#/$defs/source"},
-    {"$ref": "#/$defs/claim"}
+    {
+      "$ref": "#/$defs/meta"
+    },
+    {
+      "$ref": "#/$defs/source"
+    },
+    {
+      "$ref": "#/$defs/claim"
+    }
   ],
   "$defs": {
-    "date": {"type": "string", "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$"},
-    "text": {"type": "string", "minLength": 1},
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
     "claim_ids": {
-      "type": "array", "uniqueItems": true,
-      "items": {"type": "string", "pattern": "^C[0-9]{3}$"}
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^C[0-9]{3}$"
+      }
     },
     "meta": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["type", "schema_version", "revision", "researched_on", "subject", "scope", "completeness", "reading_order", "statuses", "source_count", "claim_count"],
+      "required": [
+        "type",
+        "schema_version",
+        "revision",
+        "researched_on",
+        "subject",
+        "scope",
+        "completeness",
+        "reading_order",
+        "statuses",
+        "source_count",
+        "claim_count"
+      ],
       "properties": {
-        "type": {"const": "meta"},
-        "schema_version": {"const": "1.0.0"},
-        "revision": {"type": "integer", "minimum": 1},
-        "researched_on": {"$ref": "#/$defs/date"},
-        "subject": {"$ref": "#/$defs/text"},
-        "scope": {"$ref": "#/$defs/text"},
-        "completeness": {"$ref": "#/$defs/text"},
-        "reading_order": {"$ref": "#/$defs/text"},
-        "statuses": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/text"}},
-        "source_count": {"type": "integer", "minimum": 0},
-        "claim_count": {"type": "integer", "minimum": 0},
-        "subset": {"const": true},
-        "parent_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
-        "matched_claim_ids": {"$ref": "#/$defs/claim_ids"}
+        "type": {
+          "const": "meta"
+        },
+        "schema_version": {
+          "const": "1.1.0"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "researched_on": {
+          "$ref": "#/$defs/date"
+        },
+        "subject": {
+          "$ref": "#/$defs/text"
+        },
+        "scope": {
+          "$ref": "#/$defs/text"
+        },
+        "completeness": {
+          "$ref": "#/$defs/text"
+        },
+        "reading_order": {
+          "$ref": "#/$defs/text"
+        },
+        "statuses": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "$ref": "#/$defs/text"
+          }
+        },
+        "source_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "claim_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "subset": {
+          "const": true
+        },
+        "parent_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "matched_claim_ids": {
+          "$ref": "#/$defs/claim_ids"
+        }
       }
     },
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["type", "id", "published", "accessed", "kind", "title", "url", "reviewed_sections", "note"],
+      "required": [
+        "type",
+        "id",
+        "published",
+        "accessed",
+        "kind",
+        "title",
+        "url",
+        "reviewed_sections",
+        "note",
+        "verification"
+      ],
       "properties": {
-        "type": {"const": "source"},
-        "id": {"type": "string", "pattern": "^S[0-9]{2}$"},
-        "published": {"oneOf": [{"$ref": "#/$defs/date"}, {"type": "null"}]},
-        "accessed": {"$ref": "#/$defs/date"},
-        "kind": {"enum": ["vendor_primary", "vendor_research", "vendor_policy", "hardware_vendor_primary", "platform_primary", "independent_artifact", "independent_research", "academic_primary"]},
-        "title": {"$ref": "#/$defs/text"},
-        "url": {"type": "string", "pattern": "^https://"},
-        "reviewed_sections": {"$ref": "#/$defs/text"},
-        "note": {"type": "string"}
+        "type": {
+          "const": "source"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^S[0-9]{2}$"
+        },
+        "published": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "accessed": {
+          "$ref": "#/$defs/date"
+        },
+        "kind": {
+          "enum": [
+            "vendor_primary",
+            "vendor_research",
+            "vendor_policy",
+            "hardware_vendor_primary",
+            "platform_primary",
+            "independent_artifact",
+            "independent_research",
+            "academic_primary"
+          ]
+        },
+        "title": {
+          "$ref": "#/$defs/text"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "reviewed_sections": {
+          "$ref": "#/$defs/text"
+        },
+        "note": {
+          "type": "string"
+        },
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "method",
+            "response_sha256",
+            "normalized_text_sha256",
+            "paragraph_count",
+            "checked_on",
+            "truncated"
+          ],
+          "properties": {
+            "method": {
+              "enum": [
+                "direct_https",
+                "publisher_oembed"
+              ]
+            },
+            "response_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "normalized_text_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "paragraph_count": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "checked_on": {
+              "$ref": "#/$defs/date"
+            },
+            "truncated": {
+              "type": "boolean"
+            }
+          }
+        }
       }
     },
     "claim": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["type", "id", "topic", "status", "as_of", "scope", "text", "sources", "locator"],
+      "required": [
+        "type",
+        "id",
+        "topic",
+        "status",
+        "as_of",
+        "scope",
+        "text",
+        "sources",
+        "locator",
+        "verification"
+      ],
       "properties": {
-        "type": {"const": "claim"},
-        "id": {"type": "string", "pattern": "^C[0-9]{3}$"},
-        "topic": {"type": "string", "pattern": "^[a-z_]+$"},
-        "status": {"enum": ["official_statement", "qualified_interpretation", "platform_context", "independent_observation", "inference", "unknown"]},
-        "as_of": {"$ref": "#/$defs/date"},
-        "scope": {"$ref": "#/$defs/text"},
-        "text": {"$ref": "#/$defs/text"},
-        "sources": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^S[0-9]{2}$"}},
-        "locator": {"$ref": "#/$defs/text"},
-        "basis_claims": {"$ref": "#/$defs/claim_ids"},
-        "updates": {"$ref": "#/$defs/claim_ids"},
-        "contrasts_with": {"$ref": "#/$defs/claim_ids"}
-      },
-      "if": {"properties": {"status": {"const": "unknown"}}},
-      "then": {"required": ["basis_claims"], "properties": {"sources": {"maxItems": 0}, "basis_claims": {"minItems": 1}}},
-      "else": {"properties": {"sources": {"minItems": 1}}}
+        "type": {
+          "const": "claim"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^C[0-9]{3}$"
+        },
+        "topic": {
+          "type": "string",
+          "pattern": "^[a-z_]+$"
+        },
+        "status": {
+          "enum": [
+            "official_statement",
+            "platform_context",
+            "artifact_statement",
+            "study_report"
+          ]
+        },
+        "as_of": {
+          "$ref": "#/$defs/date"
+        },
+        "scope": {
+          "$ref": "#/$defs/text"
+        },
+        "text": {
+          "$ref": "#/$defs/text"
+        },
+        "sources": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^S[0-9]{2}$"
+          },
+          "minItems": 1
+        },
+        "locator": {
+          "$ref": "#/$defs/text"
+        },
+        "basis_claims": {
+          "$ref": "#/$defs/claim_ids"
+        },
+        "updates": {
+          "$ref": "#/$defs/claim_ids"
+        },
+        "contrasts_with": {
+          "$ref": "#/$defs/claim_ids"
+        },
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "checked_on",
+            "evidence"
+          ],
+          "properties": {
+            "result": {
+              "const": "source_statement_supported"
+            },
+            "checked_on": {
+              "$ref": "#/$defs/date"
+            },
+            "evidence": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "source",
+                  "paragraphs"
+                ],
+                "properties": {
+                  "source": {
+                    "type": "string",
+                    "pattern": "^S[0-9]{2}$"
+                  },
+                  "paragraphs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "pattern": "^P[0-9]{4}$"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

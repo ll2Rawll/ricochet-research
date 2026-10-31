@@ -36,10 +36,8 @@ The complete source metadata and reviewed-section locators are in [ricochet.json
 | S30 | not established | [Ban appeal policy](https://support.activision.com/ban-appeal) | vendor_policy |
 | S31 | not established | [Activision Privacy Policy](https://www.activision.com/nl/legal/privacy-policy) | vendor_policy |
 | S32 | not established | [Activision security vulnerability reporting](https://www.activision.com/report-security-issue) | vendor_primary |
-| S33 | 2026-09 | [David Andrews / Team RICOCHET AMA](https://www.reddit.com/r/CallOfDuty/comments/1wdl9o3/cod_ricochet_anticheat_ama/) | vendor_primary |
 | S34 | 2026-09-29 | [Modern Warfare 4 PC technology and requirements](https://www.callofduty.com/blog/2026/09/call-of-duty-modern-warfare-4-pc-trailer-tech-specs-features) | vendor_primary |
 | S35 | not established | [SteamDB file-detection rules: Ricochet filename](https://github.com/SteamDatabase/FileDetectionRuleSets/blob/243cf741921d2c8fd6b844f83831edf4692cf788/rules.ini) | independent_artifact |
-| S36 | 2026-06-16 | [Valkyrie / Randgrid reverse-engineering report](https://github.com/AmenHermano144/Valkyrie-Complete-Reverse-Engineering-Analysis/blob/d148d69b77e86b78101c322bed34c9dac78c4758/README.md) | independent_research |
 | S37 | 2025-01-04 | [Reverse Engineering Call Of Duty Anti-Cheat (TAC)](https://ssno.cc/posts/reversing-tac-1-4-2025/) | independent_research |
 | S38 | 2024-08-01 | [Critical examination of kernel-level anti-cheat systems](https://arxiv.org/html/2408.00500v1) | academic_primary |
 | S39 | 2024-10-17 | [CODUpdates: erroneous bans restored](https://x.com/CODUpdates/status/1847001212761350574) | vendor_primary |
@@ -62,3 +60,7 @@ The complete source metadata and reviewed-section locators are in [ricochet.json
 | S56 | 2026-10-23 | [Call of Duty: new DMA detections](https://x.com/CallofDuty/status/2113646657350914098) | vendor_primary |
 | S57 | 2026-10-30 | [Call of Duty: Server Culling](https://x.com/CallofDuty/status/2116183418144772179) | vendor_primary |
 | S58 | 2026-10-30 | [Call of Duty: MW4 week one](https://x.com/CallofDuty/status/2116183413367447696) | vendor_primary |
+| S59 | 2024-11-19 | [Anti-Cheat: Attacks and the Effectiveness of Client-Side Defences](https://tomchothia.gitlab.io/Papers/AntiCheat2024.pdf) | academic_primary |
+| S60 | not established | [CheckMATE 2024 research repository README](https://github.com/SamCollins1327/Anti-Cheat_2024/blob/09bb0588b85b1474a2d0747cb943a5da64e5c73d/README.md) | independent_artifact |
+| S61 | 2015-05 | [RFC 7519: JSON Web Token](https://www.rfc-editor.org/rfc/rfc7519.html) | platform_primary |
+| S62 | not established | [Crossref DOI registration for the CheckMATE paper](https://api.crossref.org/works/10.1145/3689934.3690816) | academic_primary |

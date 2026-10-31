@@ -23,12 +23,21 @@ def validate(path):
     assert set(x['type'] for x in records)=={'meta','source','claim'}
     assert m['source_count']==len(sources) and m['claim_count']==len(claims)
     date_pattern=r'\d{4}(?:-\d{2}(?:-\d{2})?)?'
+    strict=m['schema_version']=='1.1.0'
+    checks={r['source_id']:r for r in json.loads((ROOT/'source_checks.json').read_text())} if strict else {}
     for s in sources.values():
         assert re.fullmatch(r'S\d{2}',s['id'])
         assert s['url'].startswith('https://')
         assert s['title'] and s['reviewed_sections'] and s['kind']
         assert re.fullmatch(date_pattern,s['published']) if s['published'] else True
         assert s['accessed']<=m['researched_on']
+        if strict:
+            v=s['verification']; check=checks[s['id']]
+            assert check['primary_text_validated'] and check['used_in_main_file']
+            assert v['response_sha256']==check['response_sha256']
+            assert v['normalized_text_sha256']==check['text_sha256']
+            assert v['paragraph_count']==check['paragraphs']
+            assert re.fullmatch(r'[a-f0-9]{64}',v['normalized_text_sha256'])
     used=set()
     words=collections.Counter()
     for c in claims.values():
@@ -39,6 +48,15 @@ def validate(path):
         assert c['as_of']<=m['researched_on']
         assert len(c['sources'])==len(set(c['sources']))
         assert set(c['sources'])<=sources.keys(), f'Unresolved citation {c["id"]}'
+        if strict:
+            assert c['status'] in {'official_statement','platform_context','artifact_statement','study_report'}
+            v=c['verification']
+            assert v['result']=='source_statement_supported'
+            assert v['checked_on']<=m['researched_on']
+            assert {e['source'] for e in v['evidence']}==set(c['sources'])
+            for e in v['evidence']:
+                assert e['paragraphs'], 'Missing evidence location'
+                assert all(re.fullmatch(r'P\d{4}',p) and 1<=int(p[1:])<=sources[e['source']]['verification']['paragraph_count'] for p in e['paragraphs'])
         if c['status']=='unknown':
             assert not c['sources'] and c.get('basis_claims'), 'Unknowns must be original audit findings with evidence links'
         else:
@@ -58,6 +76,12 @@ def validate(path):
         assert id not in ancestors, 'Circular evidence dependency'
         for dep in claims[id].get('basis_claims',[]): visit(dep, ancestors|{id})
     for id in claims: visit(id,set())
+    if strict:
+        review=[json.loads(l) for l in (ROOT/'claim_review.jsonl').read_text().splitlines()]
+        assert {r['claim_id'] for r in review}=={f'C{i:03d}' for i in range(1,221)}
+        excluded=[json.loads(l) for l in (ROOT/'review.jsonl').read_text().splitlines()]
+        assert not ({r['original_claim_id'] for r in excluded}&claims.keys())
+        assert len(excluded)==len({r['original_claim_id'] for r in excluded})
     return dict(schema_version=m['schema_version'],revision=m['revision'],researched_on=m['researched_on'],
                 sources=len(sources),claims=len(claims),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest(),
                 topics=dict(sorted(collections.Counter(c['topic'] for c in claims.values()).items())),

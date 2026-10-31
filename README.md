@@ -1,33 +1,43 @@
 # RICOCHET research
 
-Public-source research on Call of Duty’s RICOCHET anti-cheat, prepared on **2026-10-31**.
+Public-source research on Call of Duty’s anti-cheat, reviewed on **2026-10-31**.
 
-Start with **[ricochet.jsonl](ricochet.jsonl)**. It is a standalone UTF-8 knowledge file: one metadata record, source records, then compact claim records. Each claim has a stable ID, topic, evidence status, date, scope, source IDs, and a source-section locator. An AI can load it line by line or retrieve only the relevant topics.
+Start with **[ricochet.jsonl](ricochet.jsonl)**: **183 source-supported entries from 60 sources**, with dates, scope, citations, evidence labels, paragraph locators, and verification metadata. Standalone UTF-8 JSONL, approximately 128 KB, suitable for streaming or selective AI retrieval.
 
-The file separates Activision’s statements from independent observations, general Windows mechanisms, inference, and unknowns. RICOCHET is proprietary: no public-source collection can honestly specify every current driver behavior or detection rule.
+**Source-confirmed is not independently proven runtime behavior.** Activision’s statements remain attributed. Platform capabilities are not proof of a RICOCHET implementation. Historical experiments retain their test dates. Unconfirmed internals are outside the main file.
 
-The final collection contains **220 claims and research-gap notes across 58 sources**, covering 2021–October 2026. It is approximately 100 KB before supporting documentation. JSONL is streamable and easy to filter; it does not guarantee a particular model’s reading speed.
-
-- [GUIDE.md](GUIDE.md): architecture map and reading order.
-- [SOURCES.md](SOURCES.md): linked bibliography and source types.
+- [GUIDE.md](GUIDE.md): reading map.
+- [SOURCES.md](SOURCES.md): retained-source bibliography.
 - [index.json](index.json): topic/ID lookup and UTF-8 byte offsets.
-- [METHODS.md](METHODS.md): research method and evidence labels.
-- [AUDIT.md](AUDIT.md): contradictions, caveats, and excluded claims.
-- [REVISION_LOG.md](REVISION_LOG.md): three substantive research passes, preserved in Git.
-- [schema.json](schema.json): JSON Schema for individual records.
+- [source_checks.json](source_checks.json): 62 source attempts, content checks, and hashes.
+- [claim_review.jsonl](claim_review.jsonl): disposition of every original entry.
+- [review.jsonl](review.jsonl): 45 excluded interpretations, gaps, unreplicated findings, unavailable verifications, and duplicates; **not confirmed facts**.
+- [METHODS.md](METHODS.md): confirmation method and limits.
+- [AUDIT.md](AUDIT.md): corrections and exclusions.
+- [REVISION_LOG.md](REVISION_LOG.md): substantive revisions preserved in Git.
+- [schema.json](schema.json): record schema version 1.1.0.
 
-Retrieve a focused, citation-complete subset with standard Python:
+Query a focused, citation-complete subset:
 
-```sh
+~~~sh
 python tools/query.py --topic kernel
 python tools/query.py --search attestation --limit 8
-python tools/query.py --status independent_observation
-python tools/query.py --id C211
+python tools/query.py --status study_report
+python tools/query.py --id C051
 python tools/validate.py
-```
+~~~
 
-`--topic`, `--status`, and `--id` can be repeated. Filters combine with AND across categories and OR within a category. Evidence dependencies and historical cross-links are included automatically, so a result may contain additional claims beyond `--limit`. No external packages or API keys are required.
+Repeat a topic, status, or ID option for OR within that category; different categories combine with AND. Historical cross-links are included automatically, so output can exceed the limit. Querying, indexing, and integrity validation require only standard Python.
 
-For AI use, keep the metadata and evidence labels attached, preserve game/date scope, and resolve claim citations before answering. Unknowns link through `basis_claims` to nearby published evidence. Prefer the file or a retrieved subset to asking an AI to follow all links from scratch.
+Keep metadata, attribution, date/game scope, and evidence labels attached when supplying this file to an AI. The main statuses are official_statement, platform_context, artifact_statement, and study_report. Use the separate review file when investigating open questions.
 
-This repository contains original summaries and links, not redistributed game binaries, source-code leaks, or full copied articles. Historical dates matter: protections and requirements differ between games, seasons, platforms, and playlists.
+This repository contains original summaries and references, not game binaries, leaked source, copied articles, or executed cheat programs. It does not claim exhaustive coverage or complete knowledge of Activision’s private implementation. GitHub repository: [ll2Rawll/ricochet-research](https://github.com/ll2Rawll/ricochet-research).
+
+To regenerate a source’s paragraph-labeled evidence locally:
+
+~~~sh
+python tools/fetch_evidence.py --source S01
+python tools/fetch_evidence.py --source S59
+~~~
+
+The cache is ignored by Git. Research PDF extraction requires Poppler’s pdftotext; HTML/artifact retrieval uses standard Python. Compare the reported normalized-text hash with the source record. A mismatch signals a need for review, not automatic factual invalidity.
