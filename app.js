@@ -2,7 +2,7 @@
 const REPO = 'https://github.com/ll2Rawll/ricochet-research';
 const RAW = 'https://raw.githubusercontent.com/ll2Rawll/ricochet-research/main/ricochet.jsonl';
 const PAGE_SIZE = 18;
-const SNAPSHOT_REVISION = 11;
+const SNAPSHOT_REVISION = 12;
 const LEVELS = {
   V: {name:'Vendor statement', description:'A statement supported by the cited vendor or policy source. This does not independently reproduce the vendor’s runtime or performance claims.'},
   P: {name:'Platform reference', description:'Documented platform, protocol, upstream UI or sample-code behavior. It is not evidence that a particular RICOCHET build uses that API or mechanism.'},
@@ -12,14 +12,14 @@ const LEVELS = {
 };
 const CATEGORIES = [
   {id:'all',name:'All research',symbol:'▦',topics:[]},
-  {id:'kernel',name:'Windows & kernel',symbol:'⌘',topics:['architecture','kernel','coverage','kernel_names','os_privilege','os_memory','os_callbacks','os_communication','os_integrity','hvci','performance','driver_reference_code','os_handle_access','os_notifications','driver_io','kernel_integrity','driver_provenance','driver_disclosure','driver_architecture']},
-  {id:'attestation',name:'Boot & attestation',symbol:'◇',topics:['attestation','tpm_mechanics','boot_security','troubleshooting','attestation_client','attestation_api','attestation_code','remote_attestation','attestation_vulnerability']},
+  {id:'kernel',name:'Windows & kernel',symbol:'⌘',topics:['architecture','kernel','coverage','kernel_names','os_privilege','os_memory','os_callbacks','os_communication','os_integrity','hvci','performance','driver_reference_code','os_handle_access','os_notifications','driver_io','kernel_integrity','driver_provenance','driver_disclosure','driver_architecture','thread_callbacks','registry_callbacks','registry_context','callback_lifecycle','client_hardening']},
+  {id:'attestation',name:'Boot & attestation',symbol:'◇',topics:['attestation','tpm_mechanics','boot_security','troubleshooting','attestation_client','attestation_api','attestation_code','remote_attestation','attestation_vulnerability','attestation_metadata','attestation_token_validation','attestation_claims','attestation_policy','attestation_deployment_security','attestation_service_trust','attestation_sdk_validation']},
   {id:'server',name:'Server protections',symbol:'▤',topics:['mitigations','server_culling','client_server_boundary']},
   {id:'unlocks',name:'Unlocks & progression',symbol:'›',topics:['content_entitlements','modding_support','modding_scope','unlockall_history','boosting','commerce_reference','license_validation','inventory_reference','inventory_authority','inventory_concurrency','inventory_transactions','steam_inventory','steam_commerce','progression_state','content_compatibility']},
   {id:'engineering',name:'Menu engineering',symbol:'⟨/⟩',topics:['menu_architecture','ui_backends','input_routing','rendering_reference','graphics_lifecycle','graphics_resources','menu_reference','mod_tools_reference','capture_api_limits']},
   {id:'uploads',name:'Uploaded artifacts',symbol:'▣',topics:['uploaded_artifact_packaging','uploaded_artifact_quality','uploaded_artifact_export_coverage','uploaded_artifact_provenance','artifact_interpretation']},
   {id:'devices',name:'DMA & input devices',symbol:'⌁',topics:['dma','dma_mechanics','input_devices']},
-  {id:'detection',name:'Detection & enforcement',symbol:'◎',topics:['ml','replay','detection_pipeline','telemetry','enforcement','reports','lmm','ranked','enforcement_strategy','evasion_defense','detection_component_updates']},
+  {id:'detection',name:'Detection & enforcement',symbol:'◎',topics:['ml','replay','detection_pipeline','telemetry','enforcement','reports','lmm','ranked','enforcement_strategy','evasion_defense','detection_component_updates','security_pipeline','replay_architecture','enforcement_workflow','gameplay_context']},
   {id:'artifact',name:'Diagnostic code',symbol:'⟨⟩',topics:['artifact_packaging','artifact_provenance','attestation_native','attestation_managed','attestation_keys']},
   {id:'accounts',name:'Accounts & privacy',symbol:'◫',topics:['account_security','privacy','appeals','organization','ecosystem']},
   {id:'context',name:'History & studies',symbol:'◷',topics:['history','metrics','research','research_methods','limitations','false_positives','historical_experiments','research_artifacts','research_boundaries','security_research']}
