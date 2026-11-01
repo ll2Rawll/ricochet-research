@@ -34,7 +34,7 @@
   "included_files": [
     {
       "archive_path": "laith-km-driver-main/.gitattributes",
-      "repository_path": "artifacts/laith-km-driver/source/.gitattributes",
+      "repository_path": "artifacts/laith-km-driver/source/.gitattributes.upstream",
       "bytes": 66,
       "sha256": "1a1dbe176bc233b499d35a57db7513f2941c99ab9759f177830c9149be99005b"
     },
@@ -1078,5 +1078,16 @@
     "laith-km-driver-main/km/src",
     "laith-km-driver-main/x64",
     "laith-km-driver-main/x64/Debug"
+  ],
+  "path_adjustments": [
+    {
+      "archive_path": "laith-km-driver-main/.gitattributes",
+      "repository_path": "artifacts/laith-km-driver/source/.gitattributes.upstream",
+      "reason": "Original text=auto metadata retained verbatim under a non-active name; generated .gitattributes preserves original file bytes across checkout settings."
+    }
+  ],
+  "added_repository_metadata": [
+    "artifacts/laith-km-driver/.gitattributes",
+    "artifacts/laith-km-driver/source/.gitattributes"
   ]
 }

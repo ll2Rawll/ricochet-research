@@ -1,0 +1,2 @@
+# Preserve provenance, checksums and imported archive bytes exactly.
+* -text

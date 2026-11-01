@@ -1,6 +1,6 @@
 # laith-km-driver source archive
 
-Source-only import of the user-provided [GoFile archive](https://gofile.io/d/G6JoV856), reviewed 1 November 2026. The original project is preserved under [`source/`](source/) with its directory layout and file bytes unchanged.
+Source-only import of the user-provided [GoFile archive](https://gofile.io/d/G6JoV856), reviewed 1 November 2026. The original project is preserved under [`source/`](source/) with original file bytes unchanged. The original `.gitattributes` is retained verbatim as `.gitattributes.upstream`; a replacement Git metadata rule prevents checkout-time line-ending changes.
 
 | Item | Value |
 | --- | --- |
@@ -13,7 +13,7 @@ Source-only import of the user-provided [GoFile archive](https://gofile.io/d/G6J
 
 The import keeps the Visual Studio solution, both projects, C++/header/assembly sources, INF, original documentation and helper scripts, and [MIT license](source/LICENSE) (Copyright 2025 LAITHCOOL). It preserves the separate license wording in the supplied README without reconciling it.
 
-Visual Studio `.vs/` caches, build/x64 output trees, per-user `.vcxproj.user` settings, and two unreferenced `hidclass.sys` binary samples were omitted. Neither the compressed RAR nor compiled drivers are checked into this source snapshot. [The manifest](manifest.json) records every archive entry, included-file hashes, and each omission reason. The local [ignore rules](.gitignore) keep regenerated output out of future commits.
+Visual Studio `.vs/` caches, build/x64 output trees, per-user `.vcxproj.user` settings, and two unreferenced `hidclass.sys` binary samples were omitted. Neither the compressed RAR nor compiled drivers are checked into this source snapshot. [The manifest](manifest.json) records every archive entry, included-file hashes, and each omission reason. The local [ignore rules](.gitignore) keep regenerated output out of future commits. Two repository-added `.gitattributes` files preserve exact bytes on Windows and Unix; they are separate from the 48 retained original files.
 
 ## Browse the supplied files
 
