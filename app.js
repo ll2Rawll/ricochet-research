@@ -2,13 +2,13 @@
 const REPO = 'https://github.com/ll2Rawll/ricochet-research';
 const RAW = 'https://raw.githubusercontent.com/ll2Rawll/ricochet-research/main/ricochet.jsonl';
 const PAGE_SIZE = 18;
-const SNAPSHOT_REVISION = 13;
+const SNAPSHOT_REVISION = 14;
 const LEVELS = {
   V: {name:'Vendor statement', description:'A statement supported by the cited vendor or policy source. This does not independently reproduce the vendor’s runtime or performance claims.'},
   P: {name:'Platform reference', description:'Documented platform, protocol, upstream UI or sample-code behavior. It is not evidence that a particular RICOCHET build uses that API or mechanism.'},
   O: {name:'Static observation', description:'Reproduced contents of a hash-identified public diagnostic artifact. These findings inspect the utility, not the proprietary game or kernel driver.'},
   R: {name:'Historical study', description:'An author-reported historical experiment with its original test period and limitations. It is not a current-build effectiveness measurement.'},
-  A: {name:'Artifact contents', description:'Verified contents of a pinned public artifact, without inferring anti-cheat runtime behavior.'}
+  A: {name:'Artifact contents', description:'Contents of a pinned public or user-provided artifact, without authenticating its producer or inferring anti-cheat runtime behavior.'}
 };
 const CATEGORIES = [
   {id:'all',name:'All research',symbol:'▦',topics:[]},
@@ -145,7 +145,7 @@ function showDialog(title,kicker,body){
 }
 function showFinding(id){
   const c=claimMap[id];if(!c)return;
-  showDialog(c.id+' · '+topicName(c.topic),'FINDING DETAILS',`${badge(c.level)}<p class="detail-text">${escapeHTML(c.text)}</p><div class="detail-scope"><span class="detail-label">As of ${escapeHTML(dateLabel(c.date))}</span>${escapeHTML(c.scope)}</div><div class="detail-section"><h3>Original sources</h3>${c.src.map(id=>{const s=sourceMap[id];return `<a class="source-ref" href="${safeURL(s.url)}" target="_blank" rel="noopener"><strong>${s.id}</strong> · ${escapeHTML(s.title)} ›<small>${escapeHTML(s.published?dateLabel(s.published):'Publication date not established')} · ${escapeHTML(s.kind.replaceAll('_',' '))}</small></a>`;}).join('')}</div><div class="detail-actions"><button class="small-button" data-copy="${c.id}">Copy citation</button><button class="small-button" data-copy-link="${c.id}">Copy finding link ›</button></div><details><summary>Evidence locations and provenance</summary><p>Paragraph IDs refer to reviewed source extraction, not publisher line numbers. Static file offsets and code locations retain their component scope.</p><pre>${escapeHTML(JSON.stringify(c.evidence||c.at,null,2))}</pre></details>`);
+  showDialog(c.id+' · '+topicName(c.topic),'FINDING DETAILS',`${badge(c.level)}<p class="detail-text">${escapeHTML(c.text)}</p><div class="detail-scope"><span class="detail-label">As of ${escapeHTML(dateLabel(c.date))}</span>${escapeHTML(c.scope)}</div><div class="detail-section"><h3>Original sources</h3>${c.src.map(id=>{const s=sourceMap[id];return `<a class="source-ref" href="${safeURL(s.url)}" target="_blank" rel="noopener"><strong>${s.id}</strong> · ${escapeHTML(s.title)} ›<small>${escapeHTML(s.published?dateLabel(s.published):'Publication date not established')} · ${escapeHTML(s.kind.replaceAll('_',' '))}</small></a>`;}).join('')}</div><div class="detail-actions"><button class="small-button" data-copy="${c.id}">Copy citation</button><button class="small-button" data-copy-link="${c.id}">Copy finding link ›</button></div><details><summary>Evidence locations and provenance</summary><p>Publisher section headings identify documentation sections. Paragraph IDs refer to reviewed extraction, not publisher line numbers. Static file offsets and code locations retain their component scope.</p><pre>${escapeHTML(JSON.stringify(c.evidence||c.at,null,2))}</pre></details>`);
   history.replaceState(null,'',location.pathname+location.search+'#'+c.id);
 }
 function showSource(id){
