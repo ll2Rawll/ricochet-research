@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search the RICOCHET research library. Explore dated findings about kernel drivers, attestation, Warzone and MW4 with original sources and evidence labels.">
+  <meta name="theme-color" content="#0d131c">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://raw.githubusercontent.com; script-src 'self'; style-src 'self'; img-src 'self' data:; base-uri 'self'; object-src 'none'">
+  <title>RICOCHET Research — Explore the evidence</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c0edaa'/%3E%3Ctext x='32' y='45' font-family='sans-serif' font-weight='800' font-size='44' text-anchor='middle' fill='%230d131c'%3ER%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="RICOCHET Research home"><span class="brand-mark">R</span><span>RICOCHET<span class="brand-sub">RESEARCH LIBRARY</span></span></a>
+    <nav class="toplinks" aria-label="Project links">
+      <a href="https://github.com/ll2Rawll/ricochet-research#readme" target="_blank" rel="noopener">Read on GitHub <span aria-hidden="true">›</span></a>
+      <a href="https://raw.githubusercontent.com/ll2Rawll/ricochet-research/main/ricochet.jsonl" target="_blank" rel="noopener" class="ai-link">AI edition <span aria-hidden="true">›</span></a>
+      <a href="https://github.com/ll2Rawll/ricochet-research/tree/main/research/laith-km-driver-review" target="_blank" rel="noopener">Project review <span aria-hidden="true">›</span></a>
+      <button class="icon-button" id="theme" aria-label="Switch to light theme" title="Switch color theme">◐</button>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow"><span class="status-dot"></span> INDEPENDENT PUBLIC-SOURCE RESEARCH</div>
+        <h1 id="hero-title">Find the evidence<span class="accent">.</span></h1>
+        <p class="hero-copy">Explore the systems behind RICOCHET, MW4 and Warzone.<br class="desktop-break"> Every finding keeps its date, source and evidence scope.</p>
+      </div>
+      <div class="collection-meta">
+        <div class="stat"><strong id="total-findings">456</strong><span>findings</span></div>
+        <div class="stat"><strong id="total-sources">165</strong><span>sources</span></div>
+        <div class="reviewed"><span>LAST REVIEWED</span><strong id="reviewed">1 NOV 2026</strong><small id="revision">Research revision 14</small></div>
+      </div>
+    </section>
+    <section class="search-region" aria-label="Search research">
+      <form id="search-form" role="search">
+        <svg class="search-icon" width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <label for="search" class="sr-only">Search findings, APIs, CVEs and sources</label>
+        <input type="search" id="search" placeholder="Search findings, APIs, CVEs, source IDs…" autocomplete="off" spellcheck="false">
+        <button type="button" id="clear-search" class="clear-search" aria-label="Clear search" hidden>×</button>
+        <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+      </form>
+      <div class="search-bottom"><div class="quick-searches"><span>TRY</span><button data-query="Randgrid.sys">Randgrid.sys</button><button data-query="CVE-2026-45642">Attestation CVE</button><button data-query="unlockall">Unlocks</button><button data-query="menu_development">Menu APIs</button><button data-query="replay_architecture">Replay pipeline</button><button data-query="A05">Imported project</button></div><button id="search-help" class="text-button" aria-expanded="false" aria-controls="search-tips">Search tips <span aria-hidden="true">›</span></button></div>
+      <p id="search-tips" class="search-tips" hidden>Combine words to narrow results. Put a phrase in quotes for an exact phrase. Search a finding ID such as <code>C286</code>, a source such as <code>S84</code>, or an API name. Matches include finding text, scope, topic, cited sources and artifact evidence.</p>
+    </section>
+    <div class="workspace">
+      <aside class="sidebar" aria-label="Research navigation">
+        <details class="topic-disclosure" open>
+          <summary>Browse topics <span aria-hidden="true">⌄</span></summary>
+          <nav id="categories" aria-label="Research topics"></nav>
+        </details>
+        <div class="evidence-note"><div class="eyebrow">READ WITH CONTEXT</div><p>A source-supported statement is different from independently reproduced runtime behavior.</p><button id="evidence-guide" class="text-button">Understand the evidence <span aria-hidden="true">›</span></button></div>
+        <div class="sidebar-bottom">An independent reference.<br>Not an official Activision product.</div>
+      </aside>
+      <section class="content" aria-label="Research results">
+        <div class="content-top">
+          <div class="view-switch" role="group" aria-label="Choose content"><button id="findings-tab" aria-pressed="true">Findings <span id="findings-tab-count">456</span></button><button id="sources-tab" aria-pressed="false">Sources <span id="sources-tab-count">165</span></button></div>
+          <div class="utility-actions"><button id="share" class="text-button">Copy view link <span aria-hidden="true">›</span></button><button id="export" class="small-button">Export results <span aria-hidden="true">↓</span></button></div>
+        </div>
+        <div class="filterbar">
+          <div class="result-heading"><h2 id="category-title">All research</h2><span id="result-count" role="status" aria-live="polite">Loading research…</span></div>
+          <div class="filters"><label for="level" class="sr-only">Filter by evidence type</label><select id="level"><option value="all">All evidence types</option><option value="V">Vendor statements</option><option value="P">Platform references</option><option value="O">Static observations</option><option value="R">Historical studies</option><option value="A">Artifact contents</option></select><label for="sort" class="sr-only">Sort results</label><select id="sort"><option value="relevance">Relevance</option><option value="newest">Newest date first</option><option value="oldest">Oldest date first</option><option value="id">Finding / source ID</option></select></div>
+        </div>
+        <div id="active-filters" class="active-filters" hidden></div>
+        <div id="results" class="results" tabindex="-1"><div class="loading-card">Opening the research library…</div></div>
+        <div id="pagination" class="pagination"></div>
+        <div class="content-footer"><span>Dates and scopes belong to each finding.</span><a href="https://github.com/ll2Rawll/ricochet-research" target="_blank" rel="noopener">View the original research ›</a></div>
+      </section>
+    </div>
+  </main>
+  <dialog id="detail" aria-labelledby="detail-title"><div class="dialog-top"><span id="detail-kicker" class="eyebrow"></span><button id="close-detail" class="icon-button" aria-label="Close details">×</button></div><div id="detail-body"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">Enable JavaScript to search this reader, or <a href="https://github.com/ll2Rawll/ricochet-research#readme">read the complete GitHub edition</a>.</p></noscript>
+</body>
+</html>

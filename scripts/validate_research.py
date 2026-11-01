@@ -8,7 +8,10 @@ import json
 import re
 import sys
 import xml.etree.ElementTree as ET
+from datetime import date
+from html.parser import HTMLParser
 from pathlib import Path, PurePosixPath
+from urllib.parse import urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -242,18 +245,98 @@ def check_review(sources: set[str], claims: set[str]) -> int:
     return len(projects)
 
 
+class ReaderHTML(HTMLParser):
+    """Collect static reader labels and locally referenced browser assets."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.labels: dict[str, str] = {}
+        self.open_elements: list[tuple[str, str | None]] = []
+        self.assets: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs) -> None:
+        attributes = dict(attrs)
+        identifier = attributes.get("id")
+        if identifier:
+            self.labels.setdefault(identifier, "")
+        if tag not in {"area", "base", "br", "col", "embed", "hr", "img", "input",
+                       "link", "meta", "param", "source", "track", "wbr"}:
+            self.open_elements.append((tag, identifier))
+        if tag == "script" and attributes.get("src"):
+            self.assets.append(attributes["src"])
+        if tag == "link" and "stylesheet" in attributes.get("rel", "").split():
+            if attributes.get("href"):
+                self.assets.append(attributes["href"])
+
+    def handle_endtag(self, tag: str) -> None:
+        for index in range(len(self.open_elements) - 1, -1, -1):
+            if self.open_elements[index][0] == tag:
+                del self.open_elements[index:]
+                break
+
+    def handle_data(self, data: str) -> None:
+        for _, identifier in self.open_elements:
+            if identifier:
+                self.labels[identifier] += data
+
+
+def check_reader(meta) -> None:
+    reader = ROOT / "reader"
+    snapshot = read_json(reader / "data.json")
+    corpus = [json.loads(line) for line in (ROOT / "ricochet.jsonl").read_text(
+        encoding="utf-8").splitlines()]
+    require(snapshot == corpus, "reader/data.json differs from the JSONL research corpus")
+
+    app = repository_file("reader/app.js").read_text(encoding="utf-8")
+    revisions = re.findall(r"\bconst\s+SNAPSHOT_REVISION\s*=\s*(\d+)\s*;", app)
+    require(len(revisions) == 1 and int(revisions[0]) == meta.get("revision"),
+            "Reader SNAPSHOT_REVISION does not match research metadata")
+
+    document = ReaderHTML()
+    document.feed(repository_file("reader/index.html").read_text(encoding="utf-8"))
+    expected = {
+        "total-findings": str(meta["claims"]),
+        "total-sources": str(meta["sources"]),
+        "findings-tab-count": str(meta["claims"]),
+        "sources-tab-count": str(meta["sources"]),
+        "revision": f"Research revision {meta['revision']}",
+    }
+    for identifier, value in expected.items():
+        require(document.labels.get(identifier, "").strip() == value,
+                f"Reader static label {identifier!r} does not match research metadata")
+    try:
+        reviewed = date.fromisoformat(meta["reviewed"])
+    except (TypeError, ValueError) as exc:
+        raise ValidationError("Research reviewed date must be a valid ISO date") from exc
+    actual_date = document.labels.get("reviewed", "").strip().upper()
+    month = ("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC")[reviewed.month - 1]
+    require(actual_date in {f"{reviewed.day} {month} {reviewed.year}",
+                            f"{reviewed.day:02} {month} {reviewed.year}"},
+            "Reader static reviewed date does not match research metadata")
+    require("app.js" in document.assets and "app.css" in document.assets,
+            "Reader index must reference app.js and app.css")
+    for asset in document.assets:
+        parsed = urlsplit(asset)
+        if parsed.scheme or parsed.netloc:
+            continue
+        require(not parsed.path.startswith("/"), f"Reader asset must be relative: {asset}")
+        repository_file("reader/" + parsed.path)
+
+
 def main() -> int:
     try:
         meta, sources, claims = check_records()
         check_readme(meta, sources, claims)
         imported_count = check_manifest()
         project_count = check_review(sources, claims)
+        check_reader(meta)
     except (ValidationError, OSError, UnicodeError, KeyError, TypeError) as exc:
         print(f"Research validation failed: {exc}", file=sys.stderr)
         return 1
     print(f"Research validation passed: revision {meta.get('revision')}, "
           f"{len(claims)} findings, {len(sources)} sources; "
-          f"{imported_count} imported-file hashes and {project_count} project metadata records verified.")
+          f"{imported_count} imported-file hashes, {project_count} project metadata records "
+          "and reader snapshot/labels/assets verified.")
     return 0
 
 

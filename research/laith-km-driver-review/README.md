@@ -4,7 +4,7 @@ Research revision 14 · reviewed 2026-11-01 · source A05
 
 This review is tied to [the imported snapshot at `75570c7`](https://github.com/ll2Rawll/ricochet-research/tree/75570c746672865d48420b724efbe8c55ab6ae51/artifacts/laith-km-driver/). It examines archive identity, licensing and project metadata. It does not authenticate an Activision/RICOCHET implementation or establish MW4/Warzone compatibility.
 
-[Machine-readable review](review.json) · [Original-file checksums](../../artifacts/laith-km-driver/SHA256SUMS) · [Import manifest](../../artifacts/laith-km-driver/manifest.json) · [Research library](../../README.md)
+[Reader implementation and saved dataset](../../reader/) · [Machine-readable review](review.json) · [Original-file checksums](../../artifacts/laith-km-driver/SHA256SUMS) · [Import manifest](../../artifacts/laith-km-driver/manifest.json) · [Research library](../../README.md)
 
 ## What the artifact establishes
 
