@@ -15,7 +15,7 @@ A sourced research library. Find the detail, keep the context.
 <img alt="159 sources" src="https://img.shields.io/badge/SOURCES-159-9abff7?style=flat-square&labelColor=172230">
 <img alt="Reviewed 31 October 2026" src="https://img.shields.io/badge/REVIEWED-31%20OCT%202026-c9b4e9?style=flat-square&labelColor=172230">
 
-[Browse topics](#browse-by-topic) · [Quick searches](#find-something-specific) · [Reading guides](#reading-guides) · [Complete catalogue](#complete-catalogue) · [Randgrid.sys guide](#randgrid-sys) · [Technical map](#technical-architecture) · [Public code](#public-code-index) · [Uploaded files](#uploaded-artifact-review) · [Community references](#community-source-review) · [Technical expansion](#menu-engineering) · [Security bibliography](#security-research-sources) · [Sources](#sources)
+[Browse topics](#browse-by-topic) · [Quick searches](#find-something-specific) · [Reading guides](#reading-guides) · [Complete catalogue](#complete-catalogue) · [Randgrid.sys guide](#randgrid-sys) · [Technical map](#technical-architecture) · [Public code](#public-code-index) · [Uploaded files](#uploaded-artifact-review) · [Source archive](artifacts/laith-km-driver/) · [Community references](#community-source-review) · [Technical expansion](#menu-engineering) · [Security bibliography](#security-research-sources) · [Sources](#sources)
 
 </div>
 
@@ -301,6 +301,11 @@ The callback page's generic creator-context description and the Ex registration'
 The current service overview's SEV-SNP description concerns Microsoft's service computation. It does not identify COD's exact backend path or create a player CPU requirement in this research. A platform claim schema also does not establish which claims Activision requires. Policy grammar versions and a relying party's product-specific policy labels are distinct.[^S145][^S142][^S143]
 
 </details>
+
+<a id="imported-source-archive"></a>
+### Imported source archive
+
+**[Browse the laith-km-driver source snapshot](artifacts/laith-km-driver/)** — imported from the [user-provided GoFile archive](https://gofile.io/d/G6JoV856) on 1 November 2026. Keeps 48 original source/project/documentation files (475,566 bytes), with the MIT license, file hashes and an omission manifest. Visual Studio caches, build outputs, local IDE settings and unreferenced binary samples are excluded. Source bytes are unchanged; no build or driver execution was performed. This separate user-supplied project is not authenticated RICOCHET source, and its supplied documentation is not incorporated into the research findings.
 
 <a id="uploaded-artifact-review"></a>
 <details>

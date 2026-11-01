@@ -1,0 +1,18 @@
+# Keep generated IDE/build files out of this imported artifact.
+.vs/
+[Bb]uild/
+x64/
+[Dd]ebug/
+[Rr]elease/
+*.vcxproj.user
+*.suo
+*.obj
+*.pdb
+*.ipch
+*.tlog
+*.lastbuildstate
+*.log
+*.sys
+*.cer
+__pycache__/
+combined_source.txt

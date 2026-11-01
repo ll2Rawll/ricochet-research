@@ -1,0 +1,1082 @@
+{
+  "schema": "source-archive-import/1",
+  "imported_date_utc": "2026-11-01",
+  "source_url": "https://gofile.io/d/G6JoV856",
+  "archive": {
+    "name": "laith-km-driver-main.rar",
+    "bytes": 92462917,
+    "sha256": "dc533581014f6c8d58c86b6f38ce1ab7e583a01ccee7983b1f947dc64ef3f2d5"
+  },
+  "destination": "artifacts/laith-km-driver/source",
+  "source_bytes_modified": false,
+  "summary": {
+    "archive_entry_count": 238,
+    "archive_file_count": 189,
+    "archive_directory_count": 49,
+    "archive_expanded_bytes": 835463111,
+    "included_file_count": 48,
+    "included_bytes": 475566,
+    "omitted_file_count": 141,
+    "omitted_bytes": 834987545
+  },
+  "omission_reasons": {
+    "visual_studio_cache": 22,
+    "build_output": 115,
+    "local_ide_preferences": 2,
+    "unreferenced_binary_sample": 2
+  },
+  "verification": {
+    "included_members": "Decompressed successfully using libarchive; SHA-256 calculated from original member bytes.",
+    "excluded_members": "Sizes and paths inventoried from archive metadata; complete per-member decompression/CRC validation was not performed.",
+    "runtime": "Not built, loaded, or executed.",
+    "provenance": "User-provided archive; publisher identity, runtime behavior and relationship to RICOCHET are unverified."
+  },
+  "included_files": [
+    {
+      "archive_path": "laith-km-driver-main/.gitattributes",
+      "repository_path": "artifacts/laith-km-driver/source/.gitattributes",
+      "bytes": 66,
+      "sha256": "1a1dbe176bc233b499d35a57db7513f2941c99ab9759f177830c9149be99005b"
+    },
+    {
+      "archive_path": "laith-km-driver-main/Driver.sln",
+      "repository_path": "artifacts/laith-km-driver/source/Driver.sln",
+      "bytes": 3757,
+      "sha256": "7749943e634a3d1ac2e9944db91569a61901ced9c083e5780b6b7faaff83cae0"
+    },
+    {
+      "archive_path": "laith-km-driver-main/GEMINI1.md",
+      "repository_path": "artifacts/laith-km-driver/source/GEMINI1.md",
+      "bytes": 6733,
+      "sha256": "245c7a718c087db0c4879f9b2a1105e98b0a5b6c5b1774a6cb73e0481fb24768"
+    },
+    {
+      "archive_path": "laith-km-driver-main/LICENSE",
+      "repository_path": "artifacts/laith-km-driver/source/LICENSE",
+      "bytes": 1066,
+      "sha256": "ed2ccd2ee9a4a91149ae20c29002f23ffb30b5f3462d56d3e43e785a8c906f9f"
+    },
+    {
+      "archive_path": "laith-km-driver-main/README.md",
+      "repository_path": "artifacts/laith-km-driver/source/README.md",
+      "bytes": 6461,
+      "sha256": "e4f6cde3eeb016f5992ec329ff38b1a6069212ffbf7b55062109dc79231bec6f"
+    },
+    {
+      "archive_path": "laith-km-driver-main/combine_files.py",
+      "repository_path": "artifacts/laith-km-driver/source/combine_files.py",
+      "bytes": 1976,
+      "sha256": "844aaee71b3d22fb586ed202d0226f44c91196aca181cabc795f47d0d8585dbd"
+    },
+    {
+      "archive_path": "laith-km-driver-main/delete",
+      "repository_path": "artifacts/laith-km-driver/source/delete",
+      "bytes": 9,
+      "sha256": "3d505399b291ed47ce66c912fe7221f1adf8441ea02367d6c9affaa5e2f82e28"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/hv.vcxproj",
+      "repository_path": "artifacts/laith-km-driver/source/hv/hv.vcxproj",
+      "bytes": 7767,
+      "sha256": "aa17f319a036625fd2424cab2d9736c729c902f2ebdbf2293c9aa0c537f08fff"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/hv.vcxproj.filters",
+      "repository_path": "artifacts/laith-km-driver/source/hv/hv.vcxproj.filters",
+      "bytes": 1140,
+      "sha256": "d9cca6b56f8bbbe1bfae4f1ba9ebadf70c59df126ff168746cb0548958cc7f69"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/main.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/hv/main.cpp",
+      "bytes": 18549,
+      "sha256": "a32afa7686d3fe8f9bc78dc576fbca5c2c7b6948a4ac2a7dded48728494a64eb"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/common/decode.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/common/decode.cpp",
+      "bytes": 8473,
+      "sha256": "5f1e89afd497d491705e4559f83a71afaf4fcee41c1cb15c799fa1d89c6eb279"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/common/decode.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/common/decode.h",
+      "bytes": 955,
+      "sha256": "265e9205448d559317a932fac951c5751082958fa456c4db78c6aa5ece9f4c73"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/common/memory.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/common/memory.cpp",
+      "bytes": 3100,
+      "sha256": "2f6706894be609b0b4b8cd99a363902168abd84cac395301ce6f446c55268c45"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/common/memory.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/common/memory.h",
+      "bytes": 1061,
+      "sha256": "da07fd22d2cdda65efab18c2390b5465a235ac9f30b9f3b4ad7864119ae0eb5a"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/cpu/cpu.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/cpu/cpu.cpp",
+      "bytes": 4473,
+      "sha256": "3dc959d4171e111fd62b244194f0ee732e1876c4f319018e022c8c6f92e14a87"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/cpu/cpu.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/cpu/cpu.h",
+      "bytes": 1588,
+      "sha256": "bb707b8aa087353980586efe205547fcad79e819c2b06e7c8a315743338a4b8a"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/ept/ept.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/ept/ept.cpp",
+      "bytes": 10016,
+      "sha256": "875a0244f4a7314c60ccde197f78f93c15629b276bf00945dffc5dbf4aa25413"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/ept/ept.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/ept/ept.h",
+      "bytes": 2002,
+      "sha256": "eebcfe32a0df3b459e56bd09f4dd2d497755fa2258f2c6b6a11f351d63ac1733"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/hv.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/hv.h",
+      "bytes": 4421,
+      "sha256": "b8666006db7f6707a39154e6bf69d3ad77f34dcbc6ff8b47c09e37bf11ee319b"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/hv_hook/hv_hook.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/hv_hook/hv_hook.cpp",
+      "bytes": 20163,
+      "sha256": "248b0aa2e3bf588d72a47a70eaa668e7180405328c1595f6b896757460541ab8"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/hv_hook/hv_hook.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/hv_hook/hv_hook.h",
+      "bytes": 3103,
+      "sha256": "ff191cab1be449d6ef97a1271fa1d23881037f087f16b192fd3a50be5e953b2a"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/hv_hook/hv_hook_asm.asm",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/hv_hook/hv_hook_asm.asm",
+      "bytes": 3898,
+      "sha256": "8c9703ea865d34d476889b1ba2b5a5ce8d08c4ee92b8e20ae9bb533d80eaf2dc"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/npt/npt.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/npt/npt.cpp",
+      "bytes": 9073,
+      "sha256": "fc189d2fccf97b7e0d9edd0d25df58a26cb4c578cbe1dde84452aab8c7d0a80d"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/npt/npt.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/npt/npt.h",
+      "bytes": 1975,
+      "sha256": "90853026ca65642559ba0ab1998d4c6f035d08844a52337a1e2df099ba69cb45"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/svm/exit_handler.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/svm/exit_handler.cpp",
+      "bytes": 15511,
+      "sha256": "3cd319d6901ad7db3be41c6ed7537c9bd3f81217b786e83079886fbb390a79c2"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/svm/exit_handler.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/svm/exit_handler.h",
+      "bytes": 296,
+      "sha256": "55bfc2a403b6b61a6abec5b1bb936e109c1b9ad23ac27dcceb9ffe7405cd9144"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/svm/svm.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/svm/svm.cpp",
+      "bytes": 7668,
+      "sha256": "21abab0c9243f475889c2fddb390e66f6a64541d287759aff2e0fdd9ecde44d3"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/svm/svm.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/svm/svm.h",
+      "bytes": 922,
+      "sha256": "5b8e37cc4ca476b161c89deea253d886b043aab7eadeb736e263776d941474b7"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/svm/svm_asm.asm",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/svm/svm_asm.asm",
+      "bytes": 4020,
+      "sha256": "88178fe5f283c66598aef05dce7ce7d9d7710b8f0891ea5c3b20756133b6dfa9"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/svm/vmcb_defs.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/svm/vmcb_defs.h",
+      "bytes": 8754,
+      "sha256": "24d4717df1bee203f68f93c8a87c024b5192746ba50a6568f65f688ded6febb7"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/vmx/exit_handler.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/vmx/exit_handler.cpp",
+      "bytes": 13018,
+      "sha256": "79a5ff161633ed76f10b8f5c9f801a3d8e0330a97b1df8d60e22246f937487d7"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/vmx/exit_handler.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/vmx/exit_handler.h",
+      "bytes": 425,
+      "sha256": "a9ae540bbc64cc172d0a27343c9569606e4c8218aca3f5c085b8d6794b65020e"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/vmx/vmcs_defs.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/vmx/vmcs_defs.h",
+      "bytes": 11655,
+      "sha256": "80dff752123ea79d8f156ec91ae594b3f825f63045a66412efab4df2546b196e"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/vmx/vmx.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/vmx/vmx.cpp",
+      "bytes": 12057,
+      "sha256": "dd32dfe443fe118753b4dc723129bca728722cc3c765597fe38ea3b050c02b66"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/vmx/vmx.h",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/vmx/vmx.h",
+      "bytes": 1271,
+      "sha256": "27b7f2cf02fa4fef8f76ab851fb18d4696be420139b27b2e762da85815d0c789"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/src/vmx/vmx_asm.asm",
+      "repository_path": "artifacts/laith-km-driver/source/hv/src/vmx/vmx_asm.asm",
+      "bytes": 4385,
+      "sha256": "33991783474664b3502030c39b488e2c4a381715186eaaf4d6bdd17546d24f6d"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/km.inf",
+      "repository_path": "artifacts/laith-km-driver/source/km/km.inf",
+      "bytes": 1712,
+      "sha256": "4e0bdb03e58a16e094e2f280c9899f4b81896d6a4ee48103ece3f30f0bd037bb"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/km.vcxproj",
+      "repository_path": "artifacts/laith-km-driver/source/km/km.vcxproj",
+      "bytes": 7909,
+      "sha256": "733ad8e8d18597cb18c52edd9cbf66fde543555dce9807862ae6a5cca814a86a"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/km.vcxproj.filters",
+      "repository_path": "artifacts/laith-km-driver/source/km/km.vcxproj.filters",
+      "bytes": 1474,
+      "sha256": "8ff2d9b41a3f39fef05dbfdee778cc601a94d6d294d758494d86a4cfd59c2e5c"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/src/KernelManualMap.h",
+      "repository_path": "artifacts/laith-km-driver/source/km/src/KernelManualMap.h",
+      "bytes": 13983,
+      "sha256": "b777c5b6ba4f4d30ce3a42e9376c8e2fc1c8365fbbdf5787a2c263eaad3d6a59"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/src/controller_inject.h",
+      "repository_path": "artifacts/laith-km-driver/source/km/src/controller_inject.h",
+      "bytes": 20993,
+      "sha256": "2920b60660b973f0a05ca750a524124337d4962af035a9a6cdb4362dfcfb790e"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/src/helpers.h",
+      "repository_path": "artifacts/laith-km-driver/source/km/src/helpers.h",
+      "bytes": 101034,
+      "sha256": "130e9cc650941bdc856ee2299b35af63d1ad3881052d9648f206a46628b5757c"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/src/main.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/km/src/main.cpp",
+      "bytes": 121199,
+      "sha256": "add36e035c6de2e751742c0bd861381854852897647636c17989ea43cf757408"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/src/memory.h",
+      "repository_path": "artifacts/laith-km-driver/source/km/src/memory.h",
+      "bytes": 4752,
+      "sha256": "3898339f9362e5b79d0aa202b9631b5d31a2067c683053f76cbe9a989d6ec8a6"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/test_cr4.cpp",
+      "repository_path": "artifacts/laith-km-driver/source/km/test_cr4.cpp",
+      "bytes": 118,
+      "sha256": "72d133112004b0f36418c4ee2d6405b786e3abdf95cbaf1f3d91c51c8dd2bcc9"
+    },
+    {
+      "archive_path": "laith-km-driver-main/run2.bat",
+      "repository_path": "artifacts/laith-km-driver/source/run2.bat",
+      "bytes": 567,
+      "sha256": "c827f0b43e94a3b74020b6081a92e4fc2b19e4035b92710c2047b392e456004d"
+    },
+    {
+      "archive_path": "laith-km-driver-main/start",
+      "repository_path": "artifacts/laith-km-driver/source/start",
+      "bytes": 9,
+      "sha256": "3d505399b291ed47ce66c912fe7221f1adf8441ea02367d6c9affaa5e2f82e28"
+    },
+    {
+      "archive_path": "laith-km-driver-main/stop",
+      "repository_path": "artifacts/laith-km-driver/source/stop",
+      "bytes": 9,
+      "sha256": "3d505399b291ed47ce66c912fe7221f1adf8441ea02367d6c9affaa5e2f82e28"
+    }
+  ],
+  "omitted_files": [
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/CopilotIndices/17.14.995.13737/CodeChunks.db",
+      "bytes": 1708032,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/CopilotIndices/17.14.995.13737/SemanticSymbols.db",
+      "bytes": 6959104,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/FileContentIndex/1258f457-baa1-4544-81ce-0b76b404575e.vsidx",
+      "bytes": 24528,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/FileContentIndex/1ca1329e-108c-4f51-9e36-75c51cee84e0.vsidx",
+      "bytes": 24541,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/FileContentIndex/9724ec65-fa66-4d68-ae9d-c3a6e38e759c.vsidx",
+      "bytes": 222573,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/FileContentIndex/b8016f47-a1e4-4fce-8554-2ee67778ff53.vsidx",
+      "bytes": 222144,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/.suo",
+      "bytes": 81408,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/Browse.VC.db",
+      "bytes": 24510464,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/DocumentLayout.backup.json",
+      "bytes": 9068,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/DocumentLayout.json",
+      "bytes": 9390,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/Solution.VC.db",
+      "bytes": 524288,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/1b3de4e52bd0bb48/MAIN.ipch",
+      "bytes": 77201408,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/28c9d1ed6e972a4/MAIN.ipch",
+      "bytes": 77201408,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/33919339d7dc2c9c/MAIN.ipch",
+      "bytes": 73793536,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/3fe9eacfdeb8abc3/HV_HOOK.ipch",
+      "bytes": 58851328,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/5b40d8b6beb2f774/MAIN.ipch",
+      "bytes": 77201408,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/7c0fd32d2cd49924/MAIN.ipch",
+      "bytes": 59113472,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/8cf01402bf8a95a/MAIN.ipch",
+      "bytes": 70909952,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/91ab8f9e67be9f0e/MAIN.ipch",
+      "bytes": 73793536,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/99eb441529be501c/MAIN.ipch",
+      "bytes": 73793536,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/d0360669f059ee94/MAIN.ipch",
+      "bytes": 73793536,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/ee45462e690bf34a/MAIN.ipch",
+      "bytes": 77201408,
+      "reason": "visual_studio_cache"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/hv.pdb",
+      "bytes": 438272,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/hv.sys",
+      "bytes": 35840,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/hv/hv.sys",
+      "bytes": 35840,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/km.cer",
+      "bytes": 784,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/km.inf",
+      "bytes": 1795,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/km.pdb",
+      "bytes": 520192,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/km.sys",
+      "bytes": 62120,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/km/km.inf",
+      "bytes": 1795,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/km/km.sys",
+      "bytes": 62120,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.Build.CppClean.log",
+      "bytes": 3106,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.inf",
+      "bytes": 1795,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.log",
+      "bytes": 1111247,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.sys.recipe",
+      "bytes": 351,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/CL.command.1.tlog",
+      "bytes": 8010,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/CL.read.1.tlog",
+      "bytes": 12386,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/CL.write.1.tlog",
+      "bytes": 748,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/Cl.items.tlog",
+      "bytes": 241,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/km.lastbuildstate",
+      "bytes": 273,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/link.command.1.tlog",
+      "bytes": 10476,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/link.read.1.tlog",
+      "bytes": 2272,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/link.secondary.1.tlog",
+      "bytes": 130,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/link.write.1.tlog",
+      "bytes": 702,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/signtool.command.1.tlog",
+      "bytes": 1090,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/signtool.read.1.tlog",
+      "bytes": 1782,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/signtool.timestamp.1.tlog",
+      "bytes": 379,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/signtool.write.1.tlog",
+      "bytes": 1296,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/stampinf.command.1.tlog",
+      "bytes": 2330,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/stampinf.read.1.tlog",
+      "bytes": 1680,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/km.tlog/stampinf.write.1.tlog",
+      "bytes": 1380,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/main.obj",
+      "bytes": 359939,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/vc143.pdb",
+      "bytes": 323584,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/build/vm_intermediates/vcpkg.applocal.log",
+      "bytes": 5,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/build/hv.pdb",
+      "bytes": 438272,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/build/hv.sys",
+      "bytes": 35840,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/build/hv/hv.sys",
+      "bytes": 35840,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/hv.vcxproj.user",
+      "bytes": 399,
+      "reason": "local_ide_preferences"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/cpu.obj",
+      "bytes": 17913,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/decode.obj",
+      "bytes": 12925,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/ept.obj",
+      "bytes": 24951,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/exit_handler.obj",
+      "bytes": 20295,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.inf",
+      "bytes": 598,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.log",
+      "bytes": 1112834,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.sys.recipe",
+      "bytes": 347,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/CL.command.1.tlog",
+      "bytes": 21854,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/CL.read.1.tlog",
+      "bytes": 99734,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/CL.write.1.tlog",
+      "bytes": 18882,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/Cl.items.tlog",
+      "bytes": 2543,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/Masm.read.1u.tlog",
+      "bytes": 720,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/Masm.write.1u.tlog",
+      "bytes": 1436,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/hv.lastbuildstate",
+      "bytes": 269,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/link.command.1.tlog",
+      "bytes": 9168,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/link.read.1.tlog",
+      "bytes": 8208,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/link.secondary.1.tlog",
+      "bytes": 1637,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/link.write.1.tlog",
+      "bytes": 4136,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv.tlog/stampinf.command.1.tlog",
+      "bytes": 612,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv_hook.obj",
+      "bytes": 33309,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/hv_hook_asm.obj",
+      "bytes": 1679,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/main.obj",
+      "bytes": 51961,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/memory.obj",
+      "bytes": 19948,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/npt.obj",
+      "bytes": 25447,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/svm.obj",
+      "bytes": 20599,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/svm_asm.obj",
+      "bytes": 2349,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/svm_exit_handler.obj",
+      "bytes": 22137,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/vc143.pdb",
+      "bytes": 266240,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/vcpkg.applocal.log",
+      "bytes": 5,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/vmx.obj",
+      "bytes": 25614,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/vmx_asm.obj",
+      "bytes": 4434,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Debug/vmx_exit_handler.obj",
+      "bytes": 21857,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/cpu.obj",
+      "bytes": 17753,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/decode.obj",
+      "bytes": 12805,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/ept.obj",
+      "bytes": 24684,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/hv.Build.CppClean.log",
+      "bytes": 214,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/hv.tlog/CL.command.1.tlog",
+      "bytes": 23558,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/hv.tlog/CL.read.1.tlog",
+      "bytes": 99784,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/hv.tlog/CL.write.1.tlog",
+      "bytes": 13846,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/hv.tlog/Masm.read.1u.tlog",
+      "bytes": 822,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/hv.tlog/Masm.write.1u.tlog",
+      "bytes": 1652,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/hv.tlog/hv.lastbuildstate",
+      "bytes": 291,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/hv.tlog/unsuccessfulbuild",
+      "bytes": 0,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/hv_hook_asm.obj",
+      "bytes": 1683,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/memory.obj",
+      "bytes": 18944,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/npt.obj",
+      "bytes": 28271,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/svm.obj",
+      "bytes": 21096,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/svm_asm.obj",
+      "bytes": 2349,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/vc143.pdb",
+      "bytes": 258048,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/vmx.obj",
+      "bytes": 29558,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/hv/x64/Release/vmx_asm.obj",
+      "bytes": 4438,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/km.cer",
+      "bytes": 784,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/km.inf",
+      "bytes": 1801,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/km.pdb",
+      "bytes": 503808,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/km.sys",
+      "bytes": 43504,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/km/km.inf",
+      "bytes": 1801,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/km/km.sys",
+      "bytes": 43504,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.Build.CppClean.log",
+      "bytes": 3175,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.inf",
+      "bytes": 1801,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.sys.recipe",
+      "bytes": 350,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/CL.command.1.tlog",
+      "bytes": 2588,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/CL.read.1.tlog",
+      "bytes": 11650,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/CL.write.1.tlog",
+      "bytes": 736,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/Cl.items.tlog",
+      "bytes": 236,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/km.lastbuildstate",
+      "bytes": 274,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/link.command.1.tlog",
+      "bytes": 3474,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/link.read.1.tlog",
+      "bytes": 2460,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/link.secondary.1.tlog",
+      "bytes": 129,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/link.write.1.tlog",
+      "bytes": 696,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/signtool.command.1.tlog",
+      "bytes": 368,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/signtool.read.1.tlog",
+      "bytes": 602,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/signtool.timestamp.1.tlog",
+      "bytes": 128,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/signtool.write.1.tlog",
+      "bytes": 440,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/stampinf.command.1.tlog",
+      "bytes": 832,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/stampinf.read.1.tlog",
+      "bytes": 562,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/km.tlog/stampinf.write.1.tlog",
+      "bytes": 462,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/main.obj",
+      "bytes": 335297,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/vc143.pdb",
+      "bytes": 290816,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/build/vm_intermediates/vcpkg.applocal.log",
+      "bytes": 5,
+      "reason": "build_output"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/hidclass.sys",
+      "bytes": 327680,
+      "reason": "unreferenced_binary_sample"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/km.vcxproj.user",
+      "bytes": 487,
+      "reason": "local_ide_preferences"
+    },
+    {
+      "archive_path": "laith-km-driver-main/km/src/hidclass.sys",
+      "bytes": 327680,
+      "reason": "unreferenced_binary_sample"
+    },
+    {
+      "archive_path": "laith-km-driver-main/x64/Debug/hv.inf",
+      "bytes": 599,
+      "reason": "build_output"
+    }
+  ],
+  "archive_directories": [
+    "laith-km-driver-main",
+    "laith-km-driver-main/.vs",
+    "laith-km-driver-main/.vs/Driver",
+    "laith-km-driver-main/.vs/Driver/CopilotIndices",
+    "laith-km-driver-main/.vs/Driver/CopilotIndices/17.14.995.13737",
+    "laith-km-driver-main/.vs/Driver/FileContentIndex",
+    "laith-km-driver-main/.vs/Driver/v17",
+    "laith-km-driver-main/.vs/Driver/v17/ipch",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/1b3de4e52bd0bb48",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/28c9d1ed6e972a4",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/33919339d7dc2c9c",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/3fe9eacfdeb8abc3",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/5b40d8b6beb2f774",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/7c0fd32d2cd49924",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/8cf01402bf8a95a",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/91ab8f9e67be9f0e",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/99eb441529be501c",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/d0360669f059ee94",
+    "laith-km-driver-main/.vs/Driver/v17/ipch/AutoPCH/ee45462e690bf34a",
+    "laith-km-driver-main/build",
+    "laith-km-driver-main/build/hv",
+    "laith-km-driver-main/build/km",
+    "laith-km-driver-main/build/vm_intermediates",
+    "laith-km-driver-main/build/vm_intermediates/km.tlog",
+    "laith-km-driver-main/hv",
+    "laith-km-driver-main/hv/build",
+    "laith-km-driver-main/hv/build/hv",
+    "laith-km-driver-main/hv/src",
+    "laith-km-driver-main/hv/src/common",
+    "laith-km-driver-main/hv/src/cpu",
+    "laith-km-driver-main/hv/src/ept",
+    "laith-km-driver-main/hv/src/hv_hook",
+    "laith-km-driver-main/hv/src/npt",
+    "laith-km-driver-main/hv/src/svm",
+    "laith-km-driver-main/hv/src/vmx",
+    "laith-km-driver-main/hv/x64",
+    "laith-km-driver-main/hv/x64/Debug",
+    "laith-km-driver-main/hv/x64/Debug/hv.tlog",
+    "laith-km-driver-main/hv/x64/Release",
+    "laith-km-driver-main/hv/x64/Release/hv.tlog",
+    "laith-km-driver-main/km",
+    "laith-km-driver-main/km/build",
+    "laith-km-driver-main/km/build/km",
+    "laith-km-driver-main/km/build/vm_intermediates",
+    "laith-km-driver-main/km/build/vm_intermediates/km.tlog",
+    "laith-km-driver-main/km/src",
+    "laith-km-driver-main/x64",
+    "laith-km-driver-main/x64/Debug"
+  ]
+}

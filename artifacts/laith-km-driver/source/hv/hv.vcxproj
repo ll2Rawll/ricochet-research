@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BDBC027D-026D-DA88-DACD-BEDC92C9FD4D}</ProjectGuid>
+    <TemplateGuid>{dd38f7fc-d7bd-488b-9242-7d8754cde80d}</TemplateGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration>Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+    <RootNamespace>hv</RootNamespace>
+    <WindowsTargetPlatformVersion>$(LatestTargetPlatformVersion)</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+
+  <ImportGroup Label="ExtensionSettings">
+    <!-- Required for MASM .asm files -->
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"
+            Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')"
+            Label="LocalAppDataPlatform" />
+  </ImportGroup>
+
+  <PropertyGroup Label="UserMacros" />
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <OutDir>$(SolutionDir)\build\</OutDir>
+    <EnableInf2cat>false</EnableInf2cat>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <OutDir>$(SolutionDir)\build\</OutDir>
+    <EnableInf2cat>false</EnableInf2cat>
+  </PropertyGroup>
+
+  <!-- ── Compiler settings ───────────────────────────────────────────────── -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <Optimization>Disabled</Optimization>
+      <WarningLevel>Level3</WarningLevel>
+      <!-- Silence C4201 (nameless struct) used in VMCB/VMCS union definitions and C4996 for deprecated pool APIs -->
+      <DisableSpecificWarnings>4201;4324;4996</DisableSpecificWarnings>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+    <!-- MASM for .asm files -->
+    <MASM>
+      <UseSafeExceptionHandlers>false</UseSafeExceptionHandlers>
+      <!-- /Cx = case-sensitive identifiers (prevents VmxOff matching VMXOFF mnemonic) -->
+      <AdditionalOptions>/Cx %(AdditionalOptions)</AdditionalOptions>
+    </MASM>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <Optimization>MaxSpeed</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4201;4324;4996</DisableSpecificWarnings>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+    <MASM>
+      <UseSafeExceptionHandlers>false</UseSafeExceptionHandlers>
+      <AdditionalOptions>/Cx %(AdditionalOptions)</AdditionalOptions>
+    </MASM>
+  </ItemDefinitionGroup>
+
+  <!-- ── Source files ────────────────────────────────────────────────────── -->
+  <ItemGroup>
+    <FilesToPackage Include="$(TargetPath)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Driver entry point -->
+    <ClCompile Include="main.cpp" />
+
+    <!-- CPU detection -->
+    <ClCompile Include="src\cpu\cpu.cpp" />
+
+    <!-- Common helpers -->
+    <ClCompile Include="src\common\memory.cpp" />
+    <ClCompile Include="src\common\decode.cpp" />
+
+    <!-- Intel VMX -->
+    <ClCompile Include="src\vmx\vmx.cpp" />
+    <ClCompile Include="src\vmx\exit_handler.cpp">
+      <ObjectFileName>$(IntDir)\vmx_exit_handler.obj</ObjectFileName>
+    </ClCompile>
+
+    <!-- AMD SVM -->
+    <ClCompile Include="src\svm\svm.cpp" />
+    <ClCompile Include="src\svm\exit_handler.cpp">
+      <ObjectFileName>$(IntDir)\svm_exit_handler.obj</ObjectFileName>
+    </ClCompile>
+
+    <!-- Intel EPT -->
+    <ClCompile Include="src\ept\ept.cpp" />
+
+    <!-- AMD NPT -->
+    <ClCompile Include="src\npt\npt.cpp" />
+
+    <!-- Hyperjack hook -->
+    <ClCompile Include="src\hv_hook\hv_hook.cpp">
+      <ObjectFileName>$(IntDir)\hv_hook.obj</ObjectFileName>
+    </ClCompile>
+  </ItemGroup>
+
+  <!-- ── MASM assembler files ─────────────────────────────────────────────── -->
+  <ItemGroup>
+    <MASM Include="src\vmx\vmx_asm.asm" />
+    <MASM Include="src\svm\svm_asm.asm" />
+    <MASM Include="src\hv_hook\hv_hook_asm.asm" />
+  </ItemGroup>
+
+  <!-- ── Header files (for IDE visibility) ───────────────────────────────── -->
+  <ItemGroup>
+    <ClInclude Include="src\hv.h" />
+    <ClInclude Include="src\cpu\cpu.h" />
+    <ClInclude Include="src\common\memory.h" />
+    <ClInclude Include="src\common\decode.h" />
+    <ClInclude Include="src\vmx\vmcs_defs.h" />
+    <ClInclude Include="src\vmx\vmx.h" />
+    <ClInclude Include="src\vmx\exit_handler.h" />
+    <ClInclude Include="src\svm\vmcb_defs.h" />
+    <ClInclude Include="src\svm\svm.h" />
+    <ClInclude Include="src\svm\exit_handler.h" />
+    <ClInclude Include="src\ept\ept.h" />
+    <ClInclude Include="src\npt\npt.h" />
+    <ClInclude Include="src\hv_hook\hv_hook.h" />
+  </ItemGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>
