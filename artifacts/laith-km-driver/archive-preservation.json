@@ -1,0 +1,39 @@
+{
+  "schema": "complete-archive-preservation/1",
+  "preserved_date": "2026-11-01",
+  "archive": {
+    "name": "laith-km-driver-main.rar",
+    "bytes": 92462917,
+    "sha256": "dc533581014f6c8d58c86b6f38ce1ab7e583a01ccee7983b1f947dc64ef3f2d5"
+  },
+  "storage": {
+    "kind": "git",
+    "path": "artifacts/laith-km-driver/original/laith-km-driver-main.rar",
+    "download_url": "https://raw.githubusercontent.com/ll2Rawll/ricochet-research/main/artifacts/laith-km-driver/original/laith-km-driver-main.rar",
+    "git_blob_sha1": "687167210b4b02e46e5bc35f46703aedf3235699"
+  },
+  "inventory_path": "artifacts/laith-km-driver/archive-inventory.json",
+  "inventory_sha256": "3cafc24da42cdff9aa7816f86ec468d6b68198ff8472c5a9a5c0809aafa35096",
+  "historical_user_report": {
+    "reported_date": "2026-11-01",
+    "reported_by": "User who supplied the archive",
+    "statement": "The user reports that the project previously worked perfectly.",
+    "prior_test_date": null,
+    "windows_build": null,
+    "game_build": null,
+    "hardware": null,
+    "settings": null,
+    "independently_reproduced": false,
+    "scope": "Historical user report; this repository review has not reproduced the runtime result. The report does not identify a current MW4/Warzone build."
+  },
+  "verification": {
+    "all_members_decompressed": true,
+    "file_count": 189,
+    "directory_count": 49,
+    "expanded_bytes": 835463111,
+    "result": "All regular members streamed through libarchive without execution; byte counts and SHA-256 hashes recorded; no decompression/checksum errors reported.",
+    "archive_matches_original_download": true
+  },
+  "source_snapshot_manifest": "artifacts/laith-km-driver/manifest.json",
+  "scope": "The entire original RAR is preserved in Git. The source/ directory remains the 48-original-file browsable snapshot; its omitted_files list describes extraction choices, not missing archive contents."
+}

@@ -2,7 +2,7 @@
 const REPO = 'https://github.com/ll2Rawll/ricochet-research';
 const RAW = 'https://raw.githubusercontent.com/ll2Rawll/ricochet-research/main/ricochet.jsonl';
 const PAGE_SIZE = 18;
-const SNAPSHOT_REVISION = 14;
+const SNAPSHOT_REVISION = 15;
 const LEVELS = {
   V: {name:'Vendor statement', description:'A statement supported by the cited vendor or policy source. This does not independently reproduce the vendor’s runtime or performance claims.'},
   P: {name:'Platform reference', description:'Documented platform, protocol, upstream UI or sample-code behavior. It is not evidence that a particular RICOCHET build uses that API or mechanism.'},

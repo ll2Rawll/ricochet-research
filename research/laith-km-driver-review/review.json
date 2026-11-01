@@ -21,7 +21,9 @@
     "F028",
     "C254",
     "C259",
-    "C260"
+    "C260",
+    "F029",
+    "F030"
   ],
   "source_ids": [
     "A05",
@@ -88,12 +90,14 @@
     "hlk_memory_integrity": "not_run",
     "windows_driver_load": "not_run",
     "game_compatibility": "not_tested",
-    "publisher_authenticity": "unverified"
+    "publisher_authenticity": "unverified",
+    "complete_archive": "All 189 files decompressed and hashed; exact original RAR preserved in Git",
+    "runtime_status_scope": "Status values describe this repository review. The user reports prior successful operation; it was not independently reproduced here."
   },
   "assurance_boundaries": [
     {
       "layer": "Archive integrity",
-      "established": "Imported file identity and availability",
+      "established": "Complete original RAR identity, all member hashes, and 48-file source snapshot availability",
       "not_established": "Publisher authenticity or original acquisition history"
     },
     {
@@ -131,11 +135,33 @@
     "F025",
     "F026",
     "F027",
-    "F028"
+    "F028",
+    "F029",
+    "F030"
   ],
   "context_claim_ids": [
     "C254",
     "C259",
     "C260"
-  ]
+  ],
+  "historical_user_report": {
+    "reported_date": "2026-11-01",
+    "reported_by": "User who supplied the archive",
+    "statement": "The user reports that the project previously worked perfectly.",
+    "prior_test_date": null,
+    "windows_build": null,
+    "game_build": null,
+    "hardware": null,
+    "settings": null,
+    "independently_reproduced": false,
+    "scope": "Historical user report; this repository review has not reproduced the runtime result. The report does not identify a current MW4/Warzone build."
+  },
+  "complete_archive_preservation": {
+    "metadata_path": "artifacts/laith-km-driver/archive-preservation.json",
+    "archive_path": "artifacts/laith-km-driver/original/laith-km-driver-main.rar",
+    "download_url": "https://raw.githubusercontent.com/ll2Rawll/ricochet-research/main/artifacts/laith-km-driver/original/laith-km-driver-main.rar",
+    "inventory_path": "artifacts/laith-km-driver/archive-inventory.json",
+    "inventory_sha256": "3cafc24da42cdff9aa7816f86ec468d6b68198ff8472c5a9a5c0809aafa35096",
+    "git_blob_sha1": "687167210b4b02e46e5bc35f46703aedf3235699"
+  }
 }

@@ -1,10 +1,10 @@
 # Imported driver project: evidence and platform context
 
-Research revision 14 · reviewed 2026-11-01 · source A05
+Research revision 15 · reviewed 2026-11-01 · source A05
 
-This review is tied to [the imported snapshot at `75570c7`](https://github.com/ll2Rawll/ricochet-research/tree/75570c746672865d48420b724efbe8c55ab6ae51/artifacts/laith-km-driver/). It examines archive identity, licensing and project metadata. It does not authenticate an Activision/RICOCHET implementation or establish MW4/Warzone compatibility.
+This review is tied to [the imported snapshot at `75570c7`](https://github.com/ll2Rawll/ricochet-research/tree/75570c746672865d48420b724efbe8c55ab6ae51/artifacts/laith-km-driver/). The original source/project observations retain that pin; later full-archive preservation is identified by the inventory and hashes below. It examines archive identity, licensing and project metadata. It does not authenticate an Activision/RICOCHET implementation or establish MW4/Warzone compatibility.
 
-[Reader implementation and saved dataset](../../reader/) · [Machine-readable review](review.json) · [Original-file checksums](../../artifacts/laith-km-driver/SHA256SUMS) · [Import manifest](../../artifacts/laith-km-driver/manifest.json) · [Research library](../../README.md)
+[Reader implementation and saved dataset](../../reader/) · [Complete original RAR](https://raw.githubusercontent.com/ll2Rawll/ricochet-research/main/artifacts/laith-km-driver/original/laith-km-driver-main.rar) · [Full member inventory](../../artifacts/laith-km-driver/archive-inventory.json) · [Machine-readable review](review.json) · [Original-file checksums](../../artifacts/laith-km-driver/SHA256SUMS) · [Import manifest](../../artifacts/laith-km-driver/manifest.json) · [Research library](../../README.md)
 
 ## What the artifact establishes
 
@@ -18,8 +18,16 @@ This review is tied to [the imported snapshot at `75570c7`](https://github.com/l
 | F026 | The km project contains two AdditionalIncludeDirectories entries with an absolute external Windows path. Availability of those external inputs and build portability were not established. | [km.vcxproj](../../artifacts/laith-km-driver/source/km/km.vcxproj) |
 | F027 | The separate LICENSE is MIT with a 2025 LAITHCOOL copyright, while the original README reproduces a generic 2024 MIT notice. Both texts are preserved; the discrepancy does not resolve authorship. | [LICENSE](../../artifacts/laith-km-driver/source/LICENSE); [README.md](../../artifacts/laith-km-driver/source/README.md) |
 | F028 | The original archive .gitattributes is retained verbatim as source/.gitattributes.upstream; repository-added attributes preserve exact imported bytes across checkout line-ending settings. | [manifest.json](../../artifacts/laith-km-driver/manifest.json); [.gitattributes.upstream](../../artifacts/laith-km-driver/source/.gitattributes.upstream); [.gitattributes](../../artifacts/laith-km-driver/source/.gitattributes); [.gitattributes](../../artifacts/laith-km-driver/.gitattributes) |
+| F029 | The complete original laith-km-driver-main.rar is preserved in the repository as a 92,462,917-byte file with SHA-256 dc533581014f6c8d58c86b6f38ce1ab7e583a01ccee7983b1f947dc64ef3f2d5, including the files omitted from the browsable source snapshot. | [Full preservation metadata](../../artifacts/laith-km-driver/archive-preservation.json) |
+| F030 | All 189 regular archive members were streamed through libarchive and hashed, totaling 835,463,111 expanded bytes across an archive with 49 directory entries. No decompression/checksum errors were reported. | [Full preservation metadata](../../artifacts/laith-km-driver/archive-preservation.json) |
 
-The manifest describes the archive inventory, while the checksum list covers the 48 retained original files. Added repository metadata and this research review are separate. Excluded members were not all decompressed, so this review makes no complete-archive CRC claim.
+The original source-snapshot manifest and checksum list describe the 48 retained original files. A subsequent preservation pass stores the entire original RAR and inventories every member. All 189 regular members have now been decompressed and hashed, with no decompression/checksum errors reported. The original snapshot manifest is preserved as historical evidence; its “omitted” entries mean omitted from the loose source tree, not absent from GitHub.
+
+## Reported working history
+
+On 1 November 2026, the user who supplied the archive reported that the project previously worked perfectly. The report did not identify the test date, Windows/game build, hardware or settings. This repository review has not independently reproduced that runtime result. “Not tested” in the tables below describes this review’s own work; it does not mean the project was proven nonfunctional.
+
+The archive’s project/platform declarations, external include-path metadata and license discrepancy remain reproducible file observations. They are compatible with the user's report of success in a prior environment.
 
 ## Reading the build metadata
 
@@ -32,7 +40,7 @@ Both project files name the Windows kernel-driver toolset. An XML value records 
 
 ## Windows reference context
 
-This pass adds six platform findings and reuses C254/C259/C260 from the existing library rather than duplicating them. These are general platform requirements and research interpretation aids. They are not an implementation audit or instructions for changing this project.
+Revision 14 added six platform findings and reuses C254/C259/C260 from the existing library rather than duplicating them. These are general platform requirements and research interpretation aids. They are not an implementation audit or instructions for changing this project.
 
 | ID | Documented distinction | Primary reference |
 | --- | --- | --- | --- |
@@ -56,14 +64,15 @@ A signed file, a permitted Windows driver load, a valid device-access policy, me
 
 | Question | Current evidence status |
 | --- | --- |
-| Are the retained files identifiable? | Yes: pinned snapshot, byte counts and SHA-256 values. |
+| Are all original files preserved? | Yes: the exact original RAR is stored in Git, with a complete member-hash inventory and a separate browsable source snapshot. |
 | Do the project files list available local inputs? | Yes: 31 explicit file references resolve. External inputs remain unverified. |
 | Is original publisher identity authenticated? | No. The license attribution is retained, not independently authenticated. |
 | Does the package compile on an identified Windows/WDK combination? | Not tested. |
 | Has CodeQL produced a reproducible analysis report? | No run performed. |
 | Has Driver Verifier or HLK produced a passing result? | No run performed. |
 | Is HVCI/Memory Integrity compatibility established? | No. |
-| Does it work with a protected MW4/Warzone build? | Not tested or established. |
+| What is the known working history? | The user reports prior successful operation; no test date/build/environment was supplied. |
+| Has this review reproduced operation on a protected MW4/Warzone build? | No independent game/runtime test was performed. |
 
 Useful future research evidence would identify the exact source revision, OS build, architecture, WDK/compiler versions, analysis-tool/query versions, and resulting logs. Missing results remain unknown rather than inferred success. Microsoft’s runtime testing reference limits Driver Verifier to testing/debugging computers because it can crash Windows. No driver or game experiment occurred in this review.
 

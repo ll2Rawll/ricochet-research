@@ -11,7 +11,7 @@ import xml.etree.ElementTree as ET
 from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path, PurePosixPath
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -166,6 +166,132 @@ def check_manifest() -> int:
     if "included_bytes" in summary:
         require(summary["included_bytes"] == total_bytes, "Manifest imported-byte count mismatch")
     return len(entries)
+
+
+def archive_member_path(value) -> str:
+    require(isinstance(value, str) and bool(value), "Archive member requires a path")
+    path = PurePosixPath(value)
+    require(value != "." and not path.is_absolute() and ".." not in path.parts
+            and "\\" not in value and ":" not in value
+            and all(ord(character) >= 32 for character in value) and path.as_posix() == value,
+            f"Unsafe or non-canonical archive member path: {value!r}")
+    return value
+
+
+def require_sha256(value, location: str) -> None:
+    require(isinstance(value, str) and re.fullmatch(r"[0-9a-f]{64}", value) is not None,
+            f"{location}: expected a lowercase SHA-256 digest")
+
+
+def check_archive_preservation() -> int:
+    """Check the stored original archive and inventory without network requests."""
+    manifest = read_json(ARTIFACT / "manifest.json")
+    preservation = read_json(ARTIFACT / "archive-preservation.json")
+    archive = preservation["archive"]
+    require(archive == manifest["archive"], "Preserved archive identity differs from source manifest")
+    require_sha256(archive["sha256"], "Preserved archive")
+    require(type(archive["bytes"]) is int and archive["bytes"] > 0,
+            "Preserved archive size must be a positive integer")
+    require(isinstance(archive["name"], str) and bool(archive["name"])
+            and PurePosixPath(archive["name"]).name == archive["name"],
+            "Preserved archive name must be a filename")
+
+    inventory_path = repository_file(preservation["inventory_path"])
+    require(inventory_path == ARTIFACT / "archive-inventory.json",
+            "Preserved inventory must reference artifacts/laith-km-driver/archive-inventory.json")
+    require_sha256(preservation["inventory_sha256"], "Preserved inventory")
+    require(hashlib.sha256(inventory_path.read_bytes()).hexdigest() == preservation["inventory_sha256"],
+            "Preserved inventory SHA-256 mismatch")
+    inventory = read_json(inventory_path)
+    require(inventory.get("schema") == "archive-member-inventory/1", "Unsupported archive inventory schema")
+    for key in ("name", "bytes", "sha256"):
+        require(inventory.get("archive_" + key) == archive[key],
+                f"Inventory archive {key} differs from preserved archive")
+
+    entries = inventory.get("entries")
+    require(isinstance(entries, list) and bool(entries), "Archive inventory requires entries")
+    members = {}
+    for entry in entries:
+        require(isinstance(entry, dict), "Archive inventory entry must be an object")
+        member = archive_member_path(entry.get("path"))
+        require(member not in members, f"Duplicate archive member: {member}")
+        require(entry.get("type") in {"file", "directory"}, f"Unsupported archive member type: {member}")
+        if entry["type"] == "file":
+            require(type(entry.get("bytes")) is int and entry["bytes"] >= 0,
+                    f"Invalid archive member byte count: {member}")
+            require_sha256(entry.get("sha256"), member)
+        members[member] = entry
+    files = {name: entry for name, entry in members.items() if entry["type"] == "file"}
+    directories = {name for name, entry in members.items() if entry["type"] == "directory"}
+    totals = {"entry_count": len(members), "file_count": len(files),
+              "directory_count": len(directories),
+              "expanded_bytes": sum(entry["bytes"] for entry in files.values())}
+    for key, value in totals.items():
+        require(type(inventory.get(key)) is int and inventory[key] == value,
+                f"Archive inventory {key} mismatch")
+        require(manifest["summary"].get("archive_" + key) == value,
+                f"Source manifest archive {key} differs from full inventory")
+
+    expected_files = {}
+    for group in ("included_files", "omitted_files"):
+        for entry in manifest[group]:
+            member = archive_member_path(entry["archive_path"])
+            require(member not in expected_files, f"Duplicate source-manifest member: {member}")
+            require(member in files, f"Source-manifest file missing from full inventory: {member}")
+            require(entry["bytes"] == files[member]["bytes"], f"Inventory member size mismatch: {member}")
+            if group == "included_files":
+                require(entry["sha256"] == files[member]["sha256"],
+                        f"Retained member SHA-256 differs from full inventory: {member}")
+            expected_files[member] = entry
+    require(set(expected_files) == set(files), "Full inventory contains unaccounted source-manifest files")
+    expected_directories = [archive_member_path(value) for value in manifest["archive_directories"]]
+    require(len(expected_directories) == len(set(expected_directories)), "Duplicate source-manifest directories")
+    require(set(expected_directories) == directories, "Archive directory inventories differ")
+
+    verification = preservation["verification"]
+    require(verification.get("all_members_decompressed") is True,
+            "Full archive decompression must be recorded as completed")
+    for key in ("file_count", "directory_count", "expanded_bytes"):
+        require(type(verification.get(key)) is int and verification[key] == totals[key],
+                f"Archive verification {key} differs from inventory")
+
+    storage = preservation["storage"]
+    require(storage.get("kind") == "git", "Original archive must use recorded Git storage")
+    stored_path = repository_file(storage["path"])
+    require(stored_path == ARTIFACT / "original" / archive["name"],
+            "Original archive storage path does not match its recorded filename")
+    require(stored_path.stat().st_size == archive["bytes"], "Stored original archive size mismatch")
+    require(isinstance(storage.get("git_blob_sha1"), str)
+            and re.fullmatch(r"[0-9a-f]{40}", storage["git_blob_sha1"]) is not None,
+            "Original archive Git blob identity must be a lowercase SHA-1 digest")
+    archive_digest = hashlib.sha256()
+    blob_digest = hashlib.sha1(usedforsecurity=False)
+    blob_digest.update(f"blob {archive['bytes']}\0".encode("ascii"))
+    with stored_path.open("rb") as handle:
+        while chunk := handle.read(1024 * 1024):
+            archive_digest.update(chunk)
+            blob_digest.update(chunk)
+    require(archive_digest.hexdigest() == archive["sha256"], "Stored original archive SHA-256 mismatch")
+    require(blob_digest.hexdigest() == storage["git_blob_sha1"], "Stored original archive Git blob SHA-1 mismatch")
+    require(isinstance(storage.get("download_url"), str), "Archive download_url must be a URL")
+    parsed = urlsplit(storage["download_url"])
+    expected_path = "/ll2Rawll/ricochet-research/main/" + storage["path"]
+    require(parsed.scheme == "https" and parsed.netloc.lower() == "raw.githubusercontent.com"
+            and unquote(parsed.path) == expected_path and not parsed.query and not parsed.fragment,
+            "Archive download_url does not match its Git storage path")
+
+    report = preservation["historical_user_report"]
+    require(isinstance(report.get("statement"), str) and bool(report["statement"].strip()),
+            "Historical user report requires an attributed statement")
+    try:
+        date.fromisoformat(report["reported_date"])
+    except (TypeError, ValueError) as exc:
+        raise ValidationError("Historical user report requires a valid ISO date") from exc
+    require(report.get("independently_reproduced") is False,
+            "Historical user report must not be marked independently reproduced")
+    for field in ("verified", "runtime_verified", "current_compatibility_verified"):
+        require(report.get(field) is not True, f"Historical user report cannot be marked {field}")
+    return len(files)
 
 
 def local_tag(element) -> str:
@@ -328,6 +454,7 @@ def main() -> int:
         meta, sources, claims = check_records()
         check_readme(meta, sources, claims)
         imported_count = check_manifest()
+        archive_count = check_archive_preservation()
         project_count = check_review(sources, claims)
         check_reader(meta)
     except (ValidationError, OSError, UnicodeError, KeyError, TypeError) as exc:
@@ -335,7 +462,8 @@ def main() -> int:
         return 1
     print(f"Research validation passed: revision {meta.get('revision')}, "
           f"{len(claims)} findings, {len(sources)} sources; "
-          f"{imported_count} imported-file hashes, {project_count} project metadata records "
+          f"{imported_count} imported-file hashes, {archive_count} full-archive member records, "
+          f"{project_count} project metadata records "
           "and reader snapshot/labels/assets verified.")
     return 0
 
