@@ -1,0 +1,141 @@
+{
+  "format": "ricochet-artifact-review/1",
+  "reviewed": "2026-11-01",
+  "artifact_source_id": "A05",
+  "artifact_commit": "75570c746672865d48420b724efbe8c55ab6ae51",
+  "scope": "Archive, documentation and build-project metadata plus primary platform context; no implementation or runtime security analysis.",
+  "claim_ids": [
+    "C452",
+    "C453",
+    "C454",
+    "C455",
+    "C456",
+    "C457",
+    "F021",
+    "F022",
+    "F023",
+    "F024",
+    "F025",
+    "F026",
+    "F027",
+    "F028",
+    "C254",
+    "C259",
+    "C260"
+  ],
+  "source_ids": [
+    "A05",
+    "S01",
+    "S27",
+    "S72",
+    "S73",
+    "S150",
+    "S157",
+    "S158",
+    "S159",
+    "S160",
+    "S161"
+  ],
+  "projects": [
+    {
+      "path": "artifacts/laith-km-driver/source/hv/hv.vcxproj",
+      "sha256": "aa17f319a036625fd2424cab2d9736c729c902f2ebdbf2293c9aa0c537f08fff",
+      "configurations": [
+        "Debug",
+        "Release"
+      ],
+      "platforms": [
+        "x64"
+      ],
+      "driver_types": [
+        "WDM"
+      ],
+      "platform_toolsets": [
+        "WindowsKernelModeDriver10.0"
+      ],
+      "project_file_reference_count": 27,
+      "missing_project_file_references": [],
+      "absolute_include_path_entry_count": 0
+    },
+    {
+      "path": "artifacts/laith-km-driver/source/km/km.vcxproj",
+      "sha256": "733ad8e8d18597cb18c52edd9cbf66fde543555dce9807862ae6a5cca814a86a",
+      "configurations": [
+        "Debug",
+        "Release"
+      ],
+      "platforms": [
+        "ARM64",
+        "x64"
+      ],
+      "driver_types": [
+        "KMDF"
+      ],
+      "platform_toolsets": [
+        "WindowsKernelModeDriver10.0"
+      ],
+      "project_file_reference_count": 4,
+      "missing_project_file_references": [],
+      "absolute_include_path_entry_count": 2
+    }
+  ],
+  "validation_status": {
+    "manifest_hashes": "48 original file bytes and SHA-256 values verified",
+    "project_file_references": "31 present, zero missing",
+    "build": "not_run",
+    "codeql": "not_run",
+    "driver_verifier": "not_run",
+    "hlk_memory_integrity": "not_run",
+    "windows_driver_load": "not_run",
+    "game_compatibility": "not_tested",
+    "publisher_authenticity": "unverified"
+  },
+  "assurance_boundaries": [
+    {
+      "layer": "Archive integrity",
+      "established": "Imported file identity and availability",
+      "not_established": "Publisher authenticity or original acquisition history"
+    },
+    {
+      "layer": "Project metadata",
+      "established": "Declared platforms, driver types and listed inputs",
+      "not_established": "Successful build or runtime coverage"
+    },
+    {
+      "layer": "Windows authorization",
+      "established": "Official documentation describes signature and access-control contracts",
+      "not_established": "This artifact meets those requirements"
+    },
+    {
+      "layer": "Driver validation",
+      "established": "Official tools and compatibility references identified",
+      "not_established": "A passing test, certification or stability result"
+    },
+    {
+      "layer": "MW4/Warzone",
+      "established": "Official vendor documentation describes security roles and requirements",
+      "not_established": "This independent project is supported or compatible"
+    }
+  ],
+  "new_claim_ids": [
+    "C452",
+    "C453",
+    "C454",
+    "C455",
+    "C456",
+    "C457",
+    "F021",
+    "F022",
+    "F023",
+    "F024",
+    "F025",
+    "F026",
+    "F027",
+    "F028"
+  ],
+  "context_claim_ids": [
+    "C254",
+    "C259",
+    "C260"
+  ]
+}

@@ -15,6 +15,10 @@ The import keeps the Visual Studio solution, both projects, C++/header/assembly 
 
 Visual Studio `.vs/` caches, build/x64 output trees, per-user `.vcxproj.user` settings, and two unreferenced `hidclass.sys` binary samples were omitted. Neither the compressed RAR nor compiled drivers are checked into this source snapshot. [The manifest](manifest.json) records every archive entry, included-file hashes, and each omission reason. The local [ignore rules](.gitignore) keep regenerated output out of future commits. Two repository-added `.gitattributes` files preserve exact bytes on Windows and Unix; they are separate from the 48 retained original files.
 
+## Research review
+
+[Read the evidence and Windows platform review](../../research/laith-km-driver-review/README.md) for project metadata, primary references and a record of what remains untested. [Structured review](../../research/laith-km-driver-review/review.json) links the added findings to the research corpus.
+
 ## Browse the supplied files
 
 - [Original project README](source/README.md)
