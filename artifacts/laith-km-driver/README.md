@@ -25,6 +25,7 @@ The project-file platform declarations, external include-path entries and licens
 
 ## Research and original files
 
+- [New developer review: configuration issues explained](../../research/laith-km-driver-review/DEVELOPER-REVIEW.md)
 - [Evidence and Windows platform review](../../research/laith-km-driver-review/README.md)
 - [Structured research data](../../research/laith-km-driver-review/review.json)
 - [Original project README](source/README.md)

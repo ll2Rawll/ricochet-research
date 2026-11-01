@@ -32,6 +32,8 @@ The reader follows the AI research file and includes a saved snapshot for availa
 
 > **Research revision 15:** preserved the [complete original RAR](artifacts/laith-km-driver/original/laith-km-driver-main.rar), verified all 189 regular archive members and added two archive findings. The [review](research/laith-km-driver-review/README.md) records the user’s report of prior successful operation separately from the checks performed here.
 
+[New to the imported project? Read the configuration review](research/laith-km-driver-review/DEVELOPER-REVIEW.md) for confirmed setup inconsistencies, plain-language explanations and the limits of the current tests.
+
 > **On this page:** click a chapter to expand it. Expand the relevant chapter before using **Ctrl+F / ⌘F**. Click any finding ID to open its searchable-reader detail.
 
 <a id="browse-by-topic"></a>

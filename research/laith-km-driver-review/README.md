@@ -2,6 +2,8 @@
 
 Research revision 15 · reviewed 2026-11-01 · source A05
 
+[New developer review: understand the project files and confirmed configuration inconsistencies](DEVELOPER-REVIEW.md).
+
 This review is tied to [the imported snapshot at `75570c7`](https://github.com/ll2Rawll/ricochet-research/tree/75570c746672865d48420b724efbe8c55ab6ae51/artifacts/laith-km-driver/). The original source/project observations retain that pin; later full-archive preservation is identified by the inventory and hashes below. It examines archive identity, licensing and project metadata. It does not authenticate an Activision/RICOCHET implementation or establish MW4/Warzone compatibility.
 
 [Reader implementation and saved dataset](../../reader/) · [Complete original RAR](https://raw.githubusercontent.com/ll2Rawll/ricochet-research/main/artifacts/laith-km-driver/original/laith-km-driver-main.rar) · [Full member inventory](../../artifacts/laith-km-driver/archive-inventory.json) · [Machine-readable review](review.json) · [Original-file checksums](../../artifacts/laith-km-driver/SHA256SUMS) · [Import manifest](../../artifacts/laith-km-driver/manifest.json) · [Research library](../../README.md)
